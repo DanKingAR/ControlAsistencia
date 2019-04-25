@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="800" pageHeight="842" columnWidth="760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6ba48883-b5ca-48ad-81a8-ec745d59fb57">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     asp."idasistencia" AS asistencia_personal_idasistencia,
+     p."nombre" AS personal_nombre,
+     p."fapellido" AS personal_fapellido,
+     p."lapellido" AS personal_lapellido,
+     p."dni" AS personal_dni,
+     p."grado" AS personal_grado,
+     p."grupo" AS personal_grupo,
+     asp."fecha" AS asistencia_personal_fecha,
+     asp."hora_ingreso" AS asistencia_personal_hora_ingreso,
+     asp."hora_salida" AS asistencia_personal_hora_salida
+FROM
+     "asistencia_personal" asp INNER JOIN "personal" p ON asp."dni" = p."dni"
+WHERE
+     p.idpersonal = 1
+ AND asp.estado = 'A'
+ORDER BY
+     nombre ASC]]>
+	</queryString>
+	<field name="asistencia_personal_idasistencia" class="java.lang.Integer"/>
+	<field name="personal_nombre" class="java.lang.String"/>
+	<field name="personal_fapellido" class="java.lang.String"/>
+	<field name="personal_lapellido" class="java.lang.String"/>
+	<field name="personal_dni" class="java.lang.String"/>
+	<field name="personal_grado" class="java.lang.String"/>
+	<field name="personal_grupo" class="java.lang.String"/>
+	<field name="asistencia_personal_fecha" class="java.lang.String"/>
+	<field name="asistencia_personal_hora_ingreso" class="java.lang.String"/>
+	<field name="asistencia_personal_hora_salida" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="79">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="800" height="99" backcolor="#006699" uuid="bf3ef98e-7262-4da7-94bd-e0570d094a4e"/>
+				<staticText>
+					<reportElement x="20" y="20" width="429" height="43" forecolor="#FFFFFF" uuid="ed865c63-92c8-4f0f-8a82-4a908014a422"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ASISTENCIA ALUMNOS]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="801" height="1" forecolor="#666666" uuid="61bb37cb-286b-4c42-be45-fa8eb42fe4c6"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="40" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c1e56750-2885-4c6b-b8ef-a782b4aa2ade"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="40" y="0" width="95" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c40498b0-afdf-4d3a-9c81-91fc03f8a375"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="135" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="846e8ea8-c4aa-40c1-8c3a-45ae5059dac2"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P. Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="520" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="7e86200f-785c-4de7-956e-3a32b999fddb"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="600" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b95ad34f-8d96-4194-933a-ff0eda4ca5b4"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora Ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="680" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9980feae-59b9-45f1-a6ad-2956afbe1b08"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="390" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="83276f17-9895-4f87-bbbd-9aef4afb810a"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="470" y="0" width="50" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a51f1782-2de0-43f2-ad9d-bc51db9d8584"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grupo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="215" y="0" width="80" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3c511300-2e46-4d76-82f8-999ee3b23571"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[S. Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="295" y="0" width="95" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="66d9be92-cb8c-48d2-89ad-04f8d6413914"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identificación]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="760" height="1" uuid="5996d755-05d7-4be2-b882-391ce33eb8a0"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="40" height="20" uuid="75b0526c-d716-40c8-a90d-3fe4d250acca"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_personal_idasistencia}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="680" y="0" width="80" height="20" uuid="422908d2-2475-4b16-9aaf-947b6411a650"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_personal_hora_salida}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="40" y="0" width="95" height="20" uuid="99d35293-f7ed-4fbf-b6c6-aeb3a29fb09a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personal_nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="135" y="0" width="80" height="20" uuid="4997dc86-efb0-4c98-b8e2-53c1135ec59e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personal_fapellido}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="215" y="0" width="80" height="20" uuid="efe9c9e6-cea3-4408-9913-e5be776db33e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personal_lapellido}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="295" y="0" width="95" height="20" uuid="78829b0d-8530-452e-99ea-e4b5d71beaed"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personal_dni}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="390" y="0" width="80" height="20" uuid="ba22344f-b7a7-4d00-8570-a6b7f4762f43"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personal_grado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="470" y="0" width="50" height="20" uuid="2380352e-7228-483c-82b0-0d1abdd96808"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personal_grupo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="521" y="0" width="80" height="20" uuid="38aa8231-99ab-4d9e-aabe-bbc34565fc1a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_personal_fecha}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="601" y="0" width="80" height="20" uuid="9c018b21-4c51-4a2e-80ee-af4d68c70cc9"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asistencia_personal_hora_ingreso}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="720" height="13" backcolor="#E6E6E6" uuid="600f6123-578e-43e7-bffb-2b3c98aa745f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="720" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="668aef8a-607b-4147-9ab5-4090b28c6dbf"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="c01e22cf-5b66-46e5-9e93-61fbae8e63a6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
