@@ -4,10 +4,11 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.AsistenciaDocente;
-import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -15,7 +16,7 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author Dan Arevalo
  */
 public class frmReportAsisDocen extends javax.swing.JInternalFrame {
-    
+
     private Connection cn;
 
     /**
@@ -25,7 +26,7 @@ public class frmReportAsisDocen extends javax.swing.JInternalFrame {
         initComponents();
         mostrar("");
     }
-    
+
     void ocultar_columnas() {
         tablalistado.getColumnModel().getColumn(0).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(0).setMinWidth(0);
@@ -186,15 +187,26 @@ public class frmReportAsisDocen extends javax.swing.JInternalFrame {
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         // TODO add your handling code here:
-        try {
-            JasperReport reporte = JasperCompileManager.compileReport("reporteasistencia_docentes.jrxml");
-            JasperPrint print = JasperFillManager.fillReport(reporte, null, this.cn);
-            JasperViewer.viewReport(print);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e);
-        }
+        generarReporte();
     }//GEN-LAST:event_btnGenerarActionPerformed
 
+    void generarReporte() {
+        try {
+            JasperReport reporte = null;
+            try {
+                reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("reportesasistencia_docentes.jrxml"));
+            } catch (JRException e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            }
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, null, this.cn);
+            JasperViewer view = new JasperViewer(print, false);
+            view.setTitle("Reporte de Asistencia de los Docentes");
+            view.setVisible(true);
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;

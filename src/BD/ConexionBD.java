@@ -18,7 +18,6 @@ public class ConexionBD {
     public String pass = "123456789";
     public Connection conn = null;
 
-    @SuppressWarnings("FinallyDiscardsException")
     public Connection conectar() {
         try {
             String ruta = "jdbc:postgresql://";

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.AsistenciaAdmini;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -186,15 +187,20 @@ public class frmReportAsisAdmin extends javax.swing.JInternalFrame {
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         // TODO add your handling code here:
-        try {
-            JasperReport reporte = JasperCompileManager.compileReport("reportesasistencia_adminis.jrxml");
-            JasperPrint print = JasperFillManager.fillReport(reporte, null, this.cn);
-            JasperViewer.viewReport(print);
-        } catch (Exception e) {
-            System.out.print(e.getMessage());
-        }
+        generarReporte();
     }//GEN-LAST:event_btnGenerarActionPerformed
 
+    void generarReporte() {
+        try {
+            JasperReport reporte = JasperCompileManager.compileReport("reportesasistencia_adminis.jasper");            
+            JasperPrint print = JasperFillManager.fillReport(reporte, null, this.cn);
+            JasperViewer view = new JasperViewer(print, false);
+            view.setTitle("Reporte de Asistencia de los Administrativos");
+            view.setVisible(true);
+        } catch (JRException e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;

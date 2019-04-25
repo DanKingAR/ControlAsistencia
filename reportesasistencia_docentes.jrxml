@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="800" pageHeight="842" columnWidth="760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4a0fd86b-91f4-49f3-8d88-b38bc58ec4bf">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Elipsis Solutions"/>
 	<queryString>
-		<![CDATA[SELECT
- asp.idasistencia AS ID,
- p.nombre AS Nombre,
- p.fapellido AS FApellido,
- p.lapellido AS LApellido,
- p.dni AS DNI,
- p.materia AS Materia,
- asp.fecha AS Fecha,
- asp.hora_ingreso AS Hora_Ingreso,
- asp.hora_salida AS Hora_Salida
-FROM
- asistencia_personal asp INNER JOIN personal p ON asp.dni = p.dni
-WHERE
- p.idpersonal = 2 AND asp.estado = 'A' ORDER BY nombre ASC;]]>
+		<![CDATA[SELECT asp.idasistencia AS ID,
+	p.nombre AS Nombre,
+	p.fapellido AS FApellido,
+	p.lapellido AS LApellido,
+	p.dni AS DNI,
+	p.materia AS Materia,
+	asp.fecha AS Fecha,
+	asp.hora_ingreso AS Hora_Ingreso,
+	asp.hora_salida AS Hora_Salida
+FROM asistencia_personal asp
+	INNER JOIN personal p ON 
+	 asp.dni = p.dni 
+WHERE 
+	 p.idpersonal = 2 
+	 AND asp.estado = 'A' 
+ORDER BY nombre ASC]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer"/>
 	<field name="nombre" class="java.lang.String"/>
