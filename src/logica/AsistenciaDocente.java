@@ -27,7 +27,7 @@ public class AsistenciaDocente {
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT asp.idasistencia, asp.idpersonal, p.nombre, p.fapellido, p.lapellido, p.materia, asp.fecha, asp.hora_ingreso, asp.hora_salida "
                 + "FROM asistencia_personal asp LEFT JOIN personal p ON asp.dni = p.dni "
-                + "WHERE p.nombre LIKE '%" + buscar + "%' AND p.idpersonal = 2 AND asp.estado='A' ORDER BY nombre ASC";
+                + "WHERE asp.fecha LIKE '%" + buscar + "%' AND p.idpersonal = 2 AND asp.estado='A' ORDER BY asp.fecha ASC";
 
         try {
             Statement st = conn.createStatement();

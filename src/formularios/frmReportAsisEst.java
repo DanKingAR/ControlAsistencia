@@ -1,8 +1,7 @@
 package formularios;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.AsistenciaAlumno;
@@ -117,7 +116,7 @@ public class frmReportAsisEst extends javax.swing.JInternalFrame {
         lbltotalregistros.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbltotalregistros.setText("Registros:");
 
-        jLabel16.setText("DNI:");
+        jLabel16.setText("Fecha:");
         jLabel16.setToolTipText("");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -190,20 +189,20 @@ public class frmReportAsisEst extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         generarReporte();
     }//GEN-LAST:event_btnGenerarActionPerformed
-
-    ResultSet rst;
-    Statement stmt;
     
     void generarReporte() {
         try {
             JasperReport reporte = null;
             try {
-                reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("asistenciaAlumnos.jasper"));
+                reporte = (JasperReport) JRLoader.loadObject(frmReportAsisEst.class.getResource("asistenciaAlumnos.jasper"));
             } catch (JRException e) {
                 JOptionPane.showMessageDialog(rootPane, e.getMessage());
             }
+            
+            HashMap parametros = new HashMap();
+            parametros.put("fecha", txtBuscar.getText());
 
-            JasperPrint print = JasperFillManager.fillReport(reporte, null, this.cn);
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametros, this.cn);
             JasperViewer view = new JasperViewer(print, false);
             view.setTitle("Reporte de Asistencia de los Estudiantes");
             view.setVisible(true);

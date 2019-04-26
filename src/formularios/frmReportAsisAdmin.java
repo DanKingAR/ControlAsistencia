@@ -1,14 +1,15 @@
 package formularios;
 
 import java.sql.Connection;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.AsistenciaAdmini;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -116,7 +117,7 @@ public class frmReportAsisAdmin extends javax.swing.JInternalFrame {
         lbltotalregistros.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbltotalregistros.setText("Registros:");
 
-        jLabel16.setText("DNI:");
+        jLabel16.setText("Fecha:");
         jLabel16.setToolTipText("");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -192,11 +193,21 @@ public class frmReportAsisAdmin extends javax.swing.JInternalFrame {
 
     void generarReporte() {
         try {
-            JasperReport reporte = JasperCompileManager.compileReport("reportesasistencia_adminis.jasper");            
-            JasperPrint print = JasperFillManager.fillReport(reporte, null, this.cn);
+            JasperReport reporte = null;
+//                    = JasperCompileManager.compileReport(System.getProperty("user.dir") + "\\reportesasistencia_adminis.jrxml");
+            try {
+                reporte = (JasperReport) JRLoader.loadObject(frmReportAsisAdmin.class.getResource("/Reportes/asistenciaAdmin.jasper"));
+            } catch (JRException e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            }
+            
+            HashMap parametros = new HashMap();
+            parametros.put("fecha", txtBuscar.getText());
+            
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametros, this.cn);
             JasperViewer view = new JasperViewer(print, false);
             view.setTitle("Reporte de Asistencia de los Administrativos");
-            view.setVisible(true);
+            view.show();
         } catch (JRException e) {
             JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }

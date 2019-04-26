@@ -1,6 +1,7 @@
 package formularios;
 
 import java.sql.Connection;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.AsistenciaDocente;
@@ -116,7 +117,7 @@ public class frmReportAsisDocen extends javax.swing.JInternalFrame {
         lbltotalregistros.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbltotalregistros.setText("Registros:");
 
-        jLabel16.setText("DNI:");
+        jLabel16.setText("Fecha:");
         jLabel16.setToolTipText("");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -194,12 +195,15 @@ public class frmReportAsisDocen extends javax.swing.JInternalFrame {
         try {
             JasperReport reporte = null;
             try {
-                reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("reportesasistencia_docentes.jrxml"));
+                reporte = (JasperReport) JRLoader.loadObject(frmReportAsisDocen.class.getResource("reportesasistencia_docentes.jasper"));
             } catch (JRException e) {
                 JOptionPane.showMessageDialog(rootPane, e.getMessage());
             }
+            
+            HashMap parametros = new HashMap();
+            parametros.put("fecha", txtBuscar.getText());
 
-            JasperPrint print = JasperFillManager.fillReport(reporte, null, this.cn);
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametros, this.cn);
             JasperViewer view = new JasperViewer(print, false);
             view.setTitle("Reporte de Asistencia de los Docentes");
             view.setVisible(true);
