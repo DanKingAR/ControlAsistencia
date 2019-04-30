@@ -6,6 +6,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.AsistenciaDocente;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -19,6 +21,9 @@ import net.sf.jasperreports.view.JasperViewer;
 public class frmReportAsisDocen extends javax.swing.JInternalFrame {
 
     private Connection cn;
+    private final String jrxml = "src\\Reportes\\asistenciaDocente.jrxml";
+    private final String jasper = "src\\Reportes\\asistenciaDocente.jasper";
+    private final String pdf = "src\\Reportes\\asistenciaDocente.pdf";
 
     /**
      * Creates new form frmReportAsisDocen
@@ -195,18 +200,26 @@ public class frmReportAsisDocen extends javax.swing.JInternalFrame {
         try {
             JasperReport reporte = null;
             try {
-                reporte = (JasperReport) JRLoader.loadObject(frmReportAsisDocen.class.getResource("reportesasistencia_docentes.jasper"));
+                reporte = (JasperReport) JRLoader.loadObject(jasper);
+                //reporte = JasperCompileManager.compileReport(jrxml);
             } catch (JRException e) {
                 JOptionPane.showMessageDialog(rootPane, e.getMessage());
             }
-            
-            HashMap parametros = new HashMap();
-            parametros.put("fecha", txtBuscar.getText());
 
-            JasperPrint print = JasperFillManager.fillReport(reporte, parametros, this.cn);
-            JasperViewer view = new JasperViewer(print, false);
-            view.setTitle("Reporte de Asistencia de los Docentes");
-            view.setVisible(true);
+            JasperPrint print = null;
+            try {
+                print = JasperFillManager.fillReport(reporte, null, this.cn);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            }
+            JasperExportManager.exportReportToPdfFile(print, pdf);
+            try {
+                JasperViewer view = new JasperViewer(print, false);
+                view.setTitle("Reporte de Asistencia de los Docentes");
+                view.setVisible(true);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            }
         } catch (JRException e) {
             JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }

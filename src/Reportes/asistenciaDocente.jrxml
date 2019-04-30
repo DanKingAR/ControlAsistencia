@@ -14,9 +14,6 @@
 		</conditionalStyle>
 	</style>
 	<subDataset name="PieChartDataset" uuid="e7f692c7-a413-4ef1-b523-a15872a7e5da"/>
-	<parameter name="fecha" class="java.lang.String">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      personal."nombre" AS personal_nombre,
@@ -33,7 +30,6 @@ FROM
 WHERE
      personal."idpersonal" = 2
  AND asistencia_personal."estado" = 'A'
- AND asistencia_personal."fecha" = $P{fecha}
 ORDER BY
      asistencia_personal."fecha" ASC]]>
 	</queryString>

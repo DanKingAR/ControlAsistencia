@@ -29,7 +29,7 @@ public class AsistenciaAlumno {
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT asp.idasistencia, asp.idpersonal, c.descripcion, p.nombre, p.fapellido, p.lapellido, p.dni, p.materia, p.grado, p.grupo, asp.fecha, asp.hora_ingreso, asp.hora_salida, usu.idusuario "
                 + "FROM usuario usu LEFT JOIN asistencia_personal asp ON usu.idusuario = asp.idusuario LEFT JOIN personal p ON asp.dni = p.dni LEFT JOIN cargo c ON p.idcargo = c.idcargo "
-                + "WHERE p.nombre LIKE '%" + buscar + "%' AND asp.estado='A' ORDER BY nombre ASC;";
+                + "WHERE p.nombre LIKE '%" + buscar + "%' AND asp.estado='A' ORDER BY asp.fecha ASC;";
 
         try {
             Statement st = conn.createStatement();

@@ -27,7 +27,7 @@ public class AsistenciaAdmini {
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT asap.idAsistencia, asap.idpersonal, c.descripcion, p.nombre, p.fapellido, p.lapellido, asap.fecha, asap.hora_ingreso, asap.hora_salida "
                 + "FROM asistencia_personal asap INNER JOIN personal p ON asap.dni = p.dni INNER JOIN cargo c ON p.idcargo = c.idcargo "
-                + "WHERE asap.fecha LIKE '%" + buscar + "%' AND p.idpersonal = 3 AND asap.estado='A' ORDER BY asp.fecha ASC";
+                + "WHERE asap.fecha LIKE '%" + buscar + "%' AND p.idpersonal = 3 AND asap.estado='A' ORDER BY asap.fecha ASC";
 
         try {
             Statement st = conn.createStatement();

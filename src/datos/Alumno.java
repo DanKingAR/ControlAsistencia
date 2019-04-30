@@ -20,12 +20,14 @@ public class Alumno {
     private String grado;
     private String grupo;
     private String telefono;
+    private String sede;
+    private String jornada;
     
     public Alumno() {
         
     }
     
-    public Alumno(int idAlumno, String nombre, String fapellido, String lapellido, String dni, String direccion, String genero, Date fecha_nace, Date fecha_registro, String grado, String grupo, String telefono) {
+    public Alumno(int idAlumno, String nombre, String fapellido, String lapellido, String dni, String direccion, String genero, Date fecha_nace, Date fecha_registro, String grado, String grupo, String telefono, String sede, String jornada) {
         this.idEstudiante = idAlumno;
         this.nombre = nombre;
         this.fapellido = fapellido;
@@ -38,6 +40,8 @@ public class Alumno {
         this.grado = grado;
         this.grupo = grupo;
         this.telefono = telefono;
+        this.sede = sede;
+        this.jornada = jornada;
     }
 
     /**
@@ -206,6 +210,34 @@ public class Alumno {
      */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    /**
+     * @return the sede
+     */
+    public String getSede() {
+        return sede;
+    }
+
+    /**
+     * @param sede the sede to set
+     */
+    public void setSede(String sede) {
+        this.sede = sede;
+    }
+
+    /**
+     * @return the jornada
+     */
+    public String getJornada() {
+        return jornada;
+    }
+
+    /**
+     * @param jornada the jornada to set
+     */
+    public void setJornada(String jornada) {
+        this.jornada = jornada;
     }
 
     
