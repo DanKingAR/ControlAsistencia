@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="asistenciaAlumnos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50f2e540-a0f8-451c-8d57-885ae86a5528">
-	<property name="ireport.zoom" value="1.2100000000000006"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.zoom" value="2.143588810000003"/>
+	<property name="ireport.x" value="316"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
@@ -21,8 +21,7 @@
      asistencia_personal."hora_ingreso" AS asistencia_personal_hora_ingreso,
      asistencia_personal."hora_salida" AS asistencia_personal_hora_salida,
      personal."nombre" AS personal_nombre,
-     personal."fapellido" AS personal_fapellido,
-     personal."lapellido" AS personal_lapellido,
+     CONCAT(personal.fapellido, ' ', personal.lapellido) AS personal_apellidos,
      personal."dni" AS personal_dni,
      personal."grado" AS personal_grado,
      personal."grupo" AS personal_grupo
@@ -39,8 +38,7 @@ ORDER BY
 	<field name="asistencia_personal_hora_ingreso" class="java.lang.String"/>
 	<field name="asistencia_personal_hora_salida" class="java.lang.String"/>
 	<field name="personal_nombre" class="java.lang.String"/>
-	<field name="personal_fapellido" class="java.lang.String"/>
-	<field name="personal_lapellido" class="java.lang.String"/>
+	<field name="personal_apellidos" class="java.lang.String"/>
 	<field name="personal_dni" class="java.lang.String"/>
 	<field name="personal_grado" class="java.lang.String"/>
 	<field name="personal_grupo" class="java.lang.String"/>
@@ -73,7 +71,7 @@ ORDER BY
 			<frame>
 				<reportElement x="2" y="0" width="800" height="14" uuid="89985326-d20c-461b-a825-8d47ce1e0baa"/>
 				<staticText>
-					<reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="0" width="50" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="2495b908-c0b2-46a0-adf4-0f6228c4a2c0"/>
+					<reportElement style="Column header" positionType="Float" mode="Opaque" x="60" y="0" width="50" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="2495b908-c0b2-46a0-adf4-0f6228c4a2c0"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
 					</textElement>
@@ -94,18 +92,11 @@ ORDER BY
 					<text><![CDATA[Hora de Salida]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" positionType="Float" mode="Opaque" x="50" y="0" width="85" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="d16ac4a2-39f6-4222-9f96-1259c2f2a904"/>
+					<reportElement style="Column header" positionType="Float" mode="Opaque" x="110" y="0" width="85" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="d16ac4a2-39f6-4222-9f96-1259c2f2a904"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
 					</textElement>
 					<text><![CDATA[Nombre]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" mode="Opaque" x="220" y="0" width="85" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="a2c267b3-064b-4412-993a-e6deaa47399c"/>
-					<textElement textAlignment="Center">
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[S. Apellido]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" positionType="Float" mode="Opaque" x="305" y="0" width="90" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="322d4265-b809-46c6-b830-ccd6dee11a07"/>
@@ -115,11 +106,11 @@ ORDER BY
 					<text><![CDATA[Identificación]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" positionType="Float" mode="Opaque" x="135" y="0" width="85" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="50dd218a-4bf4-4d18-93ac-0b42ee429e41"/>
+					<reportElement style="Column header" positionType="Float" mode="Opaque" x="195" y="0" width="110" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="50dd218a-4bf4-4d18-93ac-0b42ee429e41"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
 					</textElement>
-					<text><![CDATA[P. Apellido]]></text>
+					<text><![CDATA[Apellidos]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="Column header" positionType="Float" mode="Opaque" x="513" y="0" width="85" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="5124945d-442a-4721-9d35-f0eeef6946ec"/>
@@ -153,7 +144,7 @@ ORDER BY
 			<frame>
 				<reportElement x="2" y="0" width="800" height="14" uuid="7fb2e61d-eaec-4dd8-bd56-166a15e9ea02"/>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="0" y="0" width="50" height="14" uuid="4e7b4213-7265-41ab-a4d2-ca75be2bc41a"/>
+					<reportElement style="Detail" positionType="Float" x="60" y="0" width="50" height="14" uuid="4e7b4213-7265-41ab-a4d2-ca75be2bc41a"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
@@ -174,18 +165,11 @@ ORDER BY
 					<textFieldExpression><![CDATA[$F{asistencia_personal_hora_salida}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="50" y="0" width="85" height="14" uuid="5b80c671-fe52-4fea-9b0b-3851feb06482"/>
-					<textElement>
+					<reportElement style="Detail" positionType="Float" x="110" y="0" width="85" height="14" uuid="5b80c671-fe52-4fea-9b0b-3851feb06482"/>
+					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_nombre}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="220" y="0" width="85" height="14" uuid="fc226c28-dbec-49ae-b89e-a55c413922c4"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{personal_lapellido}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="305" y="0" width="90" height="14" uuid="d1deebfe-3a54-4119-8b21-bb33214ad40d"/>
@@ -195,11 +179,11 @@ ORDER BY
 					<textFieldExpression><![CDATA[$F{personal_dni}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="135" y="0" width="85" height="14" uuid="1b13309d-5561-447d-9e4c-6721ec77371c"/>
-					<textElement>
+					<reportElement style="Detail" positionType="Float" x="195" y="0" width="110" height="14" uuid="1b13309d-5561-447d-9e4c-6721ec77371c"/>
+					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{personal_fapellido}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{personal_apellidos}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="394" y="0" width="70" height="14" uuid="ff5f04b2-c081-4c13-96af-a1b7b88f0255"/>

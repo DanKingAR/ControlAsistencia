@@ -192,38 +192,10 @@ public class frmReportAsisAdmin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-        // TODO add your handling code here:
-        generarReporte();
+        frmReportDateAdmin form = new frmReportDateAdmin();
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnGenerarActionPerformed
-
-    void generarReporte() {
-        try {
-            JasperReport reporte = null;
-            try {
-                reporte = (JasperReport) JRLoader.loadObject(jasper);
-                //reporte = JasperCompileManager.compileReport(jrxml);
-            } catch (JRException e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
-            }
-
-            JasperPrint print = null;
-            try {
-                print = JasperFillManager.fillReport(reporte, null, this.cn);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
-            }
-            JasperExportManager.exportReportToPdfFile(print, pdf);
-            try {
-                JasperViewer view = new JasperViewer(print, false);
-                view.setTitle("Reporte de Asistencia de los Administrativos");
-                view.setVisible(true);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
-            }
-        } catch (JRException e) {
-            JOptionPane.showMessageDialog(rootPane, e.getMessage());
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;

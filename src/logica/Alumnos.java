@@ -54,7 +54,7 @@ public class Alumnos {
             }
             return modelo;
         } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
+            JOptionPane.showMessageDialog(null, e);
             return null;
         }
     }

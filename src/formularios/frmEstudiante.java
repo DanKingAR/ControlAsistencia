@@ -927,6 +927,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
 
     private void txtFApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFApellidoActionPerformed
         // TODO add your handling code here:
+        txtFApellido.transferFocus();
     }//GEN-LAST:event_txtFApellidoActionPerformed
 
     private void txtLApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLApellidoActionPerformed

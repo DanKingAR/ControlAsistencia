@@ -2,17 +2,9 @@ package formularios;
 
 import BD.ConexionBD;
 import java.sql.Connection;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.AsistenciaAlumno;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -194,39 +186,10 @@ public class frmReportAsisEst extends javax.swing.JInternalFrame {
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         // TODO add your handling code here:
         //generarReporte();
-        conn.startReport(jasper);
+        frmReportDateEst form = new frmReportDateEst();
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnGenerarActionPerformed
-
-    void generarReporte() {
-        try {
-            JasperReport reporte = null;
-            try {
-                reporte = (JasperReport) JRLoader.loadObject(jasper);
-                //reporte = JasperCompileManager.compileReport(jrxml);
-            } catch (JRException e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
-            }
-
-            JasperPrint print = null;
-            try {
-                if (this.cn != null && reporte != null) {
-                    print = JasperFillManager.fillReport(reporte, null, this.cn);
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
-            }
-            JasperExportManager.exportReportToPdfFile(print, pdf);
-            try {
-                JasperViewer view = new JasperViewer(print, false);
-                view.setTitle("Reporte de Asistencia de los Estudiantes");
-                view.setVisible(true);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, e.getMessage());
-            }
-        } catch (JRException e) {
-            JOptionPane.showMessageDialog(rootPane, e.getMessage());
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
