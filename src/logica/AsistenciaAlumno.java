@@ -23,11 +23,11 @@ public class AsistenciaAlumno {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdAlumno", "Cargo", "Nombre", "FApellido", "LApellido", "Identificación", "Grado", "Grupo", "Materia", "Fecha", "Hora Ingreso", "Hora Salida"};
-        String[] registros = new String[13];
+        String[] titulos = {"ID", "IdAlumno", "Nombre", "FApellido", "LApellido", "Identificación", "Grado", "Grupo", "Fecha", "Hora Ingreso", "Hora Salida"};
+        String[] registros = new String[11];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
-        SQL = "SELECT asp.idasistencia, asp.idpersonal, c.descripcion, p.nombre, p.fapellido, p.lapellido, p.dni, p.materia, p.grado, p.grupo, asp.fecha, asp.hora_ingreso, asp.hora_salida, usu.idusuario "
+        SQL = "SELECT asp.idasistencia, asp.idpersonal, p.nombre, p.fapellido, p.lapellido, p.dni, p.grado, p.grupo, asp.fecha, asp.hora_ingreso, asp.hora_salida, usu.idusuario "
                 + "FROM usuario usu LEFT JOIN asistencia_personal asp ON usu.idusuario = asp.idusuario LEFT JOIN personal p ON asp.dni = p.dni LEFT JOIN cargo c ON p.idcargo = c.idcargo "
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND asp.estado='A' ORDER BY asp.fecha ASC;";
 
@@ -36,18 +36,16 @@ public class AsistenciaAlumno {
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idasistencia");
-                registros[1] = rs.getString("idpersonal");
-                registros[2] = rs.getString("descripcion");                
-                registros[3] = rs.getString("nombre");
-                registros[4] = rs.getString("fapellido");
-                registros[5] = rs.getString("lapellido");
-                registros[6] = rs.getString("dni");
-                registros[7] = rs.getString("grado");
-                registros[8] = rs.getString("grupo");
-                registros[9] = rs.getString("materia");
-                registros[10] = rs.getString("fecha");
-                registros[11] = rs.getString("hora_ingreso");
-                registros[12] = rs.getString("hora_salida");
+                registros[1] = rs.getString("idpersonal");               
+                registros[2] = rs.getString("nombre");
+                registros[3] = rs.getString("fapellido");
+                registros[4] = rs.getString("lapellido");
+                registros[5] = rs.getString("dni");
+                registros[6] = rs.getString("grado");
+                registros[7] = rs.getString("grupo");
+                registros[8] = rs.getString("fecha");
+                registros[9] = rs.getString("hora_ingreso");
+                registros[10] = rs.getString("hora_salida");
 
                 totalRegistros = totalRegistros + 1;
                 modelo.addRow(registros);

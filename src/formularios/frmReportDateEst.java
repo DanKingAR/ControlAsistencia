@@ -1,6 +1,7 @@
 package formularios;
 
 import BD.ConexionBD;
+import java.net.URL;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 
@@ -13,9 +14,9 @@ public class frmReportDateEst extends javax.swing.JFrame {
     private final String generar[] = {"<Seleccionar una opción>", "Diario", "Intervalo"};
     private final ComboBoxModel modeloGenerar = new DefaultComboBoxModel(generar);
     private final ConexionBD conn = new ConexionBD();
-    private final String jrxml = "src\\Reportes\\asistenciaAlumnos.jrxml";
-    private final String jasper = "src\\Reportes\\asistenciaAlumnos.jasper";
-    private final String pdf = "src\\Reporte\\asistenciaAlumnos.pdf";
+    private final URL jrxml = this.getClass().getResource("/Reportes/asistenciaAlumnos.jrxml");
+    private final URL jasper = this.getClass().getResource("/Reportes/asistenciaAlumnos.jasper");
+    private final URL pdf = this.getClass().getResource("/Reporte/asistenciaAlumnos.pdf");
 
     /**
      * Creates new form NewJFrame

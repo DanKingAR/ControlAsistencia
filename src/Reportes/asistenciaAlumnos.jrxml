@@ -52,7 +52,7 @@ ORDER BY
 				<text><![CDATA[Estudiantes]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="0" width="842" height="65" forecolor="#006699" backcolor="#006699" uuid="62e38713-74e1-4ae0-93a0-2506169c45ae"/>
+				<reportElement mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699" uuid="62e38713-74e1-4ae0-93a0-2506169c45ae"/>
 				<staticText>
 					<reportElement style="Title" x="231" y="0" width="578" height="65" uuid="948657f8-502a-459b-988a-b67b2f4ea3f4"/>
 					<textElement textAlignment="Right">

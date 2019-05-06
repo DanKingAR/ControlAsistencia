@@ -1,7 +1,12 @@
 package BD;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -55,7 +59,7 @@ public class ConexionBD {
         conn = null;
     }
 
-    public void startReport(String origen, String reporte) {
+    public void startReport(String origen, URL reporte) {
         try {
             Class.forName(driver);
             conn = DriverManager.getConnection(ruta + servidor + db, user, pass);
@@ -86,7 +90,7 @@ public class ConexionBD {
         }
     }
     
-    public void startReportDate(String origen, String reporte, String fechaIn, String fechaOut) {
+    public void startReportDate(String origen, URL reporte, String fechaIn, String fechaOut) {
         try {
             Class.forName(driver);
             conn = DriverManager.getConnection(ruta + servidor + db, user, pass);
@@ -118,6 +122,24 @@ public class ConexionBD {
         } catch (ClassNotFoundException | SQLException e) {
         } catch (Exception ex) {
             Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void guardarImg(String dni, String ruta) {
+        conn = conectar();
+        String SQL = "UPDATE personal SET foto=? WHERE dni=?";
+        FileInputStream fis = null;
+        PreparedStatement pst = null;
+        try {
+            File foto = new File(ruta);
+            fis = new FileInputStream(foto);
+            
+            pst.executeQuery(SQL);
+            pst.setBinaryStream(1, fis);
+            pst.setString(2, dni);
+            pst.executeUpdate();            
+        } catch (FileNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al Guardar: " + e);
         }
     }
 

@@ -1,6 +1,7 @@
 package formularios;
 
 import BD.ConexionBD;
+import java.net.URL;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 
@@ -13,9 +14,9 @@ public class frmReportDateDocen extends javax.swing.JFrame {
     private final String generar[] = {"<Seleccionar una opción>", "Diario", "Intervalo"};
     private final ComboBoxModel modeloGenerar = new DefaultComboBoxModel(generar);
     private final ConexionBD conn = new ConexionBD();
-    private final String jrxml = "src\\Reportes\\asistenciaDocente.jrxml";
-    private final String jasper = "src\\Reportes\\asistenciaDocente.jasper";
-    private final String pdf = "src\\Reportes\\asistenciaDocente.pdf";
+    private final URL jrxml = this.getClass().getResource("/Reportes/asistenciaDocente.jrxml");
+    private final URL jasper = this.getClass().getResource("/Reportes/asistenciaDocente.jasper");
+    private final URL pdf = this.getClass().getResource("/Reportes/asistenciaDocente.pdf");
 
     /**
      * Creates new form frmReportDateDocen
@@ -54,7 +55,7 @@ public class frmReportDateDocen extends javax.swing.JFrame {
         btnGenerar = new javax.swing.JButton();
         btnGenerarDate = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), "Generar Reporte", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 

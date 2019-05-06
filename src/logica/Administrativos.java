@@ -2,6 +2,7 @@ package logica;
 
 import BD.ConexionBD;
 import datos.Administrativo;
+import formularios.frmAdministrativo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -175,6 +176,8 @@ public class Administrativos {
             return null;
         }
     }
+    
+    frmAdministrativo form = new frmAdministrativo();
 
     public boolean insertar(Administrativo dts) {
         SQL = "INSERT INTO personal(idpersonal, idcargo, nombre, fapellido, lapellido, dni, direccion, email, genero, fecha_nace, fecha_ingreso, telefono)" + 

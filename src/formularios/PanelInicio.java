@@ -65,6 +65,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         asistenciaEst = new javax.swing.JMenuItem();
         asistenciaDocen = new javax.swing.JMenuItem();
         asistenciaAdmin = new javax.swing.JMenuItem();
+        retardo = new javax.swing.JMenuItem();
         menuConfig = new javax.swing.JMenu();
         usuarios = new javax.swing.JMenuItem();
 
@@ -299,6 +300,15 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         menuReportes.add(jMenu5);
 
+        retardo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/Announcement.png"))); // NOI18N
+        retardo.setText("Retardos");
+        retardo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retardoActionPerformed(evt);
+            }
+        });
+        menuReportes.add(retardo);
+
         menuBar.add(menuReportes);
 
         menuConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/1837084.cfbfef783fe0d1f0fc44ae1c292101ab.gif"))); // NOI18N
@@ -335,7 +345,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }// </editor-fold>//GEN-END:initComponents
 
     private void totalEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalEstActionPerformed
-        // TODO add your handling code here:
         frmReporteTotalAlumno form = new frmReporteTotalAlumno();
         escritorio.add(form);
         form.toFront();
@@ -348,12 +357,10 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_totalEstActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
 
     private void administrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_administrativoActionPerformed
-        // TODO add your handling code here:
         frmAdministrativo form = new frmAdministrativo();
         escritorio.add(form);
         form.toFront();
@@ -366,7 +373,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_administrativoActionPerformed
 
     private void usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosActionPerformed
-        // TODO add your handling code here:
         frmUsuarios form = new frmUsuarios();
         escritorio.add(form);
         form.toFront();
@@ -379,7 +385,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_usuariosActionPerformed
 
     private void estudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estudianteActionPerformed
-        // TODO add your handling code here:
         frmEstudiante form = new frmEstudiante();
         escritorio.add(form);
         form.toFront();
@@ -392,7 +397,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_estudianteActionPerformed
 
     private void IngresoEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresoEstActionPerformed
-        // TODO add your handling code here:
         frmAsistenciaPersonal form = new frmAsistenciaPersonal();
         escritorio.add(form);
         form.toFront();
@@ -405,7 +409,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_IngresoEstActionPerformed
 
     private void permisoEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permisoEstudianteActionPerformed
-        // TODO add your handling code here:
         frmPermiso form = new frmPermiso();
         escritorio.add(form);
         form.toFront();
@@ -418,7 +421,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_permisoEstudianteActionPerformed
 
     private void permisoDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permisoDocenteActionPerformed
-        // TODO add your handling code here:
         frmLicencia form = new frmLicencia();
         escritorio.add(form);
         form.toFront();
@@ -431,7 +433,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_permisoDocenteActionPerformed
 
     private void salidaEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salidaEstActionPerformed
-        // TODO add your handling code here:
         frmAsistenciaSalidaPersonal form = new frmAsistenciaSalidaPersonal();
         escritorio.add(form);
         form.toFront();
@@ -444,7 +445,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_salidaEstActionPerformed
 
     private void cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionActionPerformed
-        // TODO add your handling code here:
         dispose();
         frmLogin login = new frmLogin();
         login.toFront();
@@ -452,7 +452,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_cerrarSesionActionPerformed
 
     private void asistenciaEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asistenciaEstActionPerformed
-        // TODO add your handling code here:
         frmReportAsisEst form = new frmReportAsisEst();
         escritorio.add(form);
         form.toFront();
@@ -465,7 +464,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_asistenciaEstActionPerformed
 
     private void asistenciaDocenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asistenciaDocenActionPerformed
-        // TODO add your handling code here:
         frmReportAsisDocen form = new frmReportAsisDocen();
         escritorio.add(form);
         form.toFront();
@@ -478,7 +476,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_asistenciaDocenActionPerformed
 
     private void cargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargosActionPerformed
-        // TODO add your handling code here:
         frmCargo form = new frmCargo();
         escritorio.add(form);
         form.toFront();
@@ -491,7 +488,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_cargosActionPerformed
 
     private void docenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docenteActionPerformed
-        // TODO add your handling code here:
         frmDocente form = new frmDocente();
         escritorio.add(form);
         form.toFront();
@@ -504,7 +500,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_docenteActionPerformed
 
     private void asistenciaAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asistenciaAdminActionPerformed
-        // TODO add your handling code here:
         frmReportAsisAdmin form = new frmReportAsisAdmin();
         escritorio.add(form);
         form.toFront();
@@ -517,7 +512,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_asistenciaAdminActionPerformed
 
     private void permisoAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permisoAdminActionPerformed
-        // TODO add your handling code here:
         frmLicenAdmin form = new frmLicenAdmin();
         escritorio.add(form);
         form.toFront();
@@ -530,7 +524,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_permisoAdminActionPerformed
 
     private void btnHuellaEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuellaEstActionPerformed
-        // TODO add your handling code here:
         frmEntradaPersonal form = new frmEntradaPersonal();
         escritorio.add(form);
         form.toFront();
@@ -541,6 +534,18 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         
         form.setLocation(x, y);
     }//GEN-LAST:event_btnHuellaEstActionPerformed
+
+    private void retardoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retardoActionPerformed
+        frmReportRetardo form = new frmReportRetardo();
+        escritorio.add(form);
+        form.toFront();
+        form.setVisible(true);
+        
+        x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
+        y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
+        
+        form.setLocation(x, y);
+    }//GEN-LAST:event_retardoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -600,6 +605,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     private javax.swing.JMenuItem permisoAdmin;
     private javax.swing.JMenuItem permisoDocente;
     private javax.swing.JMenuItem permisoEstudiante;
+    private javax.swing.JMenuItem retardo;
     private javax.swing.JMenuItem salidaEst;
     private javax.swing.JMenuItem salir;
     private javax.swing.JMenuItem totalEst;

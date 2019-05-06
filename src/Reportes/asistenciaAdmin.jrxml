@@ -52,7 +52,7 @@ ORDER BY
 				<text><![CDATA[Administrativos]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="0" width="842" height="65" forecolor="#006699" backcolor="#006699" uuid="5f6d06a7-8f64-49e1-a14d-1702d17a3a7e"/>
+				<reportElement mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699" uuid="5f6d06a7-8f64-49e1-a14d-1702d17a3a7e"/>
 				<staticText>
 					<reportElement style="Title" x="231" y="0" width="578" height="65" uuid="5807f74f-c7e4-42fb-837d-367f895bf998"/>
 					<textElement textAlignment="Right">

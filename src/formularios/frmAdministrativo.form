@@ -126,7 +126,7 @@
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -144,6 +144,13 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="txtTelefono" min="-2" pref="113" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="btnFoto" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
                                       <Component id="dcfecha_ingreso" min="-2" pref="142" max="-2" attributes="0"/>
                                       <Component id="txtIdAdministrativo" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
@@ -161,7 +168,6 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="btnHuella" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="txtTelefono" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
                                       <Component id="txtDireccion" alignment="0" min="-2" pref="213" max="-2" attributes="0"/>
                                       <Component id="txtEmail" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
@@ -188,7 +194,7 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -233,6 +239,10 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel12" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Component id="jLabel28" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="btnFoto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -265,7 +275,7 @@
                       <Component id="jLabel17" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="dcfecha_nace" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                  <EmptySpace pref="13" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="bntNuevo" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="btnGuardar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
@@ -549,6 +559,25 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Fecha Nacimiento:"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel28">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Foto:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnFoto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Abrir ..."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFotoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
