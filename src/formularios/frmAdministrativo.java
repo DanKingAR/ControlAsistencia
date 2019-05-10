@@ -4,7 +4,6 @@ import datos.Administrativo;
 import java.awt.Color;
 import java.sql.Date;
 import java.util.Calendar;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.Administrativos;
@@ -14,7 +13,10 @@ import logica.Administrativos;
  * @author Dan Arevalo
  */
 public class frmAdministrativo extends javax.swing.JInternalFrame {
-    
+
+    Administrativo dts = new Administrativo();
+    Administrativos func = new Administrativos();
+
     /**
      * Creates new form frmAdministrativo
      */
@@ -69,7 +71,6 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
     private void mostrar(String buscar) {
         try {
             DefaultTableModel modelo;
-            Administrativos func = new Administrativos();
             modelo = func.mostrar(buscar);
 
             tablalistado.setModel(modelo);
@@ -685,27 +686,24 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
             txtEmail.requestFocus();
             return;
         }
-        
+
         if (cmbGenero.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(rootPane, "Debes ingresar el género del administrador");
             cmbGenero.requestFocus();
             return;
         }
-        
+
         if (dcfecha_ingreso.getDate() == null) {
             JOptionPane.showMessageDialog(rootPane, "Debes ingresar la fecha de ingreso del administrador");
             dcfecha_ingreso.requestFocus();
             return;
         }
-        
+
         if (dcfecha_nace.getDate() == null) {
             JOptionPane.showMessageDialog(rootPane, "Debes ingresar la fecha de nacimiento del administrador");
             dcfecha_nace.requestFocus();
             return;
         }
-
-        Administrativo dts = new Administrativo();
-        Administrativos func = new Administrativos();
 
         dts.setIdCargo(Integer.parseInt(txtIdCargo.getText()));
         dts.setNombre(txtNombres.getText());
@@ -811,8 +809,6 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de Eliminar el personal", "Confirmar", 2);
 
             if (confirmacion == 0) {
-                Administrativo dts = new Administrativo();
-                Administrativos func = new Administrativos();
 
                 dts.setDni(txtDni.getText());
                 func.eliminar(dts);
