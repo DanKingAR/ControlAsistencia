@@ -66,6 +66,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         asistenciaDocen = new javax.swing.JMenuItem();
         asistenciaAdmin = new javax.swing.JMenuItem();
         retardo = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menuConfig = new javax.swing.JMenu();
         usuarios = new javax.swing.JMenuItem();
 
@@ -172,7 +173,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuArchivo.add(docente);
 
-        estudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/slideshare.png"))); // NOI18N
+        estudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
         estudiante.setText("Estudiante");
         estudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,7 +196,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/eliminar-usuario-icono-7266-32.png"))); // NOI18N
         menuRegistro.setText("Registro");
 
-        permisoEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/slideshare.png"))); // NOI18N
+        permisoEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
         permisoEstudiante.setText("Permiso Estudiante");
         permisoEstudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,7 +214,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuRegistro.add(permisoDocente);
 
-        permisoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/Digg.png"))); // NOI18N
+        permisoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/2986.png"))); // NOI18N
         permisoAdmin.setText("Permiso Administrativo");
         permisoAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,7 +237,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuAsistencia.add(IngresoEst);
 
-        salidaEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
+        salidaEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/salirw.png"))); // NOI18N
         salidaEst.setText("Salida Personal");
         salidaEst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,7 +257,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         menuBar.add(menuAsistencia);
 
-        menuReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/salirw.png"))); // NOI18N
+        menuReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/tramites.gif"))); // NOI18N
         menuReportes.setText("Reportes");
 
         totalEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/edit_group.png"))); // NOI18N
@@ -268,7 +269,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuReportes.add(totalEst);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/tramites.gif"))); // NOI18N
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/success.png"))); // NOI18N
         jMenu5.setText("Asistencias");
 
         asistenciaEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
@@ -280,7 +281,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         jMenu5.add(asistenciaEst);
 
-        asistenciaDocen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/2986.png"))); // NOI18N
+        asistenciaDocen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/edit_group.png"))); // NOI18N
         asistenciaDocen.setText("Asistencia Docentes");
         asistenciaDocen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,7 +290,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         jMenu5.add(asistenciaDocen);
 
-        asistenciaAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/agt_start_here.png"))); // NOI18N
+        asistenciaAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/2986.png"))); // NOI18N
         asistenciaAdmin.setText("Asistencia Administrativos");
         asistenciaAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,6 +309,15 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
             }
         });
         menuReportes.add(retardo);
+
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/Digg.png"))); // NOI18N
+        jMenuItem2.setText("Carnets");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuReportes.add(jMenuItem2);
 
         menuBar.add(menuReportes);
 
@@ -547,6 +557,18 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         form.setLocation(x, y);
     }//GEN-LAST:event_retardoActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        frmCarnet form = new frmCarnet();
+        escritorio.add(form);
+        form.toFront();
+        form.setVisible(true);
+        
+        x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
+        y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
+        
+        form.setLocation(x, y);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -590,6 +612,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     private javax.swing.JMenuItem estudiante;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     public static javax.swing.JLabel lblFApellido;
     private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblacceso;

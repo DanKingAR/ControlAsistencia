@@ -18,7 +18,7 @@ public class Alumnos {
     private final ConexionBD postgres = new ConexionBD();
     private final Connection conn = postgres.conectar();
     private String SQL = "";
-    public int totalRegistros;
+    public int totalRegistros, totalEst, totalDocen, totalAdmin;
     
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
@@ -99,38 +99,109 @@ public class Alumnos {
     }
 
     public DefaultTableModel mostrarvista_salidapersonal(String buscar) {
-        DefaultTableModel modelo;
+        DefaultTableModel modeloEst;
 
-        String[] titulos = {"IdAlumno", "Nombre", "Fapellido", "LApellido", "Dni", "Direccion", "Género", "Fecha Nacimiento", "Fecha Registro", "Grado", "Seccion", "Teléfono", "Sede", "Jornada"};
+        String[] titulosEst = {"IdPersonal", "Nombre", "Fapellido", "LApellido", "Identificación", "Direccion", "Género", "Fecha Nacimiento", "Fecha Registro", "Grado", "Seccion", "Teléfono", "Sede", "Jornada"};
         String[] registros = new String[14];
-        totalRegistros = 0;
-        modelo = new DefaultTableModel(null, titulos);
+        totalEst = 0;
+        modeloEst = new DefaultTableModel(null, titulosEst);
         SQL = "SELECT idpersonal, nombre, fapellido, lapellido, dni, direccion, genero, fecha_nace, fecha_registro, grado, grupo, telefono, sede, jornada"
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 1 AND estado='A' ORDER BY nombre ASC;";
 
         try {
             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(SQL);
-            while (rs.next()) {
-                registros[0] = rs.getString("idpersonal");
-                registros[1] = rs.getString("nombre");
-                registros[2] = rs.getString("fapellido");
-                registros[3] = rs.getString("lapellido");
-                registros[4] = rs.getString("dni");
-                registros[5] = rs.getString("direccion");
-                registros[6] = rs.getString("genero");
-                registros[7] = rs.getString("fecha_nace");
-                registros[8] = rs.getString("fecha_registro");
-                registros[9] = rs.getString("grado");
-                registros[10] = rs.getString("grupo");
-                registros[11] = rs.getString("telefono");
-                registros[12] = rs.getString("sede");
-                registros[13] = rs.getString("jornada");
+            ResultSet rsEst = st.executeQuery(SQL);
+            while (rsEst.next()) {
+                registros[0] = rsEst.getString("idpersonal");
+                registros[1] = rsEst.getString("nombre");
+                registros[2] = rsEst.getString("fapellido");
+                registros[3] = rsEst.getString("lapellido");
+                registros[4] = rsEst.getString("dni");
+                registros[5] = rsEst.getString("direccion");
+                registros[6] = rsEst.getString("genero");
+                registros[7] = rsEst.getString("fecha_nace");
+                registros[8] = rsEst.getString("fecha_registro");
+                registros[9] = rsEst.getString("grado");
+                registros[10] = rsEst.getString("grupo");
+                registros[11] = rsEst.getString("telefono");
+                registros[12] = rsEst.getString("sede");
+                registros[13] = rsEst.getString("jornada");
 
-                totalRegistros = totalRegistros + 1;
-                modelo.addRow(registros);
+                totalEst = totalEst + 1;
+                modeloEst.addRow(registros);
             }
-            return modelo;
+            return modeloEst;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+    
+    public DefaultTableModel mostrarvista_salidapersonalAdmin(String buscar) {
+        DefaultTableModel modeloAdmin;
+
+        String[] titulosAdmin = {"Cargo", "Nombre", "Fapellido", "LApellido", "Identificación", "Direccion", "Email", "Género", "Fecha de Nacimiento", "Fecha de Ingreso", "Teléfono"};
+        String[] registros = new String[11];
+        totalAdmin = 0;
+        modeloAdmin = new DefaultTableModel(null, titulosAdmin);
+        SQL = "SELECT p.idpersonal, c.idcargo, c.descripcion, p.nombre, p.fapellido, p.lapellido, p.dni, p.direccion, p.email, p.genero, p.fecha_nace, p.fecha_ingreso, p.telefono"
+                + " FROM personal p INNER JOIN cargo c ON p.idcargo = c.idcargo WHERE dni LIKE '%" + buscar + "%' AND p.idpersonal = 3 AND p.estado='A' ORDER BY p.nombre ASC;";
+
+        try {
+            Statement st = conn.createStatement();
+            ResultSet rsAdmin = st.executeQuery(SQL);
+            while (rsAdmin.next()) {
+                registros[0] = rsAdmin.getString("descripcion");
+                registros[1] = rsAdmin.getString("nombre");
+                registros[2] = rsAdmin.getString("fapellido");
+                registros[3] = rsAdmin.getString("lapellido");
+                registros[4] = rsAdmin.getString("dni");
+                registros[5] = rsAdmin.getString("direccion");
+                registros[6] = rsAdmin.getString("email");
+                registros[7] = rsAdmin.getString("genero");
+                registros[8] = rsAdmin.getString("fecha_nace");
+                registros[9] = rsAdmin.getString("fecha_ingreso");
+                registros[10] = rsAdmin.getString("telefono");
+
+                totalAdmin = totalAdmin + 1;
+                modeloAdmin.addRow(registros);
+            }
+            return modeloAdmin;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+    
+    public DefaultTableModel mostrarvista_salidapersonalDocen(String buscar) {
+        DefaultTableModel modeloDocen;
+
+        String[] titulosDocen = {"Nombre", "Fapellido", "LApellido", "Identificación", "Direccion", "Email", "Género", "Fecha Nacimiento", "Materia", "Teléfono"};
+        String[] registros = new String[10];
+        totalDocen = 0;
+        modeloDocen = new DefaultTableModel(null, titulosDocen);
+        SQL = "SELECT idpersonal, nombre, fapellido, lapellido, dni, direccion, email, genero, materia, fecha_nace, telefono"
+                + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 2 AND estado='A' ORDER BY nombre ASC;";
+
+        try {
+            Statement st = conn.createStatement();            
+            ResultSet rsDocen = st.executeQuery(SQL);
+            while (rsDocen.next()) {                
+                registros[0] = rsDocen.getString("nombre");
+                registros[1] = rsDocen.getString("fapellido");
+                registros[2] = rsDocen.getString("lapellido");
+                registros[3] = rsDocen.getString("dni");
+                registros[4] = rsDocen.getString("direccion");
+                registros[5] = rsDocen.getString("email");
+                registros[6] = rsDocen.getString("genero");
+                registros[7] = rsDocen.getString("fecha_nace");
+                registros[8] = rsDocen.getString("materia");
+                registros[9] = rsDocen.getString("telefono");
+                
+                totalDocen += 1;
+                modeloDocen.addRow(registros);
+            }
+            return modeloDocen;
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;

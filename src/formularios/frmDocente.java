@@ -28,6 +28,7 @@ public class frmDocente extends javax.swing.JInternalFrame {
 
     void habilitar() {
         txtIdDocente.setVisible(false);
+        btnFoto.setEnabled(true);
         lblIdDocente.setVisible(false);
 
         txtNombres.setEnabled(true);
@@ -83,6 +84,7 @@ public class frmDocente extends javax.swing.JInternalFrame {
         txtDni.setEnabled(false);
         txtTelefono.setEnabled(false);
         txtDireccion.setEnabled(false);
+        btnFoto.setEnabled(false);
         txtEmail.setEnabled(false);
         cmbGenero.setEnabled(false);
         cmbMateria.setEnabled(false);
@@ -776,6 +778,7 @@ public class frmDocente extends javax.swing.JInternalFrame {
         dcfecha_nace.setDate(Date.valueOf(tablalistado.getValueAt(fila, 10).toString()));
         
         btnHorario.setEnabled(true);
+        btnFoto.setEnabled(true);
     }//GEN-LAST:event_tablalistadoMouseClicked
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped

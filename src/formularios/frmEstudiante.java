@@ -1,7 +1,9 @@
 package formularios;
 
+import BD.ConexionBD;
 import datos.Alumno;
 import java.awt.Color;
+import java.net.URL;
 import java.sql.Date;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -14,6 +16,9 @@ import logica.Alumnos;
  */
 public class frmEstudiante extends javax.swing.JInternalFrame {
     
+    ConexionBD conn = new ConexionBD();
+    private final URL jasper = this.getClass().getResource("/Reportes/carnetEstudiantil.jasper");
+
     /**
      * Creates new form frmEstudiante
      */
@@ -71,7 +76,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
     }
 
     void habilitar() {
-        btnFoto.setEnabled(false);
+        btnFoto.setEnabled(true);
         txtIdAlumno.setEnabled(false);
         txtNombres.setEnabled(true);
         txtFApellido.setEnabled(true);
@@ -769,7 +774,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
             txtTelefono.requestFocus();
             return;
         }
-        
+
         if (txtSede.getText().length() == 0) {
             txtSede.setForeground(Color.red);
             JOptionPane.showMessageDialog(rootPane, "Debes ingresar la sede para el estudiante");
@@ -789,25 +794,25 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
             return;
         }
 
-        if (cmbGenero.getSelectedIndex()== 0) {
+        if (cmbGenero.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(rootPane, "Debes seleccionar el género del estudiante");
             cmbGenero.requestFocus();
             return;
         }
 
-        if (cmbGrado.getSelectedIndex()== 0) {
+        if (cmbGrado.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(rootPane, "Debes seleccionar el grado del estudiante");
             cmbGrado.requestFocus();
             return;
         }
 
-        if (cmbSeccion.getSelectedIndex()== 0) {
+        if (cmbSeccion.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(rootPane, "Debes seleccionar la sección del estudiante");
             cmbSeccion.requestFocus();
             return;
         }
-        
-        if (cmbJornada.getSelectedIndex()== 0) {
+
+        if (cmbJornada.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(rootPane, "Debes seleccionar la jornada del estudiante");
             cmbJornada.requestFocus();
             return;
@@ -843,7 +848,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
         m = cal.get(Calendar.MONTH);
         a = cal.get(Calendar.YEAR) - 1900;
         dts.setFecha_registro(new Date(a, m, d));
-        
+
         seleccionado = cmbJornada.getSelectedIndex();
         dts.setJornada((String) cmbJornada.getItemAt(seleccionado));
         dts.setSede(txtSede.getText());

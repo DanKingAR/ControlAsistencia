@@ -58,6 +58,40 @@ public class ConexionBD {
     public void desconectar() {
         conn = null;
     }
+    
+    public void carnet(String origen, URL reporte, String dni) {
+        try {
+            Class.forName(driver);
+            conn = DriverManager.getConnection(ruta + servidor + db, user, pass);
+            if (reporte == null) {
+                throw new Exception("No se encuentra el archivo de reporte maestro");
+            }
+            JasperReport jr = null;
+            try {
+                jr = (JasperReport) JRLoader.loadObject(reporte);
+            } catch (Exception e) {
+                throw new Exception("Error cargando el reporte: " + e.getMessage());
+            }
+            JasperPrint jp = null;
+            Map param = new HashMap();
+            param.clear();
+            param.put("dni", dni);
+            try {
+                jp = JasperFillManager.fillReport(jr, param, conn);
+            } catch (JRException e) {
+                throw new Exception("Error llenando el reporte maestro: " + e.getMessage());
+            }
+            try {
+                JasperViewer view = new JasperViewer(jp, false);
+                view.setTitle("Carnet " + origen);
+                view.setVisible(true);
+            } catch (Exception e) {
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+        } catch (Exception ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public void startReport(String origen, URL reporte) {
         try {
@@ -134,10 +168,10 @@ public class ConexionBD {
             File foto = new File(ruta);
             fis = new FileInputStream(foto);
             
-            pst.executeQuery(SQL);
+            pst = conn.prepareStatement(SQL);
             pst.setBinaryStream(1, fis);
             pst.setString(2, dni);
-            pst.executeUpdate();            
+            pst.executeUpdate();
         } catch (FileNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al Guardar: " + e);
         }

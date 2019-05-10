@@ -19,20 +19,24 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
     }
     
     void ocultar_columnas() {
-        tablalistado.getColumnModel().getColumn(0).setMaxWidth(0);
-        tablalistado.getColumnModel().getColumn(0).setMinWidth(0);
-        tablalistado.getColumnModel().getColumn(0).setPreferredWidth(0);
+        tablalistadoEst.getColumnModel().getColumn(0).setMaxWidth(0);
+        tablalistadoEst.getColumnModel().getColumn(0).setMinWidth(0);
+        tablalistadoEst.getColumnModel().getColumn(0).setPreferredWidth(0);
     }
 
     void mostrar(String buscar) {
         try {
-            DefaultTableModel modelo;
+            DefaultTableModel modeloEst, modeloDocen, modeloAdmin;
             Alumnos func = new Alumnos();
-            modelo = func.mostrarvista_salidapersonal(buscar);
+            modeloEst = func.mostrarvista_salidapersonal(buscar);
+            modeloDocen = func.mostrarvista_salidapersonalDocen(buscar);
+            modeloAdmin = func.mostrarvista_salidapersonalAdmin(buscar);
 
-            tablalistado.setModel(modelo);
+            tablalistadoEst.setModel(modeloEst);
+            tablalistadoDocen.setModel(modeloDocen);
+            tablalistadoAdmin.setModel(modeloAdmin);
             ocultar_columnas();
-            lbltotalregistros.setText("Total Registros: " + Integer.toString(func.totalRegistros));
+            lbltotalregistros.setText("Total Registros: " + Integer.toString(func.totalEst + func.totalDocen + func.totalAdmin));
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e);
@@ -50,12 +54,19 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablalistado = new javax.swing.JTable();
+        tablalistadoEst = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         txtbuscar = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
         lbltotalregistros = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablalistadoDocen = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablalistadoAdmin = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -66,8 +77,8 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista del Personal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 14))); // NOI18N
         jPanel2.setFocusTraversalPolicyProvider(true);
 
-        tablalistado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        tablalistado.setModel(new javax.swing.table.DefaultTableModel(
+        tablalistadoEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tablalistadoEst.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -78,12 +89,12 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistado.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablalistadoEst.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                tablalistadoMousePressed(evt);
+                tablalistadoEstMousePressed(evt);
             }
         });
-        jScrollPane1.setViewportView(tablalistado);
+        jScrollPane1.setViewportView(tablalistadoEst);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setText("Buscar:");
@@ -103,27 +114,87 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
         jLabel17.setText("DNI:");
         jLabel17.setToolTipText("");
 
+        tablalistadoDocen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tablalistadoDocen.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablalistadoDocen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablalistadoDocenMousePressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tablalistadoDocen);
+
+        tablalistadoAdmin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tablalistadoAdmin.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablalistadoAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablalistadoAdminMousePressed(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tablalistadoAdmin);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Estudiantes");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Docentes");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Administrativos");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(759, Short.MAX_VALUE)
                 .addComponent(lbltotalregistros)
                 .addGap(140, 140, 140))
+            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane3)
+            .addComponent(jScrollPane1)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addGap(124, 124, 124)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(70, 70, 70)))
+                        .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addGap(70, 70, 70)))
-                .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -136,9 +207,19 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                     .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(lbltotalregistros))
         );
 
@@ -150,23 +231,25 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tablalistadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMousePressed
+    private void tablalistadoEstMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoEstMousePressed
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
-            int fila = tablalistado.getSelectedRow();
+            int fila = tablalistadoEst.getSelectedRow();
             String cod;
             String nombre;
             String apellido;
 
-            cod = tablalistado.getValueAt(fila, 0).toString();
-            nombre = tablalistado.getValueAt(fila, 1).toString();
-            apellido = tablalistado.getValueAt(fila, 2).toString();
+            cod = tablalistadoEst.getValueAt(fila, 0).toString();
+            nombre = tablalistadoEst.getValueAt(fila, 1).toString();
+            apellido = tablalistadoEst.getValueAt(fila, 2).toString();
 
             frmAsistenciaSalidaPersonal.txtIdalumno.setText(cod);
             frmAsistenciaSalidaPersonal.txtNombres.setText(nombre);
@@ -174,22 +257,37 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
 
             this.dispose();
         }
-    }//GEN-LAST:event_tablalistadoMousePressed
+    }//GEN-LAST:event_tablalistadoEstMousePressed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         // TODO add your handling code here:
         mostrar(txtbuscar.getText());
     }//GEN-LAST:event_btnbuscarActionPerformed
 
+    private void tablalistadoDocenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoDocenMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablalistadoDocenMousePressed
+
+    private void tablalistadoAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoAdminMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablalistadoAdminMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbltotalregistros;
-    private javax.swing.JTable tablalistado;
+    private javax.swing.JTable tablalistadoAdmin;
+    private javax.swing.JTable tablalistadoDocen;
+    private javax.swing.JTable tablalistadoEst;
     private javax.swing.JTextField txtbuscar;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,6 +31,7 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
         txtIdCargo.setVisible(false);
 
         txtDescripcion.setEnabled(false);
+        btnFoto.setEnabled(true);
         txtNombres.setEnabled(true);
         txtFApellido.setEnabled(true);
         txtLApellido.setEnabled(true);
@@ -85,6 +86,7 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
         txtIdCargo.setVisible(false);
 
         txtNombres.setEnabled(false);
+        btnFoto.setEnabled(false);
         txtDescripcion.setEnabled(false);
         txtFApellido.setEnabled(false);
         txtLApellido.setEnabled(false);
@@ -850,6 +852,7 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
         dcfecha_nace.setDate(Date.valueOf(tablalistado.getValueAt(fila, 12).toString()));
 
         btnHorario.setEnabled(true);
+        btnFoto.setEnabled(true);
     }//GEN-LAST:event_tablalistadoMouseClicked
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped

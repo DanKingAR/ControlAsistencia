@@ -149,6 +149,8 @@ public class frmFotoAdmin extends javax.swing.JFrame {
 
         if (lblUrl.getText().trim().length() != 0 && dni.trim().length() != 0) {
             conn.guardarImg(dni, lblUrl.getText());
+            JOptionPane.showMessageDialog(rootPane, "Foto guardada Correctamente");
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(rootPane, "No dejar los campos vacios");
         }
