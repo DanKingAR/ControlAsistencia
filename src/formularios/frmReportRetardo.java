@@ -180,6 +180,8 @@ public class frmReportRetardo extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         mostrar(txtBuscar.getText());
+        txtBuscar.setText("");
+        transferFocus();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed

@@ -27,7 +27,7 @@ public class Retardos {
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT p.nombre, p.fapellido, p.lapellido, p.dni, his.fecha, his.estado "
                 + "FROM personal p INNER JOIN historial his ON p.dni = his.dni "
-                + "WHERE his.estado = 'Retardo' ORDER BY his.fecha ASC;";
+                + "WHERE his.fecha LIKE '%" + buscar + "%' AND his.estado = 'Retardo' ORDER BY his.fecha, p.nombre ASC;";
 
         try {
             Statement st = conn.createStatement();

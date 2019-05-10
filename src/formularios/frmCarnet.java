@@ -1,13 +1,9 @@
 package formularios;
 
 import BD.ConexionBD;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 
 /**
  *
@@ -20,7 +16,7 @@ public class frmCarnet extends javax.swing.JInternalFrame {
     private final ConexionBD conn = new ConexionBD();
     private final URL estudiantil = this.getClass().getResource("/Reportes/carnetEstudiantil.jasper");
     private final URL docente = this.getClass().getResource("/Reportes/carnetDocencia.jasper");
-    private final URL administrativo = this.getClass().getResource("/Reporte/carnetAdministrativo.jasper");
+    private final URL admin = this.getClass().getResource("/Reportes/carnetAdministrativo.jasper");
 
     /**
      * Creates new form frmCarnet
@@ -89,7 +85,7 @@ public class frmCarnet extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,70 +116,72 @@ public class frmCarnet extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCarnetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarnetActionPerformed
-        String seleccion = (String) cmbGenerar.getSelectedItem();
+        int seleccion = cmbGenerar.getSelectedIndex();
         String dni = txtDni.getText();
 
         switch (seleccion) {
-            case "Estudiantil":
+            case 1:
                 lblDni.setVisible(true);
                 txtDni.setVisible(true);
                 btnCarnet.setVisible(true);
                 conn.carnet("Estudiantil", estudiantil, dni);
                 txtDni.setText("");
-                cmbGenerar.setSelectedIndex(0);
                 break;
 
-            case "Docente":
+            case 2:
                 lblDni.setVisible(true);
                 txtDni.setVisible(true);
                 btnCarnet.setVisible(true);
                 conn.carnet("Docencia", docente, dni);
                 txtDni.setText("");
-                cmbGenerar.setSelectedIndex(0);
                 break;
 
-            case "Administrativo":
+            case 3:
                 lblDni.setVisible(true);
                 txtDni.setVisible(true);
                 btnCarnet.setVisible(true);
-                conn.carnet("Administrativo", administrativo, dni);
+                conn.carnet("Administrativo", admin, dni);
                 txtDni.setText("");
-                cmbGenerar.setSelectedIndex(0);
                 break;
 
-            case "<Seleccionar una opción>":
+            case 0:
                 lblDni.setVisible(false);
                 txtDni.setVisible(false);
                 btnCarnet.setVisible(false);
+                txtDni.setText("");
                 break;
         }
     }//GEN-LAST:event_btnCarnetActionPerformed
 
     private void cmbGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGenerarActionPerformed
-        String seleccion = (String) cmbGenerar.getSelectedItem();
+        int seleccion = cmbGenerar.getSelectedIndex();
 
         switch (seleccion) {
-            case "Estudiantil":
+            case 1:
                 lblDni.setVisible(true);
                 txtDni.setVisible(true);
+                txtDni.setText("");
                 btnCarnet.setVisible(true);
                 break;
 
-            case "Docente":
+            case 2:
                 lblDni.setVisible(true);
                 txtDni.setVisible(true);
+                txtDni.setText("");
                 btnCarnet.setVisible(true);
                 break;
 
-            case "Administrativo":
+            case 3:
                 lblDni.setVisible(true);
                 txtDni.setVisible(true);
+                txtDni.setText("");
                 btnCarnet.setVisible(true);
                 break;
 
-            case "<Seleccionar una opción>":
+            case 0:
                 lblDni.setVisible(false);
                 txtDni.setVisible(false);
+                txtDni.setText("");
                 btnCarnet.setVisible(false);
                 break;
         }

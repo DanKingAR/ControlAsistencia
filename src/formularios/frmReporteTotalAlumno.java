@@ -56,7 +56,7 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablalistadoEst = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
-        txtbuscar = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
         lbltotalregistros = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -180,7 +180,7 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel17)
@@ -205,7 +205,7 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
@@ -260,8 +260,8 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tablalistadoEstMousePressed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        // TODO add your handling code here:
-        mostrar(txtbuscar.getText());
+        mostrar(txtBuscar.getText());
+        txtBuscar.setText("");
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void tablalistadoDocenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoDocenMousePressed
@@ -288,6 +288,6 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JTable tablalistadoAdmin;
     private javax.swing.JTable tablalistadoDocen;
     private javax.swing.JTable tablalistadoEst;
-    private javax.swing.JTextField txtbuscar;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

@@ -232,11 +232,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
             }
         });
 
-        txtDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDniActionPerformed(evt);
-            }
-        });
         txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDniKeyTyped(evt);
@@ -244,17 +239,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
         });
 
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccionar>", "Masculino", "Femenino", "Otro" }));
-        cmbGenero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbGeneroActionPerformed(evt);
-            }
-        });
-
-        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionActionPerformed(evt);
-            }
-        });
 
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -264,21 +248,9 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel25.setText("Nombres:");
 
-        txtLApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLApellidoActionPerformed(evt);
-            }
-        });
-
         jLabel23.setBackground(new java.awt.Color(0, 0, 0));
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel23.setText("Sexo:");
-
-        txtFApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFApellidoActionPerformed(evt);
-            }
-        });
 
         jLabel21.setBackground(new java.awt.Color(0, 0, 0));
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -402,12 +374,13 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
                     .addComponent(txtIdAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnFoto)))
+                        .addComponent(btnFoto))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -562,11 +535,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
         jLabel10.setText("Seccion:");
 
         cmbSeccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccionar>", "A", "B", "C", "D" }));
-        cmbSeccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbSeccionActionPerformed(evt);
-            }
-        });
 
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnGuardar.setText("GUARDAR");
@@ -593,11 +561,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
         });
 
         cmbGrado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccionar>", "Primero", "Segunto", "Tercer", "Cuarto", "Quinto", "Sexto", "Septimo", "Octavo", "Noveno", "Décimo", "Undécimo" }));
-        cmbGrado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbGradoActionPerformed(evt);
-            }
-        });
 
         jLabel28.setBackground(new java.awt.Color(0, 0, 0));
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -720,11 +683,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cmbGradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGradoActionPerformed
-        // TODO add your handling code here:
-        cmbGrado.transferFocus();
-    }//GEN-LAST:event_cmbGradoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
@@ -872,11 +830,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void cmbSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSeccionActionPerformed
-        // TODO add your handling code here:
-        cmbSeccion.transferFocus();
-    }//GEN-LAST:event_cmbSeccionActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         dispose();
@@ -900,8 +853,8 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
         mostrar(txtBuscar.getText());
+        txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
@@ -952,26 +905,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
         form.setVisible(true);
     }//GEN-LAST:event_btnHuellaActionPerformed
 
-    private void txtFApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFApellidoActionPerformed
-        // TODO add your handling code here:
-        txtFApellido.transferFocus();
-    }//GEN-LAST:event_txtFApellidoActionPerformed
-
-    private void txtLApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLApellidoActionPerformed
-        // TODO add your handling code here:
-        txtLApellido.transferFocus();
-    }//GEN-LAST:event_txtLApellidoActionPerformed
-
-    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
-        // TODO add your handling code here:
-        txtDireccion.transferFocus();
-    }//GEN-LAST:event_txtDireccionActionPerformed
-
-    private void cmbGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGeneroActionPerformed
-        // TODO add your handling code here:
-        cmbGenero.transferFocus();
-    }//GEN-LAST:event_cmbGeneroActionPerformed
-
     private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
@@ -979,11 +912,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtDniKeyTyped
-
-    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
-        // TODO add your handling code here:
-        txtDni.transferFocus();
-    }//GEN-LAST:event_txtDniActionPerformed
 
     private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
         // TODO add your handling code here:
