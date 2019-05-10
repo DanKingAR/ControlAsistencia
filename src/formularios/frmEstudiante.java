@@ -3,7 +3,6 @@ package formularios;
 import BD.ConexionBD;
 import datos.Alumno;
 import java.awt.Color;
-import java.net.URL;
 import java.sql.Date;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -15,9 +14,10 @@ import logica.Alumnos;
  * @author Dan Arevalo
  */
 public class frmEstudiante extends javax.swing.JInternalFrame {
-    
+
     ConexionBD conn = new ConexionBD();
-    private final URL jasper = this.getClass().getResource("/Reportes/carnetEstudiantil.jasper");
+    Alumno dts = new Alumno();
+    Alumnos func = new Alumnos();
 
     /**
      * Creates new form frmEstudiante
@@ -118,7 +118,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
     void mostrar(String buscar) {
         try {
             DefaultTableModel modelo;
-            Alumnos func = new Alumnos();
             modelo = func.mostrar(buscar);
 
             tablalistado.setModel(modelo);
@@ -776,9 +775,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
             return;
         }
 
-        Alumno dts = new Alumno();
-        Alumnos func = new Alumnos();
-
         dts.setNombre(txtNombres.getText());
         dts.setFapellido(txtFApellido.getText());
         dts.setLapellido(txtLApellido.getText());
@@ -841,8 +837,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de Eliminar el alumno", "Confirmar", 2);
 
             if (confirmacion == 0) {
-                Alumno dts = new Alumno();
-                Alumnos func = new Alumnos();
 
                 dts.setDni(txtDni.getText());
                 func.eliminar(dts);
