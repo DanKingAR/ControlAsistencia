@@ -1,29 +1,14 @@
 package formularios;
 
-import java.sql.Connection;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.AsistenciaDocente;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
  * @author Dan Arevalo
  */
 public class frmReportAsisDocen extends javax.swing.JInternalFrame {
-
-    private Connection cn;
-    private final String jrxml = "src\\Reportes\\asistenciaDocente.jrxml";
-    private final String jasper = "src\\Reportes\\asistenciaDocente.jasper";
-    private final String pdf = "src\\Reportes\\asistenciaDocente.pdf";
 
     /**
      * Creates new form frmReportAsisDocen

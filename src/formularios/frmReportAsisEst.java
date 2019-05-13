@@ -1,7 +1,5 @@
 package formularios;
 
-import BD.ConexionBD;
-import java.sql.Connection;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.AsistenciaAlumno;
@@ -11,12 +9,6 @@ import logica.AsistenciaAlumno;
  * @author Dan Arevalo
  */
 public class frmReportAsisEst extends javax.swing.JInternalFrame {
-
-    private final ConexionBD conn = new ConexionBD();
-    private Connection cn;
-    private final String jrxml = "src\\Reportes\\asistenciaAlumnos.jrxml";
-    private final String jasper = "src\\Reportes\\asistenciaAlumnos.jasper";
-    private final String pdf = "src\\Reporte\\asistenciaAlumnos.pdf";
 
     /**
      * Creates new form frmReportAsisEst
@@ -177,7 +169,7 @@ public class frmReportAsisEst extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-        frmReportDateAdmin form = new frmReportDateAdmin();
+        frmReportDateEst form = new frmReportDateEst();
         form.setVisible(true);
         form.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnGenerarActionPerformed
