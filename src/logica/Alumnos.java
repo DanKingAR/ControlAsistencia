@@ -5,6 +5,7 @@ import datos.Alumno;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Alumnos {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection conn = postgres.conectar();
+    private final Connection con = postgres.conectar();
     private String SQL = "";
     public int totalRegistros, totalEst, totalDocen, totalAdmin;
     
@@ -31,7 +32,7 @@ public class Alumnos {
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 1 AND estado='A' ORDER BY nombre ASC;";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idpersonal");
@@ -56,6 +57,14 @@ public class Alumnos {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -70,7 +79,7 @@ public class Alumnos {
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 1 AND estado='A' ORDER BY nombre ASC;";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idpersonal");
@@ -95,6 +104,14 @@ public class Alumnos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -109,7 +126,7 @@ public class Alumnos {
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 1 AND estado='A' ORDER BY nombre ASC;";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rsEst = st.executeQuery(SQL);
             while (rsEst.next()) {
                 registros[0] = rsEst.getString("idpersonal");
@@ -134,6 +151,14 @@ public class Alumnos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     
@@ -148,7 +173,7 @@ public class Alumnos {
                 + " FROM personal p INNER JOIN cargo c ON p.idcargo = c.idcargo WHERE dni LIKE '%" + buscar + "%' AND p.idpersonal = 3 AND p.estado='A' ORDER BY p.nombre ASC;";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rsAdmin = st.executeQuery(SQL);
             while (rsAdmin.next()) {
                 registros[0] = rsAdmin.getString("descripcion");
@@ -170,6 +195,14 @@ public class Alumnos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     
@@ -184,7 +217,7 @@ public class Alumnos {
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 2 AND estado='A' ORDER BY nombre ASC;";
 
         try {
-            Statement st = conn.createStatement();            
+            Statement st = con.createStatement();            
             ResultSet rsDocen = st.executeQuery(SQL);
             while (rsDocen.next()) {                
                 registros[0] = rsDocen.getString("nombre");
@@ -205,6 +238,14 @@ public class Alumnos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -219,7 +260,7 @@ public class Alumnos {
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 1 AND estado='A' ORDER BY nombre ASC;";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idpersonal");
@@ -244,6 +285,14 @@ public class Alumnos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -251,7 +300,7 @@ public class Alumnos {
         SQL = "INSERT INTO personal(idpersonal, nombre, fapellido, lapellido, dni, direccion, genero, fecha_nace, fecha_registro, grado, grupo, telefono, sede, jornada)" + 
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 1);
             pst.setString(2, dts.getNombre());
             pst.setString(3, dts.getFapellido());
@@ -273,6 +322,14 @@ public class Alumnos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -281,7 +338,7 @@ public class Alumnos {
                 + "SET lapellido=?, direccion=?, fecha_nace=?, fecha_registro=?, grado=?, grupo=?, telefono=?, sede=?, jornada=?"
                 + "WHERE idpersonal=1 AND dni=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getLapellido());
             pst.setString(2, dts.getDireccion());
             pst.setDate(3, dts.getFecha_nace());
@@ -299,13 +356,21 @@ public class Alumnos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
     public boolean eliminar(Alumno dts) {
         SQL = "UPDATE personal SET estado='I' WHERE idpersonal=1 AND dni=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getDni());
 
             int n = pst.executeUpdate();
@@ -314,6 +379,14 @@ public class Alumnos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     

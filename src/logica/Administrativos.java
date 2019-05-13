@@ -6,6 +6,7 @@ import formularios.frmAdministrativo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -57,6 +58,14 @@ public class Administrativos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e.getMessage());
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -96,6 +105,14 @@ public class Administrativos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e.getMessage());
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -135,6 +152,14 @@ public class Administrativos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e.getMessage());
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -174,10 +199,16 @@ public class Administrativos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e.getMessage());
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
-    
-    frmAdministrativo form = new frmAdministrativo();
 
     public boolean insertar(Administrativo dts) {
         SQL = "INSERT INTO personal(idpersonal, idcargo, nombre, fapellido, lapellido, dni, direccion, email, genero, fecha_nace, fecha_ingreso, telefono)" + 
@@ -203,6 +234,14 @@ public class Administrativos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -225,6 +264,14 @@ public class Administrativos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -233,12 +280,21 @@ public class Administrativos {
         try {
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getDni());
+            
             int n = pst.executeUpdate();
 
             return n != 0;
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 

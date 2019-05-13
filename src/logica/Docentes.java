@@ -76,6 +76,14 @@ public class Docentes {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e.getMessage());
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     
@@ -112,6 +120,14 @@ public class Docentes {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e.getMessage());
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     
@@ -138,6 +154,14 @@ public class Docentes {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -159,6 +183,14 @@ public class Docentes {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -173,6 +205,14 @@ public class Docentes {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     

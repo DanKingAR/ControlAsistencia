@@ -5,6 +5,7 @@ import datos.Licencia;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Licencias {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection conn = postgres.conectar();
+    private final Connection con = postgres.conectar();
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -32,7 +33,7 @@ public class Licencias {
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND pe.idpermiso=2 AND pe.estado='A' ORDER BY nombre ASC";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idpermiso");
@@ -53,6 +54,14 @@ public class Licencias {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -60,7 +69,7 @@ public class Licencias {
         SQL = "INSERT INTO permisos (idpermiso, dni, fecha, tiempo, tipo_licencia, perdescripcion)"
                 + "VALUES (?, ?, ?, ?, ?, ?)";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 2);
             pst.setString(2, dts.getDni());
             pst.setDate(3, dts.getFecha());
@@ -74,6 +83,14 @@ public class Licencias {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -81,7 +98,7 @@ public class Licencias {
         SQL = "UPDATE permisos SET fecha=?,tiempo=?,tipo_licencia=?,perdescripcion=?"
                 + "WHERE idpermiso=? AND dni=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setDate(1, dts.getFecha());
             pst.setString(2, dts.getTiempo());
             pst.setString(3, dts.getTipo_licencia());
@@ -95,13 +112,21 @@ public class Licencias {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
     public boolean eliminar(Licencia dts) {
         SQL = "delete from permisos where idpermiso=? AND dni=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 2);
             pst.setString(2, dts.getDni());
 
@@ -111,6 +136,14 @@ public class Licencias {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     

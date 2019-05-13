@@ -1,10 +1,11 @@
 package logica;
 
-import datos.Cargo;
 import BD.ConexionBD;
+import datos.Cargo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Cargos {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection conn = postgres.conectar();
+    private final Connection con = postgres.conectar();
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -30,7 +31,7 @@ public class Cargos {
         SQL = "SELECT * FROM cargo WHERE descripcion LIKE '%" + buscar + "%' ORDER BY descripcion ASC";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idcargo");
@@ -43,6 +44,14 @@ public class Cargos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -56,7 +65,7 @@ public class Cargos {
         SQL = "SELECT * FROM cargo WHERE descripcion LIKE '%" + buscar + "%' ORDER BY descripcion ASC";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idcargo");
@@ -69,6 +78,14 @@ public class Cargos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -76,7 +93,7 @@ public class Cargos {
         SQL = "INSERT INTO cargo (descripcion)"
                 + "VALUES (?)";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getCargodescripcion());
 
             int n = pst.executeUpdate();
@@ -85,6 +102,14 @@ public class Cargos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -92,7 +117,7 @@ public class Cargos {
         SQL = "UPDATE cargo SET descripcion=?"
                 + "WHERE idcargo=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getCargodescripcion());
             pst.setInt(2, dts.getIdCargo());
 
@@ -102,13 +127,21 @@ public class Cargos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
     public boolean eliminar(Cargo dts) {
         SQL = "DELETE FROM cargo WHERE idcargo=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, dts.getIdCargo());
 
             int n = pst.executeUpdate();
@@ -117,6 +150,14 @@ public class Cargos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     

@@ -3,6 +3,7 @@ package logica;
 import BD.ConexionBD;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -14,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 public class AsistenciaDocente {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection conn = postgres.conectar();
+    private final Connection con = postgres.conectar();
     private String SQL = "";
     public Integer totalRegistros;
 
@@ -30,7 +31,7 @@ public class AsistenciaDocente {
                 + "WHERE asp.fecha LIKE '%" + buscar + "%' AND p.idpersonal = 2 AND asp.estado='A' ORDER BY asp.fecha ASC";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idasistencia");
@@ -50,6 +51,14 @@ public class AsistenciaDocente {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     

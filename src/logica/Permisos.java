@@ -5,6 +5,7 @@ import datos.Permiso;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Permisos {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection conn = postgres.conectar();
+    private final Connection con = postgres.conectar();
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -32,7 +33,7 @@ public class Permisos {
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND p.idpersonal = 1 AND pe.estado='A' ORDER BY nombre ASC";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idPermiso");
@@ -53,6 +54,14 @@ public class Permisos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -68,7 +77,7 @@ public class Permisos {
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND p.idpersonal = 1 AND pe.estado='A' ORDER BY nombre ASC";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idPermiso");
@@ -89,6 +98,14 @@ public class Permisos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -96,7 +113,7 @@ public class Permisos {
         SQL = "insert into permisos (idpermiso,dni,fecha,tiempo,perdescripcion)"
                 + "values (?,?,?,?,?)";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 1);
             pst.setString(2, dts.getDni());
             pst.setDate(3, dts.getFecha());
@@ -109,6 +126,14 @@ public class Permisos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -116,7 +141,7 @@ public class Permisos {
         SQL = "UPDATE permisos SET fecha=?, tiempo=?, perdescripcion=?"
                 + "WHERE idPermiso=? AND dni=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setDate(1, dts.getFecha());
             pst.setString(2, dts.getTiempo());
             pst.setString(3, dts.getDescripcion());
@@ -129,13 +154,21 @@ public class Permisos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
     public boolean eliminar(Permiso dts) {
         SQL = "UPDATE permisos SET estado='I' WHERE idPermiso=? AND dni=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 1);
             pst.setString(2, dts.getDni());
 
@@ -145,6 +178,14 @@ public class Permisos {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     

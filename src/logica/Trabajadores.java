@@ -5,6 +5,7 @@ import datos.Trabajador;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Trabajadores {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection conn = postgres.conectar();
+    private final Connection con = postgres.conectar();
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -31,7 +32,7 @@ public class Trabajadores {
                 + "FROM usuario WHERE dni LIKE '%" + buscar + "%' AND estado='A' ORDER BY nombre ASC";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idusuario");
@@ -56,6 +57,14 @@ public class Trabajadores {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -63,7 +72,7 @@ public class Trabajadores {
         SQL = "insert into usuario (nombre,fapellido,lapellido,dni,telefono,direccion,email,genero,login,pass,acceso,estado,fecha_ingreso)"
                 + "values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getNombres());
             pst.setString(2, dts.getFapellido());
             pst.setString(3, dts.getLapellido());
@@ -84,6 +93,14 @@ public class Trabajadores {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -91,7 +108,7 @@ public class Trabajadores {
         SQL = "UPDATE usuario SET telefono=?, direccion=?, email=?, login=?, pass=?, fecha_ingreso=?"
                 + "WHERE idusuario=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getTelefono());
             pst.setString(2, dts.getDireccion());
             pst.setString(3, dts.getEmail());
@@ -106,13 +123,21 @@ public class Trabajadores {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
     public boolean eliminar(Trabajador dts) {
         SQL = "UPDATE usuario SET estado='I' WHERE idusuario=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, dts.getIdTrabajador());
 
             int n = pst.executeUpdate();
@@ -121,6 +146,14 @@ public class Trabajadores {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -134,7 +167,7 @@ public class Trabajadores {
         SQL = "SELECT idusuario, nombre, fapellido, lapellido, login, pass, acceso, estado FROM usuario WHERE login='" + login + "' AND pass='" + pass + "' AND estado='A'";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idusuario");
@@ -153,6 +186,14 @@ public class Trabajadores {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     

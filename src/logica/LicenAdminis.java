@@ -5,6 +5,7 @@ import datos.LicenAdmin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class LicenAdminis {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection conn = postgres.conectar();
+    private final Connection con = postgres.conectar();
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -31,7 +32,7 @@ public class LicenAdminis {
                 + "FROM permisos pe INNER JOIN personal p ON pe.dni = p.dni INNER JOIN cargo c ON p.idcargo = c.idcargo "
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND pe.estado = 'A' ORDER BY nombre ASC;";
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idpermiso");
@@ -52,6 +53,14 @@ public class LicenAdminis {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     
@@ -59,7 +68,7 @@ public class LicenAdminis {
         SQL = "INSERT INTO permisos (idpermiso, dni, fecha, tiempo, tipo_licencia, perdescripcion)"
                 + "VALUES (?, ?, ?, ?, ?, ?);";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 3);
             pst.setString(2, dts.getDni());
             pst.setDate(3, dts.getFecha());
@@ -73,6 +82,14 @@ public class LicenAdminis {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     
@@ -80,7 +97,7 @@ public class LicenAdminis {
         SQL = "UPDATE permisos SET fecha=?, tiempo=?, tipo_licencia=?, perdescripcion=?"
                 + "WHERE idpermiso=? AND dni=?;";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setDate(1, dts.getFecha());
             pst.setString(2, dts.getTiempo());
             pst.setString(3, dts.getTipoLicencia());
@@ -94,13 +111,21 @@ public class LicenAdminis {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     
     public boolean eliminar(LicenAdmin dts) {
         SQL = "DELETE FROM permisos WHERE idpermiso=? AND dni=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 3);
             pst.setString(2, dts.getDni());
 
@@ -110,6 +135,14 @@ public class LicenAdminis {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     

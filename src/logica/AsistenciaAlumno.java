@@ -5,6 +5,7 @@ import datos.AsistenciaAlumnos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class AsistenciaAlumno {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection conn = postgres.conectar();
+    private final Connection con = postgres.conectar();
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -32,7 +33,7 @@ public class AsistenciaAlumno {
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND asp.estado='A' ORDER BY asp.fecha ASC;";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idasistencia");
@@ -54,6 +55,14 @@ public class AsistenciaAlumno {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -69,7 +78,7 @@ public class AsistenciaAlumno {
                 + "WHERE asp.fecha LIKE '%" + buscar + "%' AND p.idpersonal=1 AND asp.estado='A' ORDER BY asp.fecha ASC;";
 
         try {
-            Statement st = conn.createStatement();
+            Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idasistencia");
@@ -91,6 +100,14 @@ public class AsistenciaAlumno {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return null;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -98,7 +115,7 @@ public class AsistenciaAlumno {
         SQL = "insert into asistencia_personal (idpersonal, dni, fecha, hora_ingreso, hora_salida, idusuario)"
                 + "values (?,?,?,?,?,?)";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, dts.getIdPersonal());
             pst.setString(2, dts.getDni());
             pst.setString(3, dts.getFecha());
@@ -112,6 +129,14 @@ public class AsistenciaAlumno {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
@@ -119,7 +144,7 @@ public class AsistenciaAlumno {
         SQL = "UPDATE asistencia_personal SET hora_salida=?, idusuario=?"
                 + "WHERE idAsistencia=? AND fecha=? AND dni=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getHora_salida());
             pst.setInt(2, dts.getIdusuario());
             pst.setInt(3, dts.getIdAsistenciaAlumnos());
@@ -132,13 +157,21 @@ public class AsistenciaAlumno {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
 
     public boolean eliminar(AsistenciaAlumnos dts) {
         SQL = "UPDATE asistencia_personal SET estado='I' WHERE idAsistencia=?";
         try {
-            PreparedStatement pst = conn.prepareStatement(SQL);
+            PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, dts.getIdAsistenciaAlumnos());
             
             int n = pst.executeUpdate();
@@ -147,6 +180,14 @@ public class AsistenciaAlumno {
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
             return false;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
         }
     }
     
