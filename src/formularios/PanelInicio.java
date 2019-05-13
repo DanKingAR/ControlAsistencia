@@ -46,6 +46,11 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuInicio = new javax.swing.JMenu();
         cerrarSesion = new javax.swing.JMenuItem();
         salir = new javax.swing.JMenuItem();
+        menuArchivo = new javax.swing.JMenu();
+        administrativo = new javax.swing.JMenuItem();
+        docente = new javax.swing.JMenuItem();
+        estudiante = new javax.swing.JMenuItem();
+        cargos = new javax.swing.JMenuItem();
         menuRegistro = new javax.swing.JMenu();
         permisoEstudiante = new javax.swing.JMenuItem();
         permisoDocente = new javax.swing.JMenuItem();
@@ -64,11 +69,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         jMenuItem2 = new javax.swing.JMenuItem();
         menuConfig = new javax.swing.JMenu();
         usuarios = new javax.swing.JMenuItem();
-        menuArchivo = new javax.swing.JMenu();
-        administrativo = new javax.swing.JMenuItem();
-        docente = new javax.swing.JMenuItem();
-        estudiante = new javax.swing.JMenuItem();
-        cargos = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -151,6 +151,47 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuInicio.add(salir);
 
         menuBar.add(menuInicio);
+
+        menuArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/the_documents_icon.png"))); // NOI18N
+        menuArchivo.setText("Archivo");
+
+        administrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/2986.png"))); // NOI18N
+        administrativo.setText("Administrativo");
+        administrativo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                administrativoActionPerformed(evt);
+            }
+        });
+        menuArchivo.add(administrativo);
+
+        docente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/edit_group.png"))); // NOI18N
+        docente.setText("Docente");
+        docente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                docenteActionPerformed(evt);
+            }
+        });
+        menuArchivo.add(docente);
+
+        estudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
+        estudiante.setText("Estudiante");
+        estudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estudianteActionPerformed(evt);
+            }
+        });
+        menuArchivo.add(estudiante);
+
+        cargos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/el-informe-del-usuario-icono-9444-32.png"))); // NOI18N
+        cargos.setText("Cargos");
+        cargos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargosActionPerformed(evt);
+            }
+        });
+        menuArchivo.add(cargos);
+
+        menuBar.add(menuArchivo);
 
         menuRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/eliminar-usuario-icono-7266-32.png"))); // NOI18N
         menuRegistro.setText("Registro");
@@ -294,47 +335,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuConfig.add(usuarios);
 
         menuBar.add(menuConfig);
-
-        menuArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/the_documents_icon.png"))); // NOI18N
-        menuArchivo.setText("Archivo");
-
-        administrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/2986.png"))); // NOI18N
-        administrativo.setText("Administrativo");
-        administrativo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                administrativoActionPerformed(evt);
-            }
-        });
-        menuArchivo.add(administrativo);
-
-        docente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/edit_group.png"))); // NOI18N
-        docente.setText("Docente");
-        docente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                docenteActionPerformed(evt);
-            }
-        });
-        menuArchivo.add(docente);
-
-        estudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
-        estudiante.setText("Estudiante");
-        estudiante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                estudianteActionPerformed(evt);
-            }
-        });
-        menuArchivo.add(estudiante);
-
-        cargos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/el-informe-del-usuario-icono-9444-32.png"))); // NOI18N
-        cargos.setText("Cargos");
-        cargos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cargosActionPerformed(evt);
-            }
-        });
-        menuArchivo.add(cargos);
-
-        menuBar.add(menuArchivo);
 
         setJMenuBar(menuBar);
 

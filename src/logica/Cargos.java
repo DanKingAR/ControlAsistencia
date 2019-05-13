@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Cargos {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection con = postgres.conectar();
+    private Connection con = null;
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -31,6 +31,7 @@ public class Cargos {
         SQL = "SELECT * FROM cargo WHERE descripcion LIKE '%" + buscar + "%' ORDER BY descripcion ASC";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -65,6 +66,7 @@ public class Cargos {
         SQL = "SELECT * FROM cargo WHERE descripcion LIKE '%" + buscar + "%' ORDER BY descripcion ASC";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -93,6 +95,7 @@ public class Cargos {
         SQL = "INSERT INTO cargo (descripcion)"
                 + "VALUES (?)";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getCargodescripcion());
 
@@ -110,13 +113,14 @@ public class Cargos {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
 
     public boolean editar(Cargo dts) {
         SQL = "UPDATE cargo SET descripcion=?"
                 + "WHERE idcargo=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getCargodescripcion());
             pst.setInt(2, dts.getIdCargo());
@@ -135,12 +139,13 @@ public class Cargos {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
 
     public boolean eliminar(Cargo dts) {
         SQL = "DELETE FROM cargo WHERE idcargo=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, dts.getIdCargo());
 
@@ -158,7 +163,7 @@ public class Cargos {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
     
 }

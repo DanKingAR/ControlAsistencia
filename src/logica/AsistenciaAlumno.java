@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class AsistenciaAlumno {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection con = postgres.conectar();
+    private Connection con = null;
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -33,6 +33,7 @@ public class AsistenciaAlumno {
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND asp.estado='A' ORDER BY asp.fecha ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -78,6 +79,7 @@ public class AsistenciaAlumno {
                 + "WHERE asp.fecha LIKE '%" + buscar + "%' AND p.idpersonal=1 AND asp.estado='A' ORDER BY asp.fecha ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -115,6 +117,7 @@ public class AsistenciaAlumno {
         SQL = "insert into asistencia_personal (idpersonal, dni, fecha, hora_ingreso, hora_salida, idusuario)"
                 + "values (?,?,?,?,?,?)";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, dts.getIdPersonal());
             pst.setString(2, dts.getDni());
@@ -137,13 +140,14 @@ public class AsistenciaAlumno {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
 
     public boolean salida(AsistenciaAlumnos dts) {
         SQL = "UPDATE asistencia_personal SET hora_salida=?, idusuario=?"
                 + "WHERE idAsistencia=? AND fecha=? AND dni=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getHora_salida());
             pst.setInt(2, dts.getIdusuario());
@@ -171,6 +175,7 @@ public class AsistenciaAlumno {
     public boolean eliminar(AsistenciaAlumnos dts) {
         SQL = "UPDATE asistencia_personal SET estado='I' WHERE idAsistencia=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, dts.getIdAsistenciaAlumnos());
             

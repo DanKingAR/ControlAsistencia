@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Licencias {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection con = postgres.conectar();
+    private Connection con = null;
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -33,6 +33,7 @@ public class Licencias {
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND pe.idpermiso=2 AND pe.estado='A' ORDER BY nombre ASC";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -69,6 +70,7 @@ public class Licencias {
         SQL = "INSERT INTO permisos (idpermiso, dni, fecha, tiempo, tipo_licencia, perdescripcion)"
                 + "VALUES (?, ?, ?, ?, ?, ?)";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 2);
             pst.setString(2, dts.getDni());
@@ -98,6 +100,7 @@ public class Licencias {
         SQL = "UPDATE permisos SET fecha=?,tiempo=?,tipo_licencia=?,perdescripcion=?"
                 + "WHERE idpermiso=? AND dni=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setDate(1, dts.getFecha());
             pst.setString(2, dts.getTiempo());
@@ -126,6 +129,7 @@ public class Licencias {
     public boolean eliminar(Licencia dts) {
         SQL = "delete from permisos where idpermiso=? AND dni=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 2);
             pst.setString(2, dts.getDni());
@@ -144,7 +148,7 @@ public class Licencias {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
     
 }

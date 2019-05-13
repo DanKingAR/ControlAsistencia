@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class Docentes {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection con = postgres.conectar();
+    private Connection con = null;
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -54,6 +54,7 @@ public class Docentes {
                 + "FROM personal WHERE dni LIKE '%" + buscar + "' AND idpersonal=2 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -98,6 +99,7 @@ public class Docentes {
                 + "FROM personal WHERE dni LIKE '%" + buscar + "' AND idpersonal=2 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -135,6 +137,7 @@ public class Docentes {
         SQL = "INSERT INTO personal(idpersonal, nombre, fapellido, lapellido, dni, direccion, email, materia, genero, fecha_nace, telefono)" + 
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 2);
             pst.setString(2, dts.getNombre());
@@ -162,13 +165,14 @@ public class Docentes {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
 
     public boolean editar(Docente dts) {
         SQL = "UPDATE personal SET lapellido=?, telefono=?, direccion=?, email=?, materia=?"
                 + "WHERE idpersonal=2 AND dni=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getlApellido());
             pst.setString(2, dts.getTelefono());
@@ -197,6 +201,7 @@ public class Docentes {
     public boolean eliminar(Docente dts) {
         SQL = "UPDATE personal SET estado='I' WHERE idpersonal=2 AND dni?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getDni());
             int n = pst.executeUpdate();

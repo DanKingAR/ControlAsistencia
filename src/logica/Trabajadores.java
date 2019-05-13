@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Trabajadores {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection con = postgres.conectar();
+    private Connection con = null;
     private String SQL = "";
     public Integer totalRegistros;
     
@@ -32,6 +32,7 @@ public class Trabajadores {
                 + "FROM usuario WHERE dni LIKE '%" + buscar + "%' AND estado='A' ORDER BY nombre ASC";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -72,6 +73,7 @@ public class Trabajadores {
         SQL = "insert into usuario (nombre,fapellido,lapellido,dni,telefono,direccion,email,genero,login,pass,acceso,estado,fecha_ingreso)"
                 + "values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getNombres());
             pst.setString(2, dts.getFapellido());
@@ -101,13 +103,14 @@ public class Trabajadores {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
 
     public boolean editar(Trabajador dts) {
         SQL = "UPDATE usuario SET telefono=?, direccion=?, email=?, login=?, pass=?, fecha_ingreso=?"
                 + "WHERE idusuario=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getTelefono());
             pst.setString(2, dts.getDireccion());
@@ -131,12 +134,13 @@ public class Trabajadores {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
 
     public boolean eliminar(Trabajador dts) {
         SQL = "UPDATE usuario SET estado='I' WHERE idusuario=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, dts.getIdTrabajador());
 
@@ -154,7 +158,7 @@ public class Trabajadores {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
 
     public DefaultTableModel login(String login, String pass) {
@@ -167,6 +171,7 @@ public class Trabajadores {
         SQL = "SELECT idusuario, nombre, fapellido, lapellido, login, pass, acceso, estado FROM usuario WHERE login='" + login + "' AND pass='" + pass + "' AND estado='A'";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {

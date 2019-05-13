@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Alumnos {
     
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection con = postgres.conectar();
+    private Connection con = null;
     private String SQL = "";
     public int totalRegistros, totalEst, totalDocen, totalAdmin;
     
@@ -32,6 +32,7 @@ public class Alumnos {
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 1 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -79,6 +80,7 @@ public class Alumnos {
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 1 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -126,6 +128,7 @@ public class Alumnos {
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 1 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rsEst = st.executeQuery(SQL);
             while (rsEst.next()) {
@@ -173,6 +176,7 @@ public class Alumnos {
                 + " FROM personal p INNER JOIN cargo c ON p.idcargo = c.idcargo WHERE dni LIKE '%" + buscar + "%' AND p.idpersonal = 3 AND p.estado='A' ORDER BY p.nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rsAdmin = st.executeQuery(SQL);
             while (rsAdmin.next()) {
@@ -217,6 +221,7 @@ public class Alumnos {
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 2 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();            
             ResultSet rsDocen = st.executeQuery(SQL);
             while (rsDocen.next()) {                
@@ -260,6 +265,7 @@ public class Alumnos {
                 + " FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal = 1 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -300,6 +306,7 @@ public class Alumnos {
         SQL = "INSERT INTO personal(idpersonal, nombre, fapellido, lapellido, dni, direccion, genero, fecha_nace, fecha_registro, grado, grupo, telefono, sede, jornada)" + 
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 1);
             pst.setString(2, dts.getNombre());
@@ -330,7 +337,7 @@ public class Alumnos {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
 
     public boolean editar(Alumno dts) {
@@ -338,6 +345,7 @@ public class Alumnos {
                 + "SET lapellido=?, direccion=?, fecha_nace=?, fecha_registro=?, grado=?, grupo=?, telefono=?, sede=?, jornada=?"
                 + "WHERE idpersonal=1 AND dni=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getLapellido());
             pst.setString(2, dts.getDireccion());
@@ -370,6 +378,7 @@ public class Alumnos {
     public boolean eliminar(Alumno dts) {
         SQL = "UPDATE personal SET estado='I' WHERE idpersonal=1 AND dni=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getDni());
 
@@ -387,7 +396,7 @@ public class Alumnos {
                     JOptionPane.showMessageDialog(null, ex);
                 }
             }
-        }
+        } 
     }
     
 }

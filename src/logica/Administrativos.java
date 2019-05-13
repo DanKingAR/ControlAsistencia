@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class Administrativos {
 
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection con = postgres.conectar();
+    private Connection con = null;
     private String SQL = "";
     public Integer totalRegistros;
 
@@ -34,6 +34,7 @@ public class Administrativos {
                 + "WHERE p.dni LIKE '%" + buscar + "' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -81,6 +82,7 @@ public class Administrativos {
                 + "WHERE p.dni LIKE '%" + buscar + "' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -128,6 +130,7 @@ public class Administrativos {
                 + "WHERE p.dni LIKE '%" + buscar + "' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -175,6 +178,7 @@ public class Administrativos {
                 + "WHERE p.dni LIKE '%" + buscar + "' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -211,11 +215,12 @@ public class Administrativos {
     }
 
     public boolean insertar(Administrativo dts) {
-        SQL = "INSERT INTO personal(idpersonal, idcargo, nombre, fapellido, lapellido, dni, direccion, email, genero, fecha_nace, fecha_ingreso, telefono)" + 
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        SQL = "INSERT INTO personal(idpersonal, idcargo, nombre, fapellido, lapellido, dni, direccion, email, genero, fecha_nace, fecha_ingreso, telefono)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
-            pst.setInt(1, 3);            
+            pst.setInt(1, 3);
             pst.setInt(2, dts.getIdCargo());
             pst.setString(3, dts.getNombre());
             pst.setString(4, dts.getFapellido());
@@ -249,6 +254,7 @@ public class Administrativos {
         SQL = "UPDATE personal SET idcargo=?, lapellido=?, telefono=?, direccion=?, email=?, fecha_ingreso=?"
                 + "WHERE idpersonal=3 AND dni=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, dts.getIdCargo());
             pst.setString(2, dts.getLapellido());
@@ -278,9 +284,10 @@ public class Administrativos {
     public boolean eliminar(Administrativo dts) {
         SQL = "UPDATE personal SET estado='I' WHERE idpersonal=3 AND dni=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getDni());
-            
+
             int n = pst.executeUpdate();
 
             return n != 0;

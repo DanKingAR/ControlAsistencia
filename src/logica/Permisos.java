@@ -15,12 +15,12 @@ import javax.swing.table.DefaultTableModel;
  * @author Dan Arevalo
  */
 public class Permisos {
-    
+
     private final ConexionBD postgres = new ConexionBD();
-    private final Connection con = postgres.conectar();
+    private Connection con = null;
     private String SQL = "";
     public Integer totalRegistros;
-    
+
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
@@ -33,6 +33,7 @@ public class Permisos {
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND p.idpersonal = 1 AND pe.estado='A' ORDER BY nombre ASC";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -77,6 +78,7 @@ public class Permisos {
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND p.idpersonal = 1 AND pe.estado='A' ORDER BY nombre ASC";
 
         try {
+            con = postgres.conectar();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
@@ -113,6 +115,7 @@ public class Permisos {
         SQL = "insert into permisos (idpermiso,dni,fecha,tiempo,perdescripcion)"
                 + "values (?,?,?,?,?)";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 1);
             pst.setString(2, dts.getDni());
@@ -141,6 +144,7 @@ public class Permisos {
         SQL = "UPDATE permisos SET fecha=?, tiempo=?, perdescripcion=?"
                 + "WHERE idPermiso=? AND dni=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setDate(1, dts.getFecha());
             pst.setString(2, dts.getTiempo());
@@ -168,6 +172,7 @@ public class Permisos {
     public boolean eliminar(Permiso dts) {
         SQL = "UPDATE permisos SET estado='I' WHERE idPermiso=? AND dni=?";
         try {
+            con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setInt(1, 1);
             pst.setString(2, dts.getDni());
@@ -188,5 +193,5 @@ public class Permisos {
             }
         }
     }
-    
+
 }
