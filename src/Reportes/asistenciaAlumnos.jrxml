@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="asistenciaAlumnos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50f2e540-a0f8-451c-8d57-885ae86a5528">
-	<property name="ireport.zoom" value="2.143588810000003"/>
-	<property name="ireport.x" value="316"/>
+	<property name="ireport.zoom" value="1.4641000000000017"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
@@ -139,7 +139,7 @@ ORDER BY
 	<detail>
 		<band height="15" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="4" y="13" width="780" height="1" uuid="e894c49b-04ee-407c-b830-ceb479c7c9b8"/>
+				<reportElement positionType="FixRelativeToBottom" x="63" y="13" width="720" height="1" uuid="e894c49b-04ee-407c-b830-ceb479c7c9b8"/>
 			</line>
 			<frame>
 				<reportElement x="2" y="0" width="800" height="14" uuid="7fb2e61d-eaec-4dd8-bd56-166a15e9ea02"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="asistenciaAdmin" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e3537cb0-4ff6-4caf-a89b-3fb63402dcb2">
 	<property name="ireport.zoom" value="1.464100000000005"/>
-	<property name="ireport.x" value="131"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
@@ -31,7 +31,7 @@ WHERE
      personal."idpersonal" = 3
  AND asistencia_personal."estado" = 'A'
 ORDER BY
-     asistencia_personal."fecha" ASC]]>
+     fecha, idasistencia ASC]]>
 	</queryString>
 	<field name="asistencia_personal_idasistencia" class="java.lang.Integer"/>
 	<field name="asistencia_personal_fecha" class="java.lang.String"/>
@@ -41,7 +41,6 @@ ORDER BY
 	<field name="personal_nombre" class="java.lang.String"/>
 	<field name="personal_apellidos" class="java.lang.String"/>
 	<field name="personal_dni" class="java.lang.String"/>
-	<sortField name="personal_nombre"/>
 	<title>
 		<band height="94" splitType="Stretch">
 			<staticText>

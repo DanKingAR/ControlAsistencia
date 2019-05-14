@@ -33,7 +33,7 @@ public class frmAsistenciaSalidaPersonal extends javax.swing.JInternalFrame {
 
         javax.swing.Timer t = new javax.swing.Timer(1000, (ActionEvent e) -> {
             Date fecha = new Date();
-            SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd");
             String fechaa = dt.format(fecha);
             FechaActual.setText(fechaa);
             dt = new SimpleDateFormat("hh:mm:ss");

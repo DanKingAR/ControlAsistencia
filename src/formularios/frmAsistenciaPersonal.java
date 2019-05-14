@@ -33,7 +33,7 @@ public class frmAsistenciaPersonal extends javax.swing.JInternalFrame {
 
         javax.swing.Timer t = new javax.swing.Timer(1000, (ActionEvent e) -> {
             Date fecha = new Date();
-            SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd");
             String fechaa = dt.format(fecha);
             FechaActual.setText(fechaa);
             dt = new SimpleDateFormat("hh:mm:ss");
@@ -227,8 +227,6 @@ public class frmAsistenciaPersonal extends javax.swing.JInternalFrame {
         HoraActual.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         FechaActual.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-
-        lblHoraSalida.setText("00:00:00");
 
         lblHoraIngreso.setText("00:00:00");
 

@@ -30,7 +30,7 @@ WHERE
      personal."idpersonal" = 2
  AND asistencia_personal."estado" = 'A'
 ORDER BY
-     asistencia_personal.fecha ASC]]>
+     asistencia_personal.fecha, idasistencia ASC]]>
 	</queryString>
 	<field name="personal_nombre" class="java.lang.String"/>
 	<field name="personal_apellidos" class="java.lang.String"/>
@@ -40,7 +40,6 @@ ORDER BY
 	<field name="asistencia_personal_hora_ingreso" class="java.lang.String"/>
 	<field name="asistencia_personal_hora_salida" class="java.lang.String"/>
 	<field name="personal_materia" class="java.lang.String"/>
-	<sortField name="personal_nombre"/>
 	<title>
 		<band height="94" splitType="Stretch">
 			<staticText>

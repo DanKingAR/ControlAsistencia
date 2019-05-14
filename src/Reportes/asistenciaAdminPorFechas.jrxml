@@ -36,7 +36,8 @@ FROM
 WHERE
      personal.idpersonal = 3
  AND asistencia_personal.estado = 'A'
- AND asistencia_personal.fecha BETWEEN $P{fechaIn} AND $P{fechaOut}]]>
+ AND asistencia_personal.fecha BETWEEN $P{fechaIn} AND $P{fechaOut}
+ORDER BY idasistencia, fecha ASC]]>
 	</queryString>
 	<field name="personal_nombre" class="java.lang.String"/>
 	<field name="personal_apellidos" class="java.lang.String"/>
