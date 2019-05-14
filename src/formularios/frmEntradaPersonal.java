@@ -47,7 +47,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
         initComponents();
         javax.swing.Timer t = new javax.swing.Timer(1000, (ActionEvent e) -> {
             Date fecha = new Date();
-            SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd");
             String fechaa = dt.format(fecha);
             FechaActual.setText(fechaa);
             dt = new SimpleDateFormat("hh:mm:ss");
@@ -242,7 +242,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
         try {
             Connection c = con.conectar();
             Date fecha = new Date();
-            SimpleDateFormat fech = new SimpleDateFormat("dd/MM/yyyy");//creamos la fecha actual que se guardara en la base de datos
+            SimpleDateFormat fech = new SimpleDateFormat("yyyy/MM/dd");//creamos la fecha actual que se guardara en la base de datos
             String fechaa = fech.format(fecha);
             PreparedStatement verificarStmt = c.prepareStatement("SELECT asistencia, dni FROM personal");
             ResultSet rs = verificarStmt.executeQuery();
@@ -251,7 +251,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                 do {
                     String asistencia = rs.getString("asistencia");
                     String clave = rs.getString("dni");
-                    if (asistencia.equals("f")) {
+                    if (asistencia.equals("false")) {
                         try {
                             PreparedStatement insertar = c.prepareStatement("INSERT INTO historial(clave_personal,fecha,estado) VALUES ('" + clave + "','" + fechaa + "','Falta');");
                             insertar.executeQuery();
@@ -406,7 +406,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                 if (result.isVerified()) {
 
                     Date fecha = new Date(); 
-                    SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd");
                     String fechaa = dt.format(fecha);
                     jTable1.setValueAt(fechaa, 0, 0);
                     dt = new SimpleDateFormat("hh:mm:ss");
@@ -441,7 +441,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
         SimpleDateFormat dtdia = new SimpleDateFormat("EEEE");
         String fechaaa = dtdia.format(dias);
         String diain = "e" + fechaaa;
-        String diaout = "s" + fechaaa;
+        //String diaout = "s" + fechaaa;
 
         try {
             PreparedStatement consultah = ch.prepareStatement("SELECT * FROM horario WHERE dni=?");
@@ -449,16 +449,11 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
             ResultSet res = consultah.executeQuery();
             while (res.next()) {
                 String edia = res.getString(diain);
-                String sdia = res.getString(diaout);
+                //String sdia = res.getString(diaout);
 
                 Date hora = new Date();
                 SimpleDateFormat dt = new SimpleDateFormat("HH:mm");
                 String horatabla = edia;
-                try {
-                    Date htabla = dt.parse(horatabla);
-                } catch (ParseException ex) {
-                    Logger.getLogger(frmEntradaPersonal.class.getName()).log(Level.SEVERE, null, ex);
-                }
                 Date htabla;
                 try {
                     htabla = dt.parse(horatabla);
@@ -476,7 +471,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
 
                 int horaminutos_entrada = (hbase * 60) + mbase, horaminutos_actual = (hactual * 60) + mactual;
                 Date fecha = new Date();
-                SimpleDateFormat fech = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat fech = new SimpleDateFormat("yyyy/MM/dd");
                 String fechaa = fech.format(fecha);
 
                 if (horaminutos_entrada < horaminutos_actual) {
