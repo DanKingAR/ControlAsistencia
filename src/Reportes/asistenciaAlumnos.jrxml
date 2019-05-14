@@ -31,7 +31,7 @@ WHERE
      personal."idpersonal" = 1
  AND asistencia_personal."estado" = 'A'
 ORDER BY
-     asistencia_personal."fecha" ASC]]>
+     asistencia_personal."fecha", idasistencia ASC]]>
 	</queryString>
 	<field name="asistencia_personal_idasistencia" class="java.lang.Integer"/>
 	<field name="asistencia_personal_fecha" class="java.lang.String"/>

@@ -37,7 +37,7 @@ WHERE
  AND asistencia_personal.estado = 'A'
  AND asistencia_personal.fecha BETWEEN $P{fechaIn} AND $P{fechaOut}
 ORDER BY
-     asistencia_personal.fecha ASC]]>
+     asistencia_personal.fecha, idasistencia ASC]]>
 	</queryString>
 	<field name="personal_nombre" class="java.lang.String"/>
 	<field name="personal_apellidos" class="java.lang.String"/>
@@ -137,7 +137,7 @@ ORDER BY
 	<detail>
 		<band height="15" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="114" y="14" width="682" height="1" uuid="93ad91c8-eca0-436c-8819-27a6e8cbc129"/>
+				<reportElement positionType="FixRelativeToBottom" x="118" y="14" width="682" height="1" uuid="93ad91c8-eca0-436c-8819-27a6e8cbc129"/>
 			</line>
 			<frame>
 				<reportElement x="115" y="0" width="685" height="14" uuid="6666c6d1-a55d-4288-8a3a-c5d94b8658a7"/>

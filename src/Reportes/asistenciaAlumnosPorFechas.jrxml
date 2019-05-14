@@ -39,7 +39,7 @@ WHERE
  AND asistencia_personal."fecha" BETWEEN $P{fecha1}
  AND $P{fecha2} 
 ORDER BY
-     asistencia_personal."fecha" ASC]]>
+     asistencia_personal."fecha", idasistencia ASC]]>
 	</queryString>
 	<field name="asistencia_personal_idasistencia" class="java.lang.Integer"/>
 	<field name="asistencia_personal_fecha" class="java.lang.String"/>
