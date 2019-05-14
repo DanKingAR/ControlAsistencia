@@ -235,55 +235,15 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         txtIdTrabajor.setEditable(false);
 
-        txtFApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFApellidoActionPerformed(evt);
-            }
-        });
-
         txtNombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombresActionPerformed(evt);
             }
         });
 
-        txtDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDniActionPerformed(evt);
-            }
-        });
-
-        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoActionPerformed(evt);
-            }
-        });
-
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
-        });
-
-        txtLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLoginActionPerformed(evt);
-            }
-        });
-
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccionar>", "A", "I" }));
-        cmbEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbEstadoActionPerformed(evt);
-            }
-        });
 
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccionar>", "Masculino", "Femenino", "Otro" }));
-        cmbGenero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbGeneroActionPerformed(evt);
-            }
-        });
 
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnGuardar.setText("GUARDAR");
@@ -309,21 +269,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             }
         });
 
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
         jLabel12.setBackground(new java.awt.Color(255, 0, 0));
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Teléfono:");
-
-        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionActionPerformed(evt);
-            }
-        });
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -334,12 +282,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         lblEstado.setText("Estado:");
 
         cmbAcceso.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccionar>", "Administrador", "Visitante", "Otro" }));
-
-        txtLApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLApellidoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -359,7 +301,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCancelar)))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,7 +498,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addComponent(jLabel16)))
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -616,51 +558,16 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtFApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFApellidoActionPerformed
-        // TODO add your handling code here:
-        txtFApellido.transferFocus();
-    }//GEN-LAST:event_txtFApellidoActionPerformed
-
     private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
         // TODO add your handling code here:
         txtNombres.transferFocus();
     }//GEN-LAST:event_txtNombresActionPerformed
-
-    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
-        // TODO add your handling code here:
-        txtDni.transferFocus();
-    }//GEN-LAST:event_txtDniActionPerformed
-
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
-        // TODO add your handling code here:
-        txtTelefono.transferFocus();
-    }//GEN-LAST:event_txtTelefonoActionPerformed
-
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-        txtEmail.transferFocus();
-    }//GEN-LAST:event_txtEmailActionPerformed
-
-    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-        // TODO add your handling code here:
-        txtLogin.transferFocus();
-    }//GEN-LAST:event_txtLoginActionPerformed
-
-    private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
-        // TODO add your handling code here:
-        cmbEstado.transferFocus();
-    }//GEN-LAST:event_cmbEstadoActionPerformed
-
-    private void cmbGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGeneroActionPerformed
-        // TODO add your handling code here:
-        cmbGenero.transferFocus();
-    }//GEN-LAST:event_cmbGeneroActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
@@ -802,20 +709,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         inhabilitar();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-        txtPassword.transferFocus();
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
-    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
-        // TODO add your handling code here:
-        txtDireccion.transferFocus();
-    }//GEN-LAST:event_txtDireccionActionPerformed
-
-    private void txtLApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLApellidoActionPerformed
-
     private void tablalistadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMouseClicked
         // TODO add your handling code here:
         btnGuardar.setText("EDITAR");
@@ -835,7 +728,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtEmail.setText(tablalistado.getValueAt(fila, 7).toString());
         cmbGenero.setSelectedItem(tablalistado.getValueAt(fila, 8).toString());
         txtLogin.setText(tablalistado.getValueAt(fila, 9).toString());
-        txtPassword.setText(tablalistado.getValueAt(fila, 10).toString());
+        txtPassword.setText(DigestUtils.md5Hex(tablalistado.getValueAt(fila, 10).toString()));
         cmbAcceso.setSelectedItem(tablalistado.getValueAt(fila, 11).toString());
         cmbEstado.setSelectedItem(tablalistado.getValueAt(fila, 12).toString());
         dcfecha_ingreso.setDate(Date.valueOf(tablalistado.getValueAt(fila, 13).toString()));
