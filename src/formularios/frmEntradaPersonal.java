@@ -110,7 +110,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
 
         FechaActual.setEditable(false);
         FechaActual.setBorder(null);
-        FechaActual.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        FechaActual.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy/MM/dd"))));
         FechaActual.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         FechaActual.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
