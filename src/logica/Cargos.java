@@ -24,7 +24,7 @@ public class Cargos {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"IdCargo", "Descripcion"};
+        String[] titulos = {"IdCargo", "Descripción"};
         String[] registros = new String[2];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -59,7 +59,7 @@ public class Cargos {
     public DefaultTableModel mostrarvista(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"IdCargo", "Descripcion"};
+        String[] titulos = {"IdCargo", "Descripción"};
         String[] registros = new String[2];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

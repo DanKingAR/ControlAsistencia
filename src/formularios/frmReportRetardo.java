@@ -114,6 +114,7 @@ public class frmReportRetardo extends javax.swing.JInternalFrame {
         lbltotalregistros.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbltotalregistros.setText("Registros:");
 
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Fecha:");
         jLabel16.setToolTipText("");

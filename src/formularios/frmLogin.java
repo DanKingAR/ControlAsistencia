@@ -19,6 +19,7 @@ public class frmLogin extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Acceso al Sistema");
         this.setLocationRelativeTo(null);
+        jScrollPane1.setVisible(false);
     }
 
     /**

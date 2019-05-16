@@ -112,8 +112,9 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
         lbltotalregistros.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbltotalregistros.setText("Registros:");
 
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("DNI:");
+        jLabel17.setText("Identificación:");
         jLabel17.setToolTipText("");
 
         tablalistadoDocen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -212,7 +213,7 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(lbltotalregistros))
         );
 

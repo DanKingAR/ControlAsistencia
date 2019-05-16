@@ -130,9 +130,9 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnNuevo" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNuevo" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGuardar" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnCancelar" max="32767" attributes="0"/>
                       </Group>
@@ -156,9 +156,9 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnNuevo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnGuardar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnCancelar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -198,7 +198,7 @@
         <Component class="javax.swing.JButton" name="btnGuardar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
+              <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="GUARDAR"/>
           </Properties>
@@ -209,7 +209,7 @@
         <Component class="javax.swing.JButton" name="btnNuevo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
+              <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NUEVO"/>
           </Properties>
@@ -220,7 +220,7 @@
         <Component class="javax.swing.JButton" name="btnCancelar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
+              <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CANCELAR"/>
           </Properties>
@@ -269,11 +269,11 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnEliminar" min="-2" pref="103" max="-2" attributes="0"/>
+                          <Component id="btnBuscar" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnSalir" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Component id="btnEliminar" min="-2" pref="100" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnSalir" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" pref="324" max="-2" attributes="0"/>
@@ -301,9 +301,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEliminar" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="btnSalir" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBuscar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnEliminar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnSalir" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="141" max="-2" attributes="0"/>
@@ -326,13 +326,8 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                  </Table>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <SerializedValue value="-84,-19,0,5,115,114,0,64,111,114,103,46,110,101,116,98,101,97,110,115,46,109,111,100,117,108,101,115,46,102,111,114,109,46,101,100,105,116,111,114,115,50,46,84,97,98,108,101,77,111,100,101,108,69,100,105,116,111,114,36,78,98,84,97,98,108,101,77,111,100,101,108,-95,8,-65,-35,21,111,108,-106,12,0,0,120,114,0,36,106,97,118,97,120,46,115,119,105,110,103,46,116,97,98,108,101,46,65,98,115,116,114,97,99,116,84,97,98,108,101,77,111,100,101,108,114,-53,-21,56,-82,1,-1,-66,2,0,1,76,0,12,108,105,115,116,101,110,101,114,76,105,115,116,116,0,37,76,106,97,118,97,120,47,115,119,105,110,103,47,101,118,101,110,116,47,69,118,101,110,116,76,105,115,116,101,110,101,114,76,105,115,116,59,120,112,119,8,0,0,0,4,0,0,0,4,117,114,0,19,91,76,106,97,118,97,46,108,97,110,103,46,83,116,114,105,110,103,59,-83,-46,86,-25,-23,29,123,71,2,0,0,120,112,0,0,0,4,116,0,7,84,105,116,108,101,32,49,116,0,7,84,105,116,108,101,32,50,116,0,7,84,105,116,108,101,32,51,116,0,7,84,105,116,108,101,32,52,117,114,0,2,91,90,87,-113,32,57,20,-72,93,-30,2,0,0,120,112,0,0,0,4,1,1,1,1,116,0,16,106,97,118,97,46,108,97,110,103,46,79,98,106,101,99,116,113,0,126,0,12,113,0,126,0,12,113,0,126,0,12,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,120"/>
                 </Property>
               </Properties>
               <Events>
@@ -354,7 +349,7 @@
         <Component class="javax.swing.JButton" name="btnBuscar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
+              <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="BUSCAR"/>
           </Properties>
@@ -365,7 +360,7 @@
         <Component class="javax.swing.JButton" name="btnEliminar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
+              <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ELIMINAR"/>
           </Properties>
@@ -376,7 +371,7 @@
         <Component class="javax.swing.JButton" name="btnSalir">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="0"/>
+              <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="SALIR"/>
           </Properties>

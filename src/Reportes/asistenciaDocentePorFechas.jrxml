@@ -25,7 +25,6 @@
      personal."nombre" AS personal_nombre,
 CONCAT(personal.fapellido, ' ', personal.lapellido) AS personal_apellidos,
      personal."materia" AS personal_materia,
-     asistencia_personal."idasistencia" AS asistencia_personal_idasistencia,
      asistencia_personal."dni" AS asistencia_personal_dni,
      asistencia_personal."fecha" AS asistencia_personal_fecha,
      asistencia_personal."hora_ingreso" AS asistencia_personal_hora_ingreso,
@@ -42,7 +41,6 @@ ORDER BY
 	<field name="personal_nombre" class="java.lang.String"/>
 	<field name="personal_apellidos" class="java.lang.String"/>
 	<field name="personal_materia" class="java.lang.String"/>
-	<field name="asistencia_personal_idasistencia" class="java.lang.Integer"/>
 	<field name="asistencia_personal_dni" class="java.lang.String"/>
 	<field name="asistencia_personal_fecha" class="java.lang.String"/>
 	<field name="asistencia_personal_hora_ingreso" class="java.lang.String"/>
@@ -75,13 +73,6 @@ ORDER BY
 		<band height="14" splitType="Stretch">
 			<frame>
 				<reportElement x="115" y="0" width="685" height="14" uuid="fecde868-72ad-49d3-b436-457db9c13d9b"/>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" mode="Opaque" x="5" y="0" width="70" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="ad897f20-a2fa-41a6-8ed6-6ebf79cd780c"/>
-					<textElement textAlignment="Center">
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[N°]]></text>
-				</staticText>
 				<staticText>
 					<reportElement style="Column header" positionType="Float" mode="Opaque" x="75" y="0" width="80" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="1bd2b270-2c65-4d6b-a6d5-d5ec6cd36b05"/>
 					<textElement textAlignment="Center">
@@ -137,27 +128,20 @@ ORDER BY
 	<detail>
 		<band height="15" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="118" y="14" width="682" height="1" uuid="93ad91c8-eca0-436c-8819-27a6e8cbc129"/>
+				<reportElement positionType="FixRelativeToBottom" x="190" y="14" width="610" height="1" uuid="93ad91c8-eca0-436c-8819-27a6e8cbc129"/>
 			</line>
 			<frame>
 				<reportElement x="115" y="0" width="685" height="14" uuid="6666c6d1-a55d-4288-8a3a-c5d94b8658a7"/>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="5" y="0" width="70" height="14" uuid="818c8ec7-e67a-4d12-9b75-1d7d4844c0fd"/>
-					<textElement textAlignment="Center">
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{asistencia_personal_idasistencia}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="75" y="0" width="80" height="14" uuid="fb4ee1b4-89cd-4436-9071-4bf916c88c84"/>
-					<textElement textAlignment="Center">
+					<textElement textAlignment="Justified">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_nombre}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="155" y="0" width="105" height="14" uuid="25a6d018-887a-48da-b831-67155f329ae7"/>
-					<textElement textAlignment="Center">
+					<textElement textAlignment="Justified">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_apellidos}]]></textFieldExpression>
@@ -171,7 +155,7 @@ ORDER BY
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="260" y="0" width="80" height="14" uuid="2f5bd165-4fb6-44ec-a725-926e56e674f9"/>
-					<textElement textAlignment="Center">
+					<textElement textAlignment="Justified">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_materia}]]></textFieldExpression>

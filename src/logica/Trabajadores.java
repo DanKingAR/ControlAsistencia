@@ -24,7 +24,7 @@ public class Trabajadores {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"IdUsuario", "Nombre", "FApellido", "LApellido", "Dni", "Telefono", "Direccion", "Email", "Género", "Login", "Password", "Acceso", "Estado", "Fecha_Ingreso"};
+        String[] titulos = {"IdUsuario", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Teléfono", "Dirección", "Email", "Género", "Login", "Password", "Acceso", "Estado", "Fecha de Ingreso"};
         String[] registros = new String[14];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

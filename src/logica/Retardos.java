@@ -22,7 +22,7 @@ public class Retardos {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"Nombre", "FApellido", "LApellido", "Identificación", "Fecha", "Estado"};
+        String[] titulos = {"Nombre", "P. Apellido", "S. Apellido", "Identificación", "Fecha", "Estado"};
         String[] registros = new String[6];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

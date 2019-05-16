@@ -18,7 +18,6 @@
 		<![CDATA[SELECT
      personal."nombre" AS personal_nombre,
      CONCAT(personal.fapellido, ' ', personal.lapellido) AS personal_apellidos,
-     asistencia_personal."idasistencia" AS asistencia_personal_idasistencia,
      asistencia_personal."dni" AS asistencia_personal_dni,
      asistencia_personal."fecha" AS asistencia_personal_fecha,
      asistencia_personal."hora_ingreso" AS asistencia_personal_hora_ingreso,
@@ -34,7 +33,6 @@ ORDER BY
 	</queryString>
 	<field name="personal_nombre" class="java.lang.String"/>
 	<field name="personal_apellidos" class="java.lang.String"/>
-	<field name="asistencia_personal_idasistencia" class="java.lang.Integer"/>
 	<field name="asistencia_personal_dni" class="java.lang.String"/>
 	<field name="asistencia_personal_fecha" class="java.lang.String"/>
 	<field name="asistencia_personal_hora_ingreso" class="java.lang.String"/>
@@ -69,14 +67,7 @@ ORDER BY
 			<frame>
 				<reportElement x="4" y="0" width="800" height="14" uuid="05e74bd6-e102-4f54-be9e-40cd0fce78cb"/>
 				<staticText>
-					<reportElement style="Column header" positionType="Float" mode="Opaque" x="104" y="0" width="60" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="a963c00d-bfc1-409a-adf7-197d1ee207db"/>
-					<textElement textAlignment="Center">
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[N°]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" mode="Opaque" x="164" y="0" width="80" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="018dc0c7-6cc7-4fe9-8e1a-58639a9700cb"/>
+					<reportElement style="Column header" positionType="Float" mode="Opaque" x="159" y="0" width="85" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="018dc0c7-6cc7-4fe9-8e1a-58639a9700cb"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
 					</textElement>
@@ -130,27 +121,20 @@ ORDER BY
 	<detail>
 		<band height="15" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="109" y="14" width="685" height="1" uuid="c5a1acf2-0830-4dab-ba7d-3077d1535489"/>
+				<reportElement positionType="FixRelativeToBottom" x="163" y="14" width="630" height="1" uuid="c5a1acf2-0830-4dab-ba7d-3077d1535489"/>
 			</line>
 			<frame>
 				<reportElement x="4" y="0" width="800" height="14" uuid="1bac6b7c-a1ca-4169-9ef6-3bb7bbbc789d"/>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="104" y="0" width="60" height="14" uuid="3bbd8458-d2b3-430e-b8ea-90c43103c967"/>
-					<textElement textAlignment="Center">
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{asistencia_personal_idasistencia}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="164" y="0" width="80" height="14" uuid="fc8dc1ff-f87a-4a42-97fd-579a8afd1eee"/>
-					<textElement textAlignment="Center">
+					<reportElement style="Detail" positionType="Float" x="159" y="0" width="85" height="14" uuid="fc8dc1ff-f87a-4a42-97fd-579a8afd1eee"/>
+					<textElement textAlignment="Justified">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_nombre}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="244" y="0" width="110" height="14" uuid="6cc4d092-8936-41c3-a4d7-ec8110063744"/>
-					<textElement textAlignment="Center">
+					<textElement textAlignment="Justified">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_apellidos}]]></textFieldExpression>
@@ -164,7 +148,7 @@ ORDER BY
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="354" y="0" width="85" height="14" uuid="d27b6850-adb0-44c9-9517-54783ab460d9"/>
-					<textElement textAlignment="Center">
+					<textElement textAlignment="Justified">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_materia}]]></textFieldExpression>

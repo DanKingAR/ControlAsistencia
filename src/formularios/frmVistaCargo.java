@@ -98,7 +98,7 @@ public class frmVistaCargo extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Descripcion:");
+        jLabel16.setText("Descripción:");
         jLabel16.setToolTipText("");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

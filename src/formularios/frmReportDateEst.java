@@ -83,7 +83,7 @@ public class frmReportDateEst extends javax.swing.JFrame {
         });
 
         lblFechaIn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblFechaIn.setText("Fecha Inicio:");
+        lblFechaIn.setText("Fecha de Inicio:");
 
         lblFechaOut.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblFechaOut.setText("Fecha Final:");
@@ -100,7 +100,7 @@ public class frmReportDateEst extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(15, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblFechaIn)
                             .addComponent(lblFechaOut))

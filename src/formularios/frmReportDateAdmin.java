@@ -70,7 +70,7 @@ public class frmReportDateAdmin extends javax.swing.JFrame {
         lblFechaOut.setText("Fecha Final:");
 
         lblFechaIn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblFechaIn.setText("Fecha Inicio:");
+        lblFechaIn.setText("Fecha de Inicio:");
 
         btnGenerar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnGenerar.setText("GENERAR");

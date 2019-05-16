@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="asistenciaAdmin" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e3537cb0-4ff6-4caf-a89b-3fb63402dcb2">
-	<property name="ireport.zoom" value="1.464100000000005"/>
+	<property name="ireport.zoom" value="1.1000000000000039"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
@@ -15,8 +15,7 @@
 	</style>
 	<subDataset name="PieChartDataset" uuid="286fbd80-d38f-4ffe-b76a-915da34e866c"/>
 	<queryString>
-		<![CDATA[SELECT
-     asistencia_personal."idasistencia" AS asistencia_personal_idasistencia,
+		<![CDATA[SELECT     
      asistencia_personal."fecha" AS asistencia_personal_fecha,
      asistencia_personal."hora_ingreso" AS asistencia_personal_hora_ingreso,
      asistencia_personal."hora_salida" AS asistencia_personal_hora_salida,
@@ -33,7 +32,6 @@ WHERE
 ORDER BY
      fecha, idasistencia ASC]]>
 	</queryString>
-	<field name="asistencia_personal_idasistencia" class="java.lang.Integer"/>
 	<field name="asistencia_personal_fecha" class="java.lang.String"/>
 	<field name="asistencia_personal_hora_ingreso" class="java.lang.String"/>
 	<field name="asistencia_personal_hora_salida" class="java.lang.String"/>
@@ -69,13 +67,6 @@ ORDER BY
 		<band height="14" splitType="Stretch">
 			<frame>
 				<reportElement x="100" y="0" width="695" height="14" uuid="62e4b296-69ed-43f9-ad35-1afed5620317"/>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" mode="Opaque" x="5" y="0" width="55" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="5aabdf63-2f55-45e4-8490-17190f8f0995"/>
-					<textElement textAlignment="Center">
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[N°]]></text>
-				</staticText>
 				<staticText>
 					<reportElement style="Column header" positionType="Float" mode="Opaque" x="60" y="0" width="80" height="14" forecolor="#006699" backcolor="#E6E6E6" uuid="45bd365b-d5a0-4e64-b3e9-476cbd8b0f02"/>
 					<textElement textAlignment="Center">
@@ -131,34 +122,27 @@ ORDER BY
 	<detail>
 		<band height="15" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="100" y="14" width="695" height="1" uuid="062127b3-d86e-4ad5-9f89-4c1f50794a0a"/>
+				<reportElement positionType="FixRelativeToBottom" x="161" y="14" width="633" height="1" uuid="062127b3-d86e-4ad5-9f89-4c1f50794a0a"/>
 			</line>
 			<frame>
 				<reportElement x="100" y="0" width="695" height="14" uuid="2542b0ac-6955-4fd6-a740-f67a38de0076"/>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="5" y="0" width="55" height="14" uuid="8e84244c-d9b0-4ccf-870e-a28a07aa10c4"/>
-					<textElement textAlignment="Center">
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{asistencia_personal_idasistencia}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="60" y="0" width="80" height="14" uuid="84ab3ea5-c3ce-4c37-8d6b-a6c64e8726cb"/>
-					<textElement textAlignment="Center">
+					<textElement textAlignment="Justified">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{cargo_descripcion}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="140" y="0" width="80" height="14" uuid="ec2db89c-5588-453a-a396-bb53e39c4803"/>
-					<textElement textAlignment="Center">
+					<textElement textAlignment="Justified">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_nombre}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="220" y="0" width="105" height="14" uuid="6f33eb2d-1682-4a2a-aa89-32a8cdca4ff4"/>
-					<textElement textAlignment="Center">
+					<textElement textAlignment="Justified">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_apellidos}]]></textFieldExpression>

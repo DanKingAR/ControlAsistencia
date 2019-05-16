@@ -140,7 +140,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Fecha Inicio:"/>
+            <Property name="text" type="java.lang.String" value="Fecha de Inicio:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnGenerar">

@@ -24,7 +24,7 @@ public class LicenAdminis {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
         
-        String[] titulos = {"ID", "Identificación", "Cargo", "Nombres", "FApellido", "LApellido", "Fecha", "Tiempo", "Tipo Licencia", "Descripcion"};
+        String[] titulos = {"ID", "Identificación", "Cargo", "Nombres", "P. Apellido", "S. Apellido", "Fecha", "Tiempo", "Tipo de Licencia", "Descripción"};
         String[] registros = new String[10];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

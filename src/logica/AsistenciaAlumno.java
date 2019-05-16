@@ -24,13 +24,13 @@ public class AsistenciaAlumno {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdAlumno", "Nombre", "FApellido", "LApellido", "Identificación", "Grado", "Grupo", "Fecha", "Hora Ingreso", "Hora Salida"};
+        String[] titulos = {"ID", "IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Grado", "Grupo", "Fecha", "Hora de Ingreso", "Hora de Salida"};
         String[] registros = new String[11];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT asp.idasistencia, asp.idpersonal, p.nombre, p.fapellido, p.lapellido, p.dni, p.grado, p.grupo, asp.fecha, asp.hora_ingreso, asp.hora_salida, usu.idusuario "
                 + "FROM usuario usu LEFT JOIN asistencia_personal asp ON usu.idusuario = asp.idusuario LEFT JOIN personal p ON asp.dni = p.dni LEFT JOIN cargo c ON p.idcargo = c.idcargo "
-                + "WHERE p.nombre LIKE '%" + buscar + "%' AND asp.estado='A' ORDER BY asp.fecha ASC;";
+                + "WHERE p.nombre LIKE '%" + buscar + "%' AND asp.estado='A' ORDER BY asp.fecha, asp.idpersonal ASC;";
 
         try {
             con = postgres.conectar();
@@ -70,13 +70,13 @@ public class AsistenciaAlumno {
     public DefaultTableModel mostrarreportealumnos(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdAlumno", "Nombre", "FApellido", "LApellido", "Identificación", "Grado", "Grupo", "Fecha", "Hora Ingreso", "Hora Salida"};
+        String[] titulos = {"ID", "IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Grado", "Grupo", "Fecha", "Hora de Ingreso", "Hora de Salida"};
         String[] registros = new String[11];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT asp.idasistencia, asp.idpersonal, p.nombre, p.fapellido, p.lapellido, p.dni, p.grado, p.grupo, asp.fecha, asp.hora_ingreso, asp.hora_salida, usu.idusuario "
                 + "FROM usuario usu LEFT JOIN asistencia_personal asp ON usu.idusuario = asp.idusuario LEFT JOIN personal p ON asp.dni = p.dni LEFT JOIN cargo c ON p.idcargo = c.idcargo "
-                + "WHERE asp.fecha LIKE '%" + buscar + "%' AND p.idpersonal=1 AND asp.estado='A' ORDER BY asp.fecha ASC;";
+                + "WHERE asp.fecha LIKE '%" + buscar + "%' AND p.idpersonal=1 AND asp.estado='A' ORDER BY asp.fecha, asp.idpersonal ASC;";
 
         try {
             con = postgres.conectar();

@@ -18,7 +18,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     public PanelInicio() {
         initComponents();
         this.setExtendedState(PanelInicio.MAXIMIZED_BOTH);
-        this.setTitle("SISTEMA DE CONTROL DE ASISTENCIA BIOMETRICO");
+        this.setTitle("SISTEMA DE CONTROL DE ASISTENCIA");
         
         h1 = new Thread(this);
         h1.start();

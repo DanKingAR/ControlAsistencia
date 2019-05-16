@@ -157,7 +157,7 @@
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Descripcion:"/>
+            <Property name="text" type="java.lang.String" value="Descripci&#xf3;n:"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>

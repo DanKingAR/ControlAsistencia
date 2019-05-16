@@ -46,7 +46,7 @@ public class Docentes {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "Nombre", "FApellido", "LApellido", "Género", "Dni", "Teléfono", "Dirección", "Email", "Materia", "Fecha Nacimiento"};
+        String[] titulos = {"ID", "Nombre", "P. Apellido", "S. Apellido", "Género", "Identificación", "Teléfono", "Dirección", "Email", "Materia", "Fecha de Nacimiento"};
         String[] registros = new String[11];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -91,7 +91,7 @@ public class Docentes {
     public DefaultTableModel mostrarvistadocente(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "Nombre", "FApellido", "LApellido", "Género", "Dni", "Teléfono", "Dirección", "Email", "Materia", "Fecha Nacimiento"};
+        String[] titulos = {"ID", "Nombre", "P. Apellido", "S. Apellido", "Género", "Identificación", "Teléfono", "Dirección", "Email", "Materia", "Fecha de Nacimiento"};
         String[] registros = new String[11];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

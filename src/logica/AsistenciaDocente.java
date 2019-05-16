@@ -22,13 +22,13 @@ public class AsistenciaDocente {
     public DefaultTableModel mostrarasisdocentes(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdDocente", "Nombre", "FApellido", "LApellido", "Materia", "Fecha", "Hora Ingreso", "Hora Salida"};
+        String[] titulos = {"ID", "IdDocente", "Nombre", "P. Apellido", "S. Apellido", "Materia", "Fecha", "Hora de Ingreso", "Hora de Salida"};
         String[] registros = new String[9];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT asp.idasistencia, asp.idpersonal, p.nombre, p.fapellido, p.lapellido, p.materia, asp.fecha, asp.hora_ingreso, asp.hora_salida "
                 + "FROM asistencia_personal asp LEFT JOIN personal p ON asp.dni = p.dni "
-                + "WHERE asp.fecha LIKE '%" + buscar + "%' AND p.idpersonal = 2 AND asp.estado='A' ORDER BY asp.fecha ASC";
+                + "WHERE asp.fecha LIKE '%" + buscar + "%' AND p.idpersonal = 2 AND asp.estado='A' ORDER BY asp.fecha, asp.idpersonal ASC";
 
         try {
             Statement st = con.createStatement();

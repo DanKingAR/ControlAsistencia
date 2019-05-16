@@ -24,7 +24,7 @@ public class Alumnos {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"IdAlumno", "Nombre", "Fapellido", "LApellido", "Dni", "Direccion", "Género", "Fecha Nacimiento", "Fecha Registro", "Grado", "Seccion", "Teléfono", "Sede", "Jornada"};
+        String[] titulos = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Sección", "Teléfono", "Sede", "Jornada"};
         String[] registros = new String[14];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -72,7 +72,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_ingresopersonal(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"IdAlumno", "Nombre", "Fapellido", "LApellido", "Dni", "Direccion", "Género", "Fecha Nacimiento", "Fecha Registro", "Grado", "Seccion", "Teléfono", "Sede", "Jornada"};
+        String[] titulos = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Sección", "Teléfono", "Sede", "Jornada"};
         String[] registros = new String[14];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -120,7 +120,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_salidapersonal(String buscar) {
         DefaultTableModel modeloEst;
 
-        String[] titulosEst = {"IdPersonal", "Nombre", "Fapellido", "LApellido", "Identificación", "Direccion", "Género", "Fecha Nacimiento", "Fecha Registro", "Grado", "Seccion", "Teléfono", "Sede", "Jornada"};
+        String[] titulosEst = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Sección", "Teléfono", "Sede", "Jornada"};
         String[] registros = new String[14];
         totalEst = 0;
         modeloEst = new DefaultTableModel(null, titulosEst);
@@ -168,7 +168,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_salidapersonalAdmin(String buscar) {
         DefaultTableModel modeloAdmin;
 
-        String[] titulosAdmin = {"Cargo", "Nombre", "Fapellido", "LApellido", "Identificación", "Direccion", "Email", "Género", "Fecha de Nacimiento", "Fecha de Ingreso", "Teléfono"};
+        String[] titulosAdmin = {"Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Email", "Género", "Fecha de Nacimiento", "Fecha de Ingreso", "Teléfono"};
         String[] registros = new String[11];
         totalAdmin = 0;
         modeloAdmin = new DefaultTableModel(null, titulosAdmin);
@@ -213,7 +213,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_salidapersonalDocen(String buscar) {
         DefaultTableModel modeloDocen;
 
-        String[] titulosDocen = {"Nombre", "Fapellido", "LApellido", "Identificación", "Direccion", "Email", "Género", "Fecha Nacimiento", "Materia", "Teléfono"};
+        String[] titulosDocen = {"Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Email", "Género", "Fecha de Nacimiento", "Materia", "Teléfono"};
         String[] registros = new String[10];
         totalDocen = 0;
         modeloDocen = new DefaultTableModel(null, titulosDocen);
@@ -257,7 +257,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvistapersonal(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"IdAlumno", "Nombre", "Fapellido", "LApellido", "Dni", "Direccion", "Género", "Fecha Nacimiento", "Fecha Registro", "Grado", "Seccion", "Teléfono", "Sede", "Jornada"};
+        String[] titulos = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Sección", "Teléfono", "Sede", "Jornada"};
         String[] registros = new String[14];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
