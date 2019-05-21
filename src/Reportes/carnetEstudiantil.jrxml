@@ -66,7 +66,7 @@ WHERE
 				<text><![CDATA[Nombre Completo]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="295" y="13" width="150" height="20" uuid="7d92de65-bad1-4d64-8fc4-67405341ec4d"/>
+				<reportElement x="295" y="13" width="200" height="20" uuid="7d92de65-bad1-4d64-8fc4-67405341ec4d"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>

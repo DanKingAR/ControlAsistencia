@@ -18,10 +18,129 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
         mostrar("");
     }
     
+    void ancho_columnas() {
+        //Nombre
+        tablalistadoEst.getColumnModel().getColumn(1).setMaxWidth(150);
+        tablalistadoEst.getColumnModel().getColumn(1).setMinWidth(100);
+        //P. Apellido
+        tablalistadoEst.getColumnModel().getColumn(2).setMaxWidth(100);
+        tablalistadoEst.getColumnModel().getColumn(2).setMinWidth(80);
+        //S. Apellido
+        tablalistadoEst.getColumnModel().getColumn(3).setMaxWidth(100);
+        tablalistadoEst.getColumnModel().getColumn(3).setMinWidth(80);
+        //Identificación
+        tablalistadoEst.getColumnModel().getColumn(4).setMaxWidth(95);
+        tablalistadoEst.getColumnModel().getColumn(4).setMinWidth(90);
+        //Dirección
+        tablalistadoEst.getColumnModel().getColumn(5).setMaxWidth(150);
+        tablalistadoEst.getColumnModel().getColumn(5).setMinWidth(100);
+        //Género
+        tablalistadoEst.getColumnModel().getColumn(6).setMaxWidth(75);
+        tablalistadoEst.getColumnModel().getColumn(6).setMinWidth(75);
+        //Fecha de Nacimiento
+        tablalistadoEst.getColumnModel().getColumn(7).setMaxWidth(130);
+        tablalistadoEst.getColumnModel().getColumn(7).setMinWidth(130);
+        //Fecha de Registro
+        tablalistadoEst.getColumnModel().getColumn(8).setMaxWidth(115);
+        tablalistadoEst.getColumnModel().getColumn(8).setMinWidth(115);
+        //Grado
+        tablalistadoEst.getColumnModel().getColumn(9).setMaxWidth(70);
+        tablalistadoEst.getColumnModel().getColumn(9).setMinWidth(70);
+        //Grupo
+        tablalistadoEst.getColumnModel().getColumn(10).setMaxWidth(50);
+        tablalistadoEst.getColumnModel().getColumn(10).setMinWidth(50);
+        //Teléfono
+        tablalistadoEst.getColumnModel().getColumn(11).setMaxWidth(90);
+        tablalistadoEst.getColumnModel().getColumn(11).setMinWidth(90);
+        //Sede
+        tablalistadoEst.getColumnModel().getColumn(12).setMaxWidth(60);
+        tablalistadoEst.getColumnModel().getColumn(12).setMinWidth(60);
+        //Jornada
+        tablalistadoEst.getColumnModel().getColumn(13).setMaxWidth(150);
+        tablalistadoEst.getColumnModel().getColumn(13).setMinWidth(100); 
+        
+        /* ------------------------------------------------------------- */
+        
+        //Nombre
+        tablalistadoDocen.getColumnModel().getColumn(1).setMaxWidth(150);
+        tablalistadoDocen.getColumnModel().getColumn(1).setMinWidth(100);
+        //P. Apellido
+        tablalistadoDocen.getColumnModel().getColumn(2).setMaxWidth(100);
+        tablalistadoDocen.getColumnModel().getColumn(2).setMinWidth(80);
+        //S. Apellido
+        tablalistadoDocen.getColumnModel().getColumn(3).setMaxWidth(100);
+        tablalistadoDocen.getColumnModel().getColumn(3).setMinWidth(80);
+        //Identificación
+        tablalistadoDocen.getColumnModel().getColumn(4).setMaxWidth(90);
+        tablalistadoDocen.getColumnModel().getColumn(4).setMinWidth(90);
+        //Direccion
+        tablalistadoDocen.getColumnModel().getColumn(5).setMaxWidth(150);
+        tablalistadoDocen.getColumnModel().getColumn(5).setMinWidth(100);
+        //Email
+        tablalistadoDocen.getColumnModel().getColumn(6).setMaxWidth(250);
+        tablalistadoDocen.getColumnModel().getColumn(6).setMinWidth(210);
+        //Género
+        tablalistadoDocen.getColumnModel().getColumn(7).setMaxWidth(80);
+        tablalistadoDocen.getColumnModel().getColumn(7).setMinWidth(80);
+        //Fecha de Nacimiento
+        tablalistadoDocen.getColumnModel().getColumn(8).setMaxWidth(130);
+        tablalistadoDocen.getColumnModel().getColumn(8).setMinWidth(130);
+        //Materia
+        tablalistadoDocen.getColumnModel().getColumn(9).setMaxWidth(100);
+        tablalistadoDocen.getColumnModel().getColumn(9).setMinWidth(100);
+        //Teléfono
+        tablalistadoDocen.getColumnModel().getColumn(10).setMaxWidth(100);
+        tablalistadoDocen.getColumnModel().getColumn(10).setMinWidth(100);
+        
+        /* ------------------------------------------------------------- */
+        
+        //Cargo
+        tablalistadoAdmin.getColumnModel().getColumn(1).setMaxWidth(90);
+        tablalistadoAdmin.getColumnModel().getColumn(1).setMinWidth(90);
+        //Nombre
+        tablalistadoAdmin.getColumnModel().getColumn(2).setMaxWidth(150);
+        tablalistadoAdmin.getColumnModel().getColumn(2).setMinWidth(100);
+        //P. Apellido
+        tablalistadoAdmin.getColumnModel().getColumn(3).setMaxWidth(100);
+        tablalistadoAdmin.getColumnModel().getColumn(3).setMinWidth(80);
+        //S. Apellido
+        tablalistadoAdmin.getColumnModel().getColumn(4).setMaxWidth(100);
+        tablalistadoAdmin.getColumnModel().getColumn(4).setMinWidth(80);
+        //Identificación
+        tablalistadoAdmin.getColumnModel().getColumn(5).setMaxWidth(90);
+        tablalistadoAdmin.getColumnModel().getColumn(5).setMinWidth(90);
+        //Dirección
+        tablalistadoAdmin.getColumnModel().getColumn(6).setMaxWidth(150);
+        tablalistadoAdmin.getColumnModel().getColumn(6).setMinWidth(100);
+        //Email
+        tablalistadoAdmin.getColumnModel().getColumn(7).setMaxWidth(250);
+        tablalistadoAdmin.getColumnModel().getColumn(7).setMinWidth(210);
+        //Género
+        tablalistadoAdmin.getColumnModel().getColumn(8).setMaxWidth(80);
+        tablalistadoAdmin.getColumnModel().getColumn(8).setMinWidth(80);
+        //Fecha de Nacimiento
+        tablalistadoAdmin.getColumnModel().getColumn(9).setMaxWidth(130);
+        tablalistadoAdmin.getColumnModel().getColumn(9).setMinWidth(130);
+        //Fecha de Ingreso
+        tablalistadoAdmin.getColumnModel().getColumn(10).setMaxWidth(110);
+        tablalistadoAdmin.getColumnModel().getColumn(10).setMinWidth(110);
+        //Teléfono
+        tablalistadoAdmin.getColumnModel().getColumn(11).setMaxWidth(90);
+        tablalistadoAdmin.getColumnModel().getColumn(11).setMinWidth(90);
+    }
+    
     void ocultar_columnas() {
         tablalistadoEst.getColumnModel().getColumn(0).setMaxWidth(0);
         tablalistadoEst.getColumnModel().getColumn(0).setMinWidth(0);
         tablalistadoEst.getColumnModel().getColumn(0).setPreferredWidth(0);
+        
+        tablalistadoDocen.getColumnModel().getColumn(0).setMaxWidth(0);
+        tablalistadoDocen.getColumnModel().getColumn(0).setMinWidth(0);
+        tablalistadoDocen.getColumnModel().getColumn(0).setPreferredWidth(0);
+        
+        tablalistadoAdmin.getColumnModel().getColumn(0).setMaxWidth(0);
+        tablalistadoAdmin.getColumnModel().getColumn(0).setMinWidth(0);
+        tablalistadoAdmin.getColumnModel().getColumn(0).setPreferredWidth(0);
     }
 
     void mostrar(String buscar) {
@@ -36,6 +155,7 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
             tablalistadoDocen.setModel(modeloDocen);
             tablalistadoAdmin.setModel(modeloAdmin);
             ocultar_columnas();
+            ancho_columnas();
             lbltotalregistros.setText("Total Registros: " + Integer.toString(func.totalEst + func.totalDocen + func.totalAdmin));
 
         } catch (Exception e) {
@@ -53,20 +173,20 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablalistadoEst = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
         lbltotalregistros = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tablalistadoDocen = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tablalistadoAdmin = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablalistadoEst = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablalistadoDocen = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tablalistadoAdmin = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -76,25 +196,6 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista del Personal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 14))); // NOI18N
         jPanel2.setFocusTraversalPolicyProvider(true);
-
-        tablalistadoEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        tablalistadoEst.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tablalistadoEst.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tablalistadoEstMousePressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tablalistadoEst);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -117,6 +218,34 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
         jLabel17.setText("Identificación:");
         jLabel17.setToolTipText("");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Estudiantes");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Docentes");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Administrativos");
+
+        tablalistadoEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tablalistadoEst.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablalistadoEst.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablalistadoEstMousePressed(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tablalistadoEst);
+
         tablalistadoDocen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tablalistadoDocen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,7 +263,7 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                 tablalistadoDocenMousePressed(evt);
             }
         });
-        jScrollPane2.setViewportView(tablalistadoDocen);
+        jScrollPane5.setViewportView(tablalistadoDocen);
 
         tablalistadoAdmin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tablalistadoAdmin.setModel(new javax.swing.table.DefaultTableModel(
@@ -153,28 +282,16 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                 tablalistadoAdminMousePressed(evt);
             }
         });
-        jScrollPane3.setViewportView(tablalistadoAdmin);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Estudiantes");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Docentes");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("Administrativos");
+        jScrollPane6.setViewportView(tablalistadoAdmin);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(759, Short.MAX_VALUE)
+                .addContainerGap(958, Short.MAX_VALUE)
                 .addComponent(lbltotalregistros)
                 .addGap(140, 140, 140))
-            .addComponent(jScrollPane2)
-            .addComponent(jScrollPane3)
-            .addComponent(jScrollPane1)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +306,10 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addContainerGap(505, Short.MAX_VALUE))
+                .addContainerGap(704, Short.MAX_VALUE))
+            .addComponent(jScrollPane4)
+            .addComponent(jScrollPane5)
+            .addComponent(jScrollPane6)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,16 +324,16 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbltotalregistros))
         );
 
@@ -232,6 +352,51 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        mostrar(txtBuscar.getText());
+        txtBuscar.setText("");
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void tablalistadoDocenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoDocenMousePressed
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            int fila = tablalistadoDocen.getSelectedRow();
+            String cod;
+            String nombre;
+            String apellido;
+
+            cod = tablalistadoDocen.getValueAt(fila, 0).toString();
+            nombre = tablalistadoDocen.getValueAt(fila, 1).toString();
+            apellido = tablalistadoDocen.getValueAt(fila, 2).toString();
+
+            frmAsistenciaSalidaPersonal.txtIdalumno.setText(cod);
+            frmAsistenciaSalidaPersonal.txtNombres.setText(nombre);
+            frmAsistenciaSalidaPersonal.txtFApellido.setText(apellido);
+
+            this.dispose();
+        }
+    }//GEN-LAST:event_tablalistadoDocenMousePressed
+
+    private void tablalistadoAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoAdminMousePressed
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            int fila = tablalistadoAdmin.getSelectedRow();
+            String cod;
+            String nombre;
+            String apellido;
+
+            cod = tablalistadoAdmin.getValueAt(fila, 0).toString();
+            nombre = tablalistadoAdmin.getValueAt(fila, 1).toString();
+            apellido = tablalistadoAdmin.getValueAt(fila, 2).toString();
+
+            frmAsistenciaSalidaPersonal.txtIdalumno.setText(cod);
+            frmAsistenciaSalidaPersonal.txtNombres.setText(nombre);
+            frmAsistenciaSalidaPersonal.txtFApellido.setText(apellido);
+
+            this.dispose();
+        }
+    }//GEN-LAST:event_tablalistadoAdminMousePressed
 
     private void tablalistadoEstMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoEstMousePressed
         // TODO add your handling code here:
@@ -253,19 +418,6 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tablalistadoEstMousePressed
 
-    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        mostrar(txtBuscar.getText());
-        txtBuscar.setText("");
-    }//GEN-LAST:event_btnbuscarActionPerformed
-
-    private void tablalistadoDocenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoDocenMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablalistadoDocenMousePressed
-
-    private void tablalistadoAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoAdminMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tablalistadoAdminMousePressed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
@@ -278,6 +430,9 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel lbltotalregistros;
     private javax.swing.JTable tablalistadoAdmin;
     private javax.swing.JTable tablalistadoDocen;

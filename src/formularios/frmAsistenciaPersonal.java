@@ -66,10 +66,6 @@ public class frmAsistenciaPersonal extends javax.swing.JInternalFrame {
         tablalistado.getColumnModel().getColumn(1).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(1).setPreferredWidth(0);
 
-        tablalistado.getColumnModel().getColumn(0).setMaxWidth(0);
-        tablalistado.getColumnModel().getColumn(0).setMinWidth(0);
-        tablalistado.getColumnModel().getColumn(0).setPreferredWidth(0);
-
         tablalistado.getColumnModel().getColumn(8).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(8).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(8).setPreferredWidth(0);
@@ -494,9 +490,9 @@ public class frmAsistenciaPersonal extends javax.swing.JInternalFrame {
 
         txtAsistencia.setText(tablalistado.getValueAt(fila, 0).toString());
         txtIdPersonal.setText(tablalistado.getValueAt(fila, 1).toString());
-        txtNombres.setText(tablalistado.getValueAt(fila, 3).toString());
-        txtFApellido.setText(tablalistado.getValueAt(fila, 4).toString());
-        txtLApellido.setText(tablalistado.getValueAt(fila, 5).toString());
+        txtNombres.setText(tablalistado.getValueAt(fila, 2).toString());
+        txtFApellido.setText(tablalistado.getValueAt(fila, 3).toString());
+        txtLApellido.setText(tablalistado.getValueAt(fila, 4).toString());
     }//GEN-LAST:event_tablalistadoMouseClicked
 
     private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed

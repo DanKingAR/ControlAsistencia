@@ -48,7 +48,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel1" max="32767" attributes="0"/>
-                          <Component id="jSeparator1" max="32767" attributes="0"/>
+                          <Component id="jSeparator1" min="-2" pref="1017" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -63,9 +63,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="25" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="3" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
@@ -150,14 +150,14 @@
                                       <Component id="txtLogin" min="-2" pref="95" max="-2" attributes="0"/>
                                       <Component id="txtEmail" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
                                       <Component id="cmbGenero" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                      <Component id="txtDireccion" alignment="0" min="-2" pref="213" max="-2" attributes="0"/>
+                                      <Component id="txtDireccion" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
                                       <Component id="txtTelefono" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
                                       <Component id="txtDni" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                                       <Component id="txtNombres" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
                                       <Component id="txtIdTrabajor" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="txtFApellido" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txtLApellido" min="-2" pref="100" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="cmbEstado" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -533,7 +533,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel16" max="32767" attributes="0"/>
-                              <Component id="txtBuscar" pref="138" max="32767" attributes="0"/>
+                              <Component id="txtBuscar" pref="110" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnBuscar" min="-2" pref="122" max="-2" attributes="0"/>
@@ -569,6 +569,9 @@
               </Layout>
               <SubComponents>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="32"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>

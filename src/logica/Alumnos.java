@@ -120,7 +120,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_salidapersonal(String buscar) {
         DefaultTableModel modeloEst;
 
-        String[] titulosEst = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Sección", "Teléfono", "Sede", "Jornada"};
+        String[] titulosEst = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Grupo", "Teléfono", "Sede", "Jornada"};
         String[] registros = new String[14];
         totalEst = 0;
         modeloEst = new DefaultTableModel(null, titulosEst);
@@ -168,8 +168,8 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_salidapersonalAdmin(String buscar) {
         DefaultTableModel modeloAdmin;
 
-        String[] titulosAdmin = {"Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Email", "Género", "Fecha de Nacimiento", "Fecha de Ingreso", "Teléfono"};
-        String[] registros = new String[11];
+        String[] titulosAdmin = {"IdAlumno", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Email", "Género", "Fecha de Nacimiento", "Fecha de Ingreso", "Teléfono"};
+        String[] registros = new String[12];
         totalAdmin = 0;
         modeloAdmin = new DefaultTableModel(null, titulosAdmin);
         SQL = "SELECT p.idpersonal, c.idcargo, c.descripcion, p.nombre, p.fapellido, p.lapellido, p.dni, p.direccion, p.email, p.genero, p.fecha_nace, p.fecha_ingreso, p.telefono"
@@ -180,17 +180,18 @@ public class Alumnos {
             Statement st = con.createStatement();
             ResultSet rsAdmin = st.executeQuery(SQL);
             while (rsAdmin.next()) {
-                registros[0] = rsAdmin.getString("descripcion");
-                registros[1] = rsAdmin.getString("nombre");
-                registros[2] = rsAdmin.getString("fapellido");
-                registros[3] = rsAdmin.getString("lapellido");
-                registros[4] = rsAdmin.getString("dni");
-                registros[5] = rsAdmin.getString("direccion");
-                registros[6] = rsAdmin.getString("email");
-                registros[7] = rsAdmin.getString("genero");
-                registros[8] = rsAdmin.getString("fecha_nace");
-                registros[9] = rsAdmin.getString("fecha_ingreso");
-                registros[10] = rsAdmin.getString("telefono");
+                registros[0] = rsAdmin.getString("idpersonal");
+                registros[1] = rsAdmin.getString("descripcion");
+                registros[2] = rsAdmin.getString("nombre");
+                registros[3] = rsAdmin.getString("fapellido");
+                registros[4] = rsAdmin.getString("lapellido");
+                registros[5] = rsAdmin.getString("dni");
+                registros[6] = rsAdmin.getString("direccion");
+                registros[7] = rsAdmin.getString("email");
+                registros[8] = rsAdmin.getString("genero");
+                registros[9] = rsAdmin.getString("fecha_nace");
+                registros[10] = rsAdmin.getString("fecha_ingreso");
+                registros[11] = rsAdmin.getString("telefono");
 
                 totalAdmin = totalAdmin + 1;
                 modeloAdmin.addRow(registros);
@@ -213,8 +214,8 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_salidapersonalDocen(String buscar) {
         DefaultTableModel modeloDocen;
 
-        String[] titulosDocen = {"Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Email", "Género", "Fecha de Nacimiento", "Materia", "Teléfono"};
-        String[] registros = new String[10];
+        String[] titulosDocen = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Email", "Género", "Fecha de Nacimiento", "Materia", "Teléfono"};
+        String[] registros = new String[11];
         totalDocen = 0;
         modeloDocen = new DefaultTableModel(null, titulosDocen);
         SQL = "SELECT idpersonal, nombre, fapellido, lapellido, dni, direccion, email, genero, materia, fecha_nace, telefono"
@@ -224,17 +225,18 @@ public class Alumnos {
             con = postgres.conectar();
             Statement st = con.createStatement();            
             ResultSet rsDocen = st.executeQuery(SQL);
-            while (rsDocen.next()) {                
-                registros[0] = rsDocen.getString("nombre");
-                registros[1] = rsDocen.getString("fapellido");
-                registros[2] = rsDocen.getString("lapellido");
-                registros[3] = rsDocen.getString("dni");
-                registros[4] = rsDocen.getString("direccion");
-                registros[5] = rsDocen.getString("email");
-                registros[6] = rsDocen.getString("genero");
-                registros[7] = rsDocen.getString("fecha_nace");
-                registros[8] = rsDocen.getString("materia");
-                registros[9] = rsDocen.getString("telefono");
+            while (rsDocen.next()) {             
+                registros[0] = rsDocen.getString("idpersonal");
+                registros[1] = rsDocen.getString("nombre");
+                registros[2] = rsDocen.getString("fapellido");
+                registros[3] = rsDocen.getString("lapellido");
+                registros[4] = rsDocen.getString("dni");
+                registros[5] = rsDocen.getString("direccion");
+                registros[6] = rsDocen.getString("email");
+                registros[7] = rsDocen.getString("genero");
+                registros[8] = rsDocen.getString("fecha_nace");
+                registros[9] = rsDocen.getString("materia");
+                registros[10] = rsDocen.getString("telefono");
                 
                 totalDocen += 1;
                 modeloDocen.addRow(registros);

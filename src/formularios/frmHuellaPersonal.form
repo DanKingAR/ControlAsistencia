@@ -28,7 +28,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="panBtns" alignment="0" min="0" max="32767" attributes="1"/>
-          <Component id="panHuellas" alignment="0" max="32767" attributes="1"/>
+          <Component id="panHuellas" alignment="0" pref="0" max="32767" attributes="1"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">

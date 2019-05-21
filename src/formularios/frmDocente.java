@@ -112,10 +112,6 @@ public class frmDocente extends javax.swing.JInternalFrame {
         tablalistado.getColumnModel().getColumn(0).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(0).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(0).setPreferredWidth(0);
-
-        tablalistado.getColumnModel().getColumn(1).setMaxWidth(0);
-        tablalistado.getColumnModel().getColumn(1).setMinWidth(0);
-        tablalistado.getColumnModel().getColumn(1).setPreferredWidth(0);
     }
 
     /**

@@ -24,8 +24,8 @@ public class AsistenciaAlumno {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Grado", "Grupo", "Fecha", "Hora de Ingreso", "Hora de Salida"};
-        String[] registros = new String[11];
+        String[] titulos = {"ID", "IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Fecha", "Hora de Ingreso", "Hora de Salida"};
+        String[] registros = new String[9];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT asp.idasistencia, asp.idpersonal, p.nombre, p.fapellido, p.lapellido, p.dni, p.grado, p.grupo, asp.fecha, asp.hora_ingreso, asp.hora_salida, usu.idusuario "
@@ -43,11 +43,9 @@ public class AsistenciaAlumno {
                 registros[3] = rs.getString("fapellido");
                 registros[4] = rs.getString("lapellido");
                 registros[5] = rs.getString("dni");
-                registros[6] = rs.getString("grado");
-                registros[7] = rs.getString("grupo");
-                registros[8] = rs.getString("fecha");
-                registros[9] = rs.getString("hora_ingreso");
-                registros[10] = rs.getString("hora_salida");
+                registros[6] = rs.getString("fecha");
+                registros[7] = rs.getString("hora_ingreso");
+                registros[8] = rs.getString("hora_salida");
 
                 totalRegistros = totalRegistros + 1;
                 modelo.addRow(registros);
