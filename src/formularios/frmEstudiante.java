@@ -82,7 +82,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
 
     void habilitar() {
         btnFoto.setEnabled(true);
-        txtIdAlumno.setEnabled(false);
+        txtIdAlumno.setVisible(false);
         lblID.setVisible(false);
         txtNombres.setEnabled(true);
         txtFApellido.setEnabled(true);

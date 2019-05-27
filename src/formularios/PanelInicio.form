@@ -24,6 +24,9 @@
               <Image iconType="3" name="/Files/INICIO.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Inicio"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="cerrarSesion">
@@ -68,6 +71,9 @@
               <Image iconType="3" name="/Files/the_documents_icon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Archivo"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -137,6 +143,9 @@
               <Image iconType="3" name="/Files/eliminar-usuario-icono-7266-32.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Registro"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="permisoEstudiante">
@@ -189,6 +198,9 @@
               <Image iconType="3" name="/Files/checkbox-checked.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Asistencia"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="IngresoEst">
@@ -241,6 +253,9 @@
               <Image iconType="3" name="/Files/tramites.gif"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reportes"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="totalEst">
@@ -263,6 +278,9 @@
                   <Image iconType="3" name="/Files/success.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Asistencias"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="asistenciaEst">
@@ -345,6 +363,9 @@
               <Image iconType="3" name="/Files/1837084.cfbfef783fe0d1f0fc44ae1c292101ab.gif"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Configuraciones"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

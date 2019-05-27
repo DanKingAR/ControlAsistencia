@@ -132,6 +132,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         menuInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/INICIO.png"))); // NOI18N
         menuInicio.setText("Inicio");
+        menuInicio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         cerrarSesion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         cerrarSesion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -159,6 +160,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         menuArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/the_documents_icon.png"))); // NOI18N
         menuArchivo.setText("Archivo");
+        menuArchivo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         administrativo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         administrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/2986.png"))); // NOI18N
@@ -204,6 +206,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         menuRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/eliminar-usuario-icono-7266-32.png"))); // NOI18N
         menuRegistro.setText("Registro");
+        menuRegistro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         permisoEstudiante.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         permisoEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
@@ -239,6 +242,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         menuAsistencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/checkbox-checked.png"))); // NOI18N
         menuAsistencia.setText("Asistencia");
+        menuAsistencia.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         IngresoEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         IngresoEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/slideshare.png"))); // NOI18N
@@ -274,6 +278,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         menuReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/tramites.gif"))); // NOI18N
         menuReportes.setText("Reportes");
+        menuReportes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         totalEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         totalEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/edit_group.png"))); // NOI18N
@@ -287,6 +292,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/success.png"))); // NOI18N
         jMenu5.setText("Asistencias");
+        jMenu5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         asistenciaEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         asistenciaEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
@@ -344,6 +350,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         menuConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/1837084.cfbfef783fe0d1f0fc44ae1c292101ab.gif"))); // NOI18N
         menuConfig.setText("Configuraciones");
+        menuConfig.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         usuarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         usuarios.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
