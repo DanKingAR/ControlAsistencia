@@ -27,6 +27,36 @@ public class frmReportAsisEst extends javax.swing.JInternalFrame {
         tablalistado.getColumnModel().getColumn(1).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(1).setPreferredWidth(0);
     }
+    
+    void ancho_columnas() {
+        //Nombre
+        tablalistado.getColumnModel().getColumn(2).setMaxWidth(150);
+        tablalistado.getColumnModel().getColumn(2).setMinWidth(100);
+        //P. Apellido
+        tablalistado.getColumnModel().getColumn(3).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(3).setMinWidth(80);
+        //S. Apellido
+        tablalistado.getColumnModel().getColumn(4).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(4).setMinWidth(80);
+        //Identificación
+        tablalistado.getColumnModel().getColumn(5).setMaxWidth(95);
+        tablalistado.getColumnModel().getColumn(5).setMinWidth(90);
+        //Grado
+        tablalistado.getColumnModel().getColumn(6).setMaxWidth(70);
+        tablalistado.getColumnModel().getColumn(6).setMinWidth(70);
+        //Grupo
+        tablalistado.getColumnModel().getColumn(7).setMaxWidth(50);
+        tablalistado.getColumnModel().getColumn(7).setMinWidth(50);
+        //Fecha
+        tablalistado.getColumnModel().getColumn(8).setMaxWidth(90);
+        tablalistado.getColumnModel().getColumn(8).setMinWidth(90);
+        //Hora de Ingreso
+        tablalistado.getColumnModel().getColumn(9).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(9).setMinWidth(100);
+        //Hora de Salida
+        tablalistado.getColumnModel().getColumn(10).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(10).setMinWidth(100);
+    }
 
     void mostrar(String buscar) {
         try {
@@ -36,6 +66,7 @@ public class frmReportAsisEst extends javax.swing.JInternalFrame {
 
             tablalistado.setModel(modelo);
             ocultar_columnas();
+            ancho_columnas();
             lbltotalregistros.setText("Total Registros: " + Integer.toString(func.totalRegistros));
 
         } catch (Exception e) {
@@ -122,7 +153,7 @@ public class frmReportAsisEst extends javax.swing.JInternalFrame {
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGenerar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

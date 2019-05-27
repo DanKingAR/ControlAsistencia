@@ -16,6 +16,48 @@ public class frmVistaEst extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
+    void ancho_columnas() {
+        //Nombre
+        tablalistado.getColumnModel().getColumn(1).setMaxWidth(150);
+        tablalistado.getColumnModel().getColumn(1).setMinWidth(100);
+        //P. Apellido
+        tablalistado.getColumnModel().getColumn(2).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(2).setMinWidth(80);
+        //S. Apellido
+        tablalistado.getColumnModel().getColumn(3).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(3).setMinWidth(80);
+        //Identificación
+        tablalistado.getColumnModel().getColumn(4).setMaxWidth(95);
+        tablalistado.getColumnModel().getColumn(4).setMinWidth(90);
+        //Dirección
+        tablalistado.getColumnModel().getColumn(5).setMaxWidth(150);
+        tablalistado.getColumnModel().getColumn(5).setMinWidth(100);
+        //Género
+        tablalistado.getColumnModel().getColumn(6).setMaxWidth(75);
+        tablalistado.getColumnModel().getColumn(6).setMinWidth(75);
+        //Fecha de Nacimiento
+        tablalistado.getColumnModel().getColumn(7).setMaxWidth(130);
+        tablalistado.getColumnModel().getColumn(7).setMinWidth(130);
+        //Fecha de Registro
+        tablalistado.getColumnModel().getColumn(8).setMaxWidth(115);
+        tablalistado.getColumnModel().getColumn(8).setMinWidth(115);
+        //Grado
+        tablalistado.getColumnModel().getColumn(9).setMaxWidth(70);
+        tablalistado.getColumnModel().getColumn(9).setMinWidth(70);
+        //Grupo
+        tablalistado.getColumnModel().getColumn(10).setMaxWidth(50);
+        tablalistado.getColumnModel().getColumn(10).setMinWidth(50);
+        //Teléfono
+        tablalistado.getColumnModel().getColumn(11).setMaxWidth(90);
+        tablalistado.getColumnModel().getColumn(11).setMinWidth(90);
+        //Sede
+        tablalistado.getColumnModel().getColumn(12).setMaxWidth(60);
+        tablalistado.getColumnModel().getColumn(12).setMinWidth(60);
+        //Jornada
+        tablalistado.getColumnModel().getColumn(13).setMaxWidth(150);
+        tablalistado.getColumnModel().getColumn(13).setMinWidth(100); 
+    }
+    
     void ocultar_columnas() {
         tablalistado.getColumnModel().getColumn(0).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(0).setMinWidth(0);
@@ -30,6 +72,7 @@ public class frmVistaEst extends javax.swing.JFrame {
 
             tablalistado.setModel(modelo);
             ocultar_columnas();
+            ancho_columnas();
             lbltotalregistros.setText("Total Registros: " + Integer.toString(func.totalRegistros));
 
         } catch (Exception e) {
@@ -56,11 +99,11 @@ public class frmVistaEst extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1185, 320));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Lista de Estudiantes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 14))); // NOI18N
         jPanel2.setFocusTraversalPolicyProvider(true);
-
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jPanel2.setPreferredSize(new java.awt.Dimension(1185, 300));
 
         tablalistado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tablalistado.setModel(new javax.swing.table.DefaultTableModel(
@@ -106,20 +149,21 @@ public class frmVistaEst extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1173, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbltotalregistros)
-                .addGap(129, 129, 129))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtBuscar))
-                .addGap(18, 18, 18)
-                .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(218, 218, 218))
+                .addGap(133, 133, 133))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,8 +176,8 @@ public class frmVistaEst extends javax.swing.JFrame {
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbltotalregistros)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -142,13 +186,11 @@ public class frmVistaEst extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

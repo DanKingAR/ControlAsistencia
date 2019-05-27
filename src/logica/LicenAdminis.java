@@ -24,7 +24,7 @@ public class LicenAdminis {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
         
-        String[] titulos = {"ID", "Identificación", "Cargo", "Nombres", "P. Apellido", "S. Apellido", "Fecha", "Tiempo", "Tipo de Licencia", "Descripción"};
+        String[] titulos = {"ID", "Cargo", "Nombres", "P. Apellido", "S. Apellido", "Identificación", "Fecha", "Tiempo", "Tipo de Licencia", "Descripción"};
         String[] registros = new String[10];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -37,11 +37,11 @@ public class LicenAdminis {
             ResultSet rs = st.executeQuery(SQL);
             while (rs.next()) {
                 registros[0] = rs.getString("idpermiso");
-                registros[1] = rs.getString("dni");
-                registros[2] = rs.getString("descripcion");
-                registros[3] = rs.getString("nombre");
-                registros[4] = rs.getString("fapellido");
-                registros[5] = rs.getString("lapellido");
+                registros[1] = rs.getString("descripcion");
+                registros[2] = rs.getString("nombre");
+                registros[3] = rs.getString("fapellido");
+                registros[4] = rs.getString("lapellido");
+                registros[5] = rs.getString("dni");
                 registros[6] = rs.getString("fecha");
                 registros[7] = rs.getString("tiempo");
                 registros[8] = rs.getString("tipo_licencia");

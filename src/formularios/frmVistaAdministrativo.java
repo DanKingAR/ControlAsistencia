@@ -16,6 +16,42 @@ public class frmVistaAdministrativo extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
+    void ancho_columnas() {
+        //Cargo
+        tablalistado.getColumnModel().getColumn(2).setMaxWidth(90);
+        tablalistado.getColumnModel().getColumn(2).setMinWidth(90);
+        //Nombre
+        tablalistado.getColumnModel().getColumn(3).setMaxWidth(150);
+        tablalistado.getColumnModel().getColumn(3).setMinWidth(100);
+        //P. Apellido
+        tablalistado.getColumnModel().getColumn(4).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(4).setMinWidth(80);
+        //S. Apellido
+        tablalistado.getColumnModel().getColumn(5).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(5).setMinWidth(80);
+        //Identificación
+        tablalistado.getColumnModel().getColumn(6).setMaxWidth(90);
+        tablalistado.getColumnModel().getColumn(6).setMinWidth(90);
+        //Teléfono
+        tablalistado.getColumnModel().getColumn(7).setMaxWidth(90);
+        tablalistado.getColumnModel().getColumn(7).setMinWidth(90);
+        //Dirección
+        tablalistado.getColumnModel().getColumn(8).setMaxWidth(150);
+        tablalistado.getColumnModel().getColumn(8).setMinWidth(100);
+        //Email
+        tablalistado.getColumnModel().getColumn(9).setMaxWidth(250);
+        tablalistado.getColumnModel().getColumn(9).setMinWidth(210);
+        //Género
+        tablalistado.getColumnModel().getColumn(10).setMaxWidth(80);
+        tablalistado.getColumnModel().getColumn(10).setMinWidth(80);
+        //Fecha de Nacimiento 
+        tablalistado.getColumnModel().getColumn(11).setMaxWidth(130);
+        tablalistado.getColumnModel().getColumn(11).setMinWidth(130);
+        //Fecha de Ingreso 
+        tablalistado.getColumnModel().getColumn(12).setMaxWidth(110);
+        tablalistado.getColumnModel().getColumn(12).setMinWidth(110);
+    }
+    
     void ocultar_columnas() {
         tablalistado.getColumnModel().getColumn(0).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(0).setMinWidth(0);
@@ -34,6 +70,7 @@ public class frmVistaAdministrativo extends javax.swing.JFrame {
 
             tablalistado.setModel(modelo);
             ocultar_columnas();
+            ancho_columnas();
             lbltotalregistros.setText("Total Registros: " + Integer.toString(func.totalRegistros));
 
         } catch (Exception e) {
@@ -108,22 +145,20 @@ public class frmVistaAdministrativo extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lbltotalregistros)
                 .addGap(129, 129, 129))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1168, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

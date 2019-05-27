@@ -26,7 +26,33 @@ public class frmReportAsisAdmin extends javax.swing.JInternalFrame {
         tablalistado.getColumnModel().getColumn(1).setMaxWidth(0);
         tablalistado.getColumnModel().getColumn(1).setMinWidth(0);
         tablalistado.getColumnModel().getColumn(1).setPreferredWidth(0);
-
+    }
+    
+    void ancho_columnas() {
+        //Cargo
+        tablalistado.getColumnModel().getColumn(2).setMaxWidth(90);
+        tablalistado.getColumnModel().getColumn(2).setMinWidth(90);
+        //Nombre
+        tablalistado.getColumnModel().getColumn(3).setMaxWidth(150);
+        tablalistado.getColumnModel().getColumn(3).setMinWidth(100);
+        //P. Apellido
+        tablalistado.getColumnModel().getColumn(4).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(4).setMinWidth(80);
+        //S. Apellido
+        tablalistado.getColumnModel().getColumn(5).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(5).setMinWidth(80);
+        //Identificación
+        tablalistado.getColumnModel().getColumn(6).setMaxWidth(90);
+        tablalistado.getColumnModel().getColumn(6).setMinWidth(90);
+        //Fecha
+        tablalistado.getColumnModel().getColumn(7).setMaxWidth(90);
+        tablalistado.getColumnModel().getColumn(7).setMinWidth(90);
+        //Hora de Ingreso
+        tablalistado.getColumnModel().getColumn(8).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(8).setMinWidth(100);
+        //Hora de Salida
+        tablalistado.getColumnModel().getColumn(9).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(9).setMinWidth(100);
     }
 
     void mostrar(String buscar) {
@@ -37,6 +63,7 @@ public class frmReportAsisAdmin extends javax.swing.JInternalFrame {
 
             tablalistado.setModel(modelo);
             ocultar_columnas();
+            ancho_columnas();
             lbltotalregistros.setText("Total Registros: " + Integer.toString(func.totalRegistros));
 
         } catch (Exception e) {
@@ -117,13 +144,13 @@ public class frmReportAsisAdmin extends javax.swing.JInternalFrame {
                 .addComponent(jLabel15)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(txtBuscar))
                 .addGap(46, 46, 46)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGenerar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,9 +174,7 @@ public class frmReportAsisAdmin extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

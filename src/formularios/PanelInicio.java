@@ -1,8 +1,11 @@
 package formularios;
 
+import java.beans.PropertyVetoException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -373,6 +376,11 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         escritorio.add(form);
         form.toFront();
         form.setVisible(true);
+        try {
+            form.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PanelInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
         y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
@@ -385,6 +393,11 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         escritorio.add(form);
         form.toFront();
         form.setVisible(true);
+        try {
+            form.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PanelInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
         y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
@@ -397,6 +410,11 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         escritorio.add(form);
         form.toFront();
         form.setVisible(true);
+        try {
+            form.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PanelInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
         y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
@@ -409,6 +427,11 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         escritorio.add(form);
         form.toFront();
         form.setVisible(true);
+        try {
+            form.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PanelInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
         y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
@@ -421,6 +444,11 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         escritorio.add(form);
         form.toFront();
         form.setVisible(true);
+        try {
+            form.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PanelInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
         y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
@@ -433,6 +461,11 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         escritorio.add(form);
         form.toFront();
         form.setVisible(true);
+        try {
+            form.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PanelInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
         y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
@@ -445,6 +478,11 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         escritorio.add(form);
         form.toFront();
         form.setVisible(true);
+        try {
+            form.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PanelInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
         y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
@@ -500,6 +538,11 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         escritorio.add(form);
         form.toFront();
         form.setVisible(true);
+        try {
+            form.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PanelInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
         y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
@@ -524,6 +567,11 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         escritorio.add(form);
         form.toFront();
         form.setVisible(true);
+        try {
+            form.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PanelInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         x = (escritorio.getWidth() / 2) - form.getWidth() / 2;
         y = (escritorio.getHeight() / 2) - form.getHeight() / 2;

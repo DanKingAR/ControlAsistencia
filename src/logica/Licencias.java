@@ -24,11 +24,11 @@ public class Licencias {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdDocente", "Nombres", "P. Apellido", "S. Apellido", "Materia", "Fecha", "Tiempo", "Tipo de Licencia", "Descripción"};
-        String[] registros = new String[10];
+        String[] titulos = {"ID", "IdDocente", "Nombres", "P. Apellido", "S. Apellido", "Identificación", "Materia", "Fecha", "Tiempo", "Tipo de Licencia", "Descripción"};
+        String[] registros = new String[11];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
-        SQL = "SELECT pe.idpermiso, pe.dni, p.nombre, p.fapellido, p.lapellido, p.materia, pe.fecha, pe.tiempo, pe.tipo_licencia, pe.perdescripcion "
+        SQL = "SELECT pe.idpermiso, pe.dni, p.nombre, p.fapellido, p.lapellido, p.dni, p.materia, pe.fecha, pe.tiempo, pe.tipo_licencia, pe.perdescripcion "
                 + "FROM permisos pe INNER JOIN personal p ON pe.dni = p.dni "
                 + "WHERE p.nombre LIKE '%" + buscar + "%' AND pe.idpermiso=2 AND pe.estado='A' ORDER BY nombre ASC";
 
@@ -42,11 +42,12 @@ public class Licencias {
                 registros[2] = rs.getString("nombre");
                 registros[3] = rs.getString("fapellido");
                 registros[4] = rs.getString("lapellido");
-                registros[5] = rs.getString("materia");
-                registros[6] = rs.getString("fecha");
-                registros[7] = rs.getString("tiempo");
-                registros[8] = rs.getString("tipo_licencia");
-                registros[9] = rs.getString("perdescripcion");
+                registros[5] = rs.getString("dni");
+                registros[6] = rs.getString("materia");
+                registros[7] = rs.getString("fecha");
+                registros[8] = rs.getString("tiempo");
+                registros[9] = rs.getString("tipo_licencia");
+                registros[10] = rs.getString("perdescripcion");
 
                 totalRegistros = totalRegistros + 1;
                 modelo.addRow(registros);
