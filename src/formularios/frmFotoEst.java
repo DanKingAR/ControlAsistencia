@@ -47,12 +47,17 @@ public class frmFotoEst extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Foto del Personal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Foto:");
 
+        lblRuta.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblRuta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRuta.setText("Ruta:");
 
+        lblUrl.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        btnAbrir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAbrir.setText("Cargar Foto");
         btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

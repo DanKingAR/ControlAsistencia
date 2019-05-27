@@ -42,6 +42,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
 
     void inhabilitar() {
         btnFoto.setEnabled(false);
+        lblID.setVisible(false);
         txtIdAlumno.setEnabled(false);
         txtNombres.setEnabled(false);
         txtFApellido.setEnabled(false);
@@ -82,6 +83,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
     void habilitar() {
         btnFoto.setEnabled(true);
         txtIdAlumno.setEnabled(false);
+        lblID.setVisible(false);
         txtNombres.setEnabled(true);
         txtFApellido.setEnabled(true);
         txtLApellido.setEnabled(true);
@@ -145,7 +147,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -206,9 +208,9 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Registro de Estudiantes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 14))); // NOI18N
 
-        jLabel16.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel16.setText("ID:");
+        lblID.setBackground(new java.awt.Color(0, 0, 0));
+        lblID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblID.setText("ID:");
 
         jLabel18.setBackground(new java.awt.Color(0, 0, 0));
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -220,7 +222,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
 
         jLabel20.setBackground(new java.awt.Color(0, 0, 0));
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel20.setText("Direccion:");
+        jLabel20.setText("Dirección:");
 
         jLabel22.setBackground(new java.awt.Color(0, 0, 0));
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -285,7 +287,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(dcfecha_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
+                        .addComponent(lblID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtIdAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -352,7 +354,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtIdAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel16)
+                                .addComponent(lblID)
                                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnFoto)
                                 .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -374,7 +376,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setText("Sección:");
+        jLabel10.setText("Grupo:");
 
         cmbSeccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccionar>", "A", "B", "C", "D" }));
 
@@ -487,6 +489,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tablalistado);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel15.setText("Buscar:");
 
         txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -496,6 +499,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
         });
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/211.png"))); // NOI18N
         btnBuscar.setText("BUSCAR");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -537,16 +541,16 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
                 .addGap(135, 135, 135))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtBuscar))
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane2)
@@ -907,7 +911,6 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -928,6 +931,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lbltotalregistros;
     private javax.swing.JTable tablalistado;
     private javax.swing.JTextField txtBuscar;

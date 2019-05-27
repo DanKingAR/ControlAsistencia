@@ -63,6 +63,7 @@ public class frmHorarioAdmin extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Regristro de horario para:");
 
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/success.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +72,7 @@ public class frmHorarioAdmin extends javax.swing.JFrame {
             }
         });
 
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/Close.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -79,15 +81,19 @@ public class frmHorarioAdmin extends javax.swing.JFrame {
             }
         });
 
+        outViernes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         outViernes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00" }));
         outViernes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        outJueves.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         outJueves.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00" }));
         outJueves.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        inJueves.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         inJueves.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00" }));
         inJueves.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        inViernes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         inViernes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00" }));
         inViernes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -100,15 +106,19 @@ public class frmHorarioAdmin extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Miercoles");
 
+        inMiercoles.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         inMiercoles.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00" }));
         inMiercoles.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        outMiercoles.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         outMiercoles.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00" }));
         outMiercoles.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        outMartes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         outMartes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00" }));
         outMartes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        inMartes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         inMartes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", " " }));
         inMartes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -118,6 +128,7 @@ public class frmHorarioAdmin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Lunes");
 
+        inLunes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         inLunes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00" }));
         inLunes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         inLunes.addItemListener(new java.awt.event.ItemListener() {
@@ -126,6 +137,7 @@ public class frmHorarioAdmin extends javax.swing.JFrame {
             }
         });
 
+        outLunes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         outLunes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00" }));
         outLunes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -179,7 +191,7 @@ public class frmHorarioAdmin extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(inViernes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(outViernes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -202,7 +214,7 @@ public class frmHorarioAdmin extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clavepersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -240,7 +252,7 @@ public class frmHorarioAdmin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCancelar))
-                .addGap(25, 25, 25))
+                .addGap(16, 16, 16))
         );
 
         pack();

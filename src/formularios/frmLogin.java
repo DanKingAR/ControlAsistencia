@@ -58,7 +58,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/login-150x150.png"))); // NOI18N
 
-        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +66,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        btnIngresar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnIngresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
