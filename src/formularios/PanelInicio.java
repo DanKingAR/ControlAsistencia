@@ -79,13 +79,13 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         lblHora.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
-        lblacceso.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblacceso.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        lblFApellido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblFApellido.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        lblnombres.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblnombres.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        lblidtratabajor.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblidtratabajor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         escritorio.setLayer(lblHora, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(lblacceso, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -134,6 +134,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuInicio.setText("Inicio");
 
         cerrarSesion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        cerrarSesion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/businessman_add.png"))); // NOI18N
         cerrarSesion.setText("Cerrar Sesión");
         cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +145,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuInicio.add(cerrarSesion);
 
         salir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        salir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/Close.png"))); // NOI18N
         salir.setText("Salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +160,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/the_documents_icon.png"))); // NOI18N
         menuArchivo.setText("Archivo");
 
+        administrativo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         administrativo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/2986.png"))); // NOI18N
         administrativo.setText("Administrativo");
         administrativo.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +170,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuArchivo.add(administrativo);
 
+        docente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         docente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/edit_group.png"))); // NOI18N
         docente.setText("Docente");
         docente.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +180,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuArchivo.add(docente);
 
+        estudiante.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         estudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
         estudiante.setText("Estudiante");
         estudiante.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +190,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuArchivo.add(estudiante);
 
+        cargos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cargos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/el-informe-del-usuario-icono-9444-32.png"))); // NOI18N
         cargos.setText("Cargos");
         cargos.addActionListener(new java.awt.event.ActionListener() {
@@ -199,6 +205,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/eliminar-usuario-icono-7266-32.png"))); // NOI18N
         menuRegistro.setText("Registro");
 
+        permisoEstudiante.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         permisoEstudiante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
         permisoEstudiante.setText("Permiso Estudiante");
         permisoEstudiante.addActionListener(new java.awt.event.ActionListener() {
@@ -208,6 +215,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuRegistro.add(permisoEstudiante);
 
+        permisoDocente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         permisoDocente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/edit_group.png"))); // NOI18N
         permisoDocente.setText("Permiso Docente");
         permisoDocente.addActionListener(new java.awt.event.ActionListener() {
@@ -217,6 +225,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuRegistro.add(permisoDocente);
 
+        permisoAdmin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         permisoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/2986.png"))); // NOI18N
         permisoAdmin.setText("Permiso Administrativo");
         permisoAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -231,6 +240,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuAsistencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/checkbox-checked.png"))); // NOI18N
         menuAsistencia.setText("Asistencia");
 
+        IngresoEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         IngresoEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/slideshare.png"))); // NOI18N
         IngresoEst.setText("Ingreso Personal");
         IngresoEst.addActionListener(new java.awt.event.ActionListener() {
@@ -240,6 +250,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuAsistencia.add(IngresoEst);
 
+        salidaEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         salidaEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/salirw.png"))); // NOI18N
         salidaEst.setText("Salida Personal");
         salidaEst.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +260,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuAsistencia.add(salidaEst);
 
+        btnHuellaEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnHuellaEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/xmyspace.png.pagespeed.ic.BvO8Orln7M.png"))); // NOI18N
         btnHuellaEst.setText("Ingreso por Huella");
         btnHuellaEst.addActionListener(new java.awt.event.ActionListener() {
@@ -263,6 +275,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/tramites.gif"))); // NOI18N
         menuReportes.setText("Reportes");
 
+        totalEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         totalEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/edit_group.png"))); // NOI18N
         totalEst.setText("Total Personal");
         totalEst.addActionListener(new java.awt.event.ActionListener() {
@@ -275,6 +288,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/success.png"))); // NOI18N
         jMenu5.setText("Asistencias");
 
+        asistenciaEst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         asistenciaEst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/user_32x32.png"))); // NOI18N
         asistenciaEst.setText("Asistencia Estudiantes");
         asistenciaEst.addActionListener(new java.awt.event.ActionListener() {
@@ -284,6 +298,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         jMenu5.add(asistenciaEst);
 
+        asistenciaDocen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         asistenciaDocen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/edit_group.png"))); // NOI18N
         asistenciaDocen.setText("Asistencia Docentes");
         asistenciaDocen.addActionListener(new java.awt.event.ActionListener() {
@@ -293,6 +308,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         jMenu5.add(asistenciaDocen);
 
+        asistenciaAdmin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         asistenciaAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/2986.png"))); // NOI18N
         asistenciaAdmin.setText("Asistencia Administrativos");
         asistenciaAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -304,6 +320,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
 
         menuReportes.add(jMenu5);
 
+        retardo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         retardo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/Announcement.png"))); // NOI18N
         retardo.setText("Retardos");
         retardo.addActionListener(new java.awt.event.ActionListener() {
@@ -313,6 +330,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuReportes.add(retardo);
 
+        jMenuItem2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/Digg.png"))); // NOI18N
         jMenuItem2.setText("Carnets");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -328,6 +346,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         menuConfig.setText("Configuraciones");
 
         usuarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        usuarios.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/xmyspace.png.pagespeed.ic.BvO8Orln7M.png"))); // NOI18N
         usuarios.setText("Usuarios y Accesos");
         usuarios.addActionListener(new java.awt.event.ActionListener() {
