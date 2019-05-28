@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="asistenciaAlumnos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50f2e540-a0f8-451c-8d57-885ae86a5528">
-	<property name="ireport.zoom" value="2.5937424601000094"/>
-	<property name="ireport.x" value="1177"/>
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
@@ -14,6 +14,12 @@
 		</conditionalStyle>
 	</style>
 	<subDataset name="PieChartDataset" uuid="45e9b672-837c-4bf9-b79c-6d37ce23264b"/>
+	<parameter name="grado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="grupo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      asistencia_personal."fecha" AS asistencia_personal_fecha,
@@ -29,6 +35,8 @@ FROM
 WHERE
      personal."idpersonal" = 1
  AND asistencia_personal."estado" = 'A'
+ AND personal.grado = $P{grado}
+ AND personal.grupo = $P{grupo}
 ORDER BY
      asistencia_personal."fecha", asistencia_personal.idasistencia ASC]]>
 	</queryString>
@@ -157,7 +165,7 @@ ORDER BY
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="305" y="0" width="90" height="14" uuid="d1deebfe-3a54-4119-8b21-bb33214ad40d"/>
-					<textElement textAlignment="Justified">
+					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_dni}]]></textFieldExpression>
@@ -171,7 +179,7 @@ ORDER BY
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 					<reportElement style="Detail" positionType="Float" x="394" y="0" width="70" height="14" uuid="ff5f04b2-c081-4c13-96af-a1b7b88f0255"/>
-					<textElement textAlignment="Justified">
+					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{personal_grado}]]></textFieldExpression>

@@ -672,19 +672,19 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
 
         int fila = tablalistado.rowAtPoint(evt.getPoint());
 
-        txtIdAdministrativo.setText(tablalistado.getValueAt(fila, 0).toString());
-        txtIdCargo.setText(tablalistado.getValueAt(fila, 1).toString());
-        txtDescripcion.setText(tablalistado.getValueAt(fila, 2).toString());
-        txtNombres.setText(tablalistado.getValueAt(fila, 3).toString());
-        txtFApellido.setText(tablalistado.getValueAt(fila, 4).toString());
-        txtLApellido.setText(tablalistado.getValueAt(fila, 5).toString());
-        txtDni.setText(tablalistado.getValueAt(fila, 6).toString());
-        txtTelefono.setText(tablalistado.getValueAt(fila, 7).toString());
-        txtDireccion.setText(tablalistado.getValueAt(fila, 8).toString());
-        txtEmail.setText(tablalistado.getValueAt(fila, 9).toString());
-        cmbGenero.setSelectedItem(tablalistado.getValueAt(fila, 10).toString());
-        dcfecha_ingreso.setDate(Date.valueOf(tablalistado.getValueAt(fila, 11).toString()));
-        dcfecha_nace.setDate(Date.valueOf(tablalistado.getValueAt(fila, 12).toString()));
+        txtIdAdministrativo.setText(tablalistado.getValueAt(fila, 0).toString().trim());
+        txtIdCargo.setText(tablalistado.getValueAt(fila, 1).toString().trim());
+        txtDescripcion.setText(tablalistado.getValueAt(fila, 2).toString().trim());
+        txtNombres.setText(tablalistado.getValueAt(fila, 3).toString().trim());
+        txtFApellido.setText(tablalistado.getValueAt(fila, 4).toString().trim());
+        txtLApellido.setText(tablalistado.getValueAt(fila, 5).toString().trim());
+        txtDni.setText(tablalistado.getValueAt(fila, 6).toString().trim());
+        txtTelefono.setText(tablalistado.getValueAt(fila, 7).toString().trim());
+        txtDireccion.setText(tablalistado.getValueAt(fila, 8).toString().trim());
+        txtEmail.setText(tablalistado.getValueAt(fila, 9).toString().trim());
+        cmbGenero.setSelectedItem(tablalistado.getValueAt(fila, 10).toString().trim());
+        dcfecha_ingreso.setDate(Date.valueOf(tablalistado.getValueAt(fila, 11).toString().trim()));
+        dcfecha_nace.setDate(Date.valueOf(tablalistado.getValueAt(fila, 12).toString().trim()));
 
         btnHorario.setEnabled(true);
         btnFoto.setEnabled(true);
@@ -699,7 +699,7 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -710,7 +710,7 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
 
             if (confirmacion == 0) {
 
-                dts.setDni(txtDni.getText());
+                dts.setDni(txtDni.getText().trim());
                 func.eliminar(dts);
                 mostrar("");
                 inhabilitar();
@@ -820,14 +820,14 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
             return;
         }
 
-        dts.setIdCargo(Integer.parseInt(txtIdCargo.getText()));
-        dts.setNombre(txtNombres.getText());
-        dts.setFapellido(txtFApellido.getText());
-        dts.setLapellido(txtLApellido.getText());
-        dts.setDni(txtDni.getText());
-        dts.setTelefono(txtTelefono.getText());
-        dts.setDireccion(txtDireccion.getText());
-        dts.setEmail(txtEmail.getText());
+        dts.setIdCargo(Integer.parseInt(txtIdCargo.getText().trim()));
+        dts.setNombre(txtNombres.getText().trim());
+        dts.setFapellido(txtFApellido.getText().trim());
+        dts.setLapellido(txtLApellido.getText().trim());
+        dts.setDni(txtDni.getText().trim());
+        dts.setTelefono(txtTelefono.getText().trim());
+        dts.setDireccion(txtDireccion.getText().trim());
+        dts.setEmail(txtEmail.getText().trim());
         int seleccionado = cmbGenero.getSelectedIndex();
         dts.setSexo((String) cmbGenero.getItemAt(seleccionado));
 
@@ -848,7 +848,7 @@ public class frmAdministrativo extends javax.swing.JInternalFrame {
                 btnHuella.setEnabled(true);
             }
         } else if (accion.equals("editar")) {
-            dts.setIdAdministrativo(Integer.parseInt(txtIdAdministrativo.getText()));
+            dts.setIdAdministrativo(Integer.parseInt(txtIdAdministrativo.getText().trim()));
 
             if (func.editar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El personal fue editada satisfactoriamente", "Registro del Administrativo", JOptionPane.INFORMATION_MESSAGE);

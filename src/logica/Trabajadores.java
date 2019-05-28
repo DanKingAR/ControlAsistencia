@@ -2,13 +2,25 @@ package logica;
 
 import BD.ConexionBD;
 import datos.Trabajador;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.apache.commons.codec.binary.Base64;
 
 /**
  *
@@ -20,6 +32,52 @@ public class Trabajadores {
     private Connection con = null;
     private String SQL = "";
     public Integer totalRegistros;
+    
+    public String encriptar(String texto) {
+        String secretKey = "ControlAsistencia";
+        String encriptado = "";
+        
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digestPass = md.digest(secretKey.getBytes("UTF-8"));
+            byte[] keyBytes = Arrays.copyOf(digestPass, 24);
+            
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            Cipher cipher = Cipher.getInstance("DESede");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            
+            byte[] plainText = texto.getBytes("UTF-8");
+            byte[] buf = cipher.doFinal(plainText);
+            byte[] base64Bytes = Base64.encodeBase64(buf);
+            encriptado = new String(base64Bytes);
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException | NoSuchPaddingException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
+        }
+        
+        return encriptado;
+    }
+    
+    public String desencriptar(String txtEncriptado) {
+        String secretKey = "ControlAsistencia";
+        String encriptado = "";
+        
+        try {
+            byte[] message = Base64.decodeBase64(txtEncriptado.getBytes("UTF-8"));
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digestPass = md.digest(secretKey.getBytes("UTF-8"));
+            byte[] keyBytes = Arrays.copyOf(digestPass, 24);
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            
+            Cipher decipher = Cipher.getInstance("DESede");
+            decipher.init(Cipher.DECRYPT_MODE, key);
+            
+            byte[] plainText = decipher.doFinal(message);
+            
+            encriptado = new String(plainText, "UTF-8");
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
+        }
+        
+        return encriptado;
+    }
     
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
@@ -164,7 +222,7 @@ public class Trabajadores {
     public DefaultTableModel login(String login, String pass) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"IdTrabajador", "Nombre", "FApellido", "LApellido", "Login", "Password", "Acceso", "Estado"};
+        String[] titulos = {"IdTrabajador", "Nombre", "P. Apellido", "S. Apellido", "Login", "Password", "Acceso", "Estado"};
         String[] registros = new String[8];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

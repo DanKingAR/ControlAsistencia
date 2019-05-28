@@ -17,7 +17,6 @@ public class HiloPasos extends Thread {
         this.barra = barra;
     }
 
-    @SuppressWarnings("SleepWhileInLoop")
     @Override
     public void run() {
         int minimo = barra.getMinimum();

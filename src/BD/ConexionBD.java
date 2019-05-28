@@ -92,6 +92,78 @@ public class ConexionBD {
             Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void startReport(String origen, URL reporte, String grado, String grupo) {
+        try {
+            Class.forName(driver);
+            conn = DriverManager.getConnection(ruta + servidor + db, user, pass);
+            if (reporte == null) {
+                throw new Exception("No se encuentra el archivo de reporte maestro");
+            }
+            JasperReport jr = null;
+            try {
+                jr = (JasperReport) JRLoader.loadObject(reporte);
+            } catch (Exception e) {
+                throw new Exception("Error cargando el reporte: " + e.getMessage());
+            }
+            JasperPrint jp = null;
+            Map param = new HashMap();
+            param.clear();
+            param.put("grado", grado);
+            param.put("grupo", grupo);
+            try {
+                jp = JasperFillManager.fillReport(jr, param, conn);
+            } catch (JRException e) {
+                throw new Exception("Error llenando el reporte maestro: " + e.getMessage());
+            }
+            try {
+                JasperViewer view = new JasperViewer(jp, false);
+                view.setTitle("Reporte de Asistencia a " + origen);
+                view.setVisible(true);
+            } catch (Exception e) {
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+        } catch (Exception ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void startReportDate(String origen, URL reporte, String fechaIn, String fechaOut, String grado, String grupo) {
+        try {
+            Class.forName(driver);
+            conn = DriverManager.getConnection(ruta + servidor + db, user, pass);
+            if (reporte == null) {
+                throw new Exception("No se encuentra el archivo de reporte maestro");
+            }
+            JasperReport jr = null;
+            try {
+                jr = (JasperReport) JRLoader.loadObject(reporte);
+            } catch (Exception e) {
+                throw new Exception("Error cargando el reporte: " + e.getMessage());
+            }
+            JasperPrint jp = null;
+            Map param = new HashMap();
+            param.clear();
+            param.put("fechaIn", fechaIn);
+            param.put("fechaOut", fechaOut);
+            param.put("grado", grado);
+            param.put("grupo", grupo);
+            try {
+                jp = JasperFillManager.fillReport(jr, param, conn);
+            } catch (JRException e) {
+                throw new Exception("Error llenando el reporte maestro: " + e.getMessage());
+            }
+            try {
+                JasperViewer view = new JasperViewer(jp, false);
+                view.setTitle("Reporte de Asistencia a " + origen);
+                view.setVisible(true);
+            } catch (Exception e) {
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+        } catch (Exception ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public void startReport(String origen, URL reporte) {
         try {

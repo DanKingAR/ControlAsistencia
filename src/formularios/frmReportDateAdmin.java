@@ -14,9 +14,7 @@ public class frmReportDateAdmin extends javax.swing.JFrame {
     private final String generar[] = {"<Seleccionar una opción>", "Diario", "Intervalo"};
     private final ComboBoxModel modeloGenerar = new DefaultComboBoxModel(generar);
     private final ConexionBD conn = new ConexionBD();
-    private final URL jrxml = this.getClass().getResource("/Reportes/asistenciaAdmin.jrxml");
     private final URL jasper = this.getClass().getResource("/Reportes/asistenciaAdmin.jasper");
-    private final URL pdf = this.getClass().getResource("/Reportes/asistenciaAdmin.pdf");
 
     /**
      * Creates new form frmReportDateAdmin
@@ -180,8 +178,8 @@ public class frmReportDateAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGenerarActionPerformed
 
     private void btnGenerarDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDateActionPerformed
-        String fechaIn = txtFechaIn.getText();
-        String fechaOut = txtFechaOut.getText();
+        String fechaIn = txtFechaIn.getText().trim();
+        String fechaOut = txtFechaOut.getText().trim();
         conn.startReportDate("Administrativos", jasper, fechaIn, fechaOut);
         cmbGenerar.setModel(modeloGenerar);
     }//GEN-LAST:event_btnGenerarDateActionPerformed

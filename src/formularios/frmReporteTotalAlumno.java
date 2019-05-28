@@ -21,7 +21,7 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
     void ancho_columnas() {
         //Nombre
         tablalistadoEst.getColumnModel().getColumn(1).setMaxWidth(150);
-        tablalistadoEst.getColumnModel().getColumn(1).setMinWidth(100);
+        tablalistadoEst.getColumnModel().getColumn(1).setMinWidth(120);
         //P. Apellido
         tablalistadoEst.getColumnModel().getColumn(2).setMaxWidth(100);
         tablalistadoEst.getColumnModel().getColumn(2).setMinWidth(80);
@@ -63,7 +63,7 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
         
         //Nombre
         tablalistadoDocen.getColumnModel().getColumn(1).setMaxWidth(150);
-        tablalistadoDocen.getColumnModel().getColumn(1).setMinWidth(100);
+        tablalistadoDocen.getColumnModel().getColumn(1).setMinWidth(120);
         //P. Apellido
         tablalistadoDocen.getColumnModel().getColumn(2).setMaxWidth(100);
         tablalistadoDocen.getColumnModel().getColumn(2).setMinWidth(80);
@@ -95,8 +95,8 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
         /* ------------------------------------------------------------- */
         
         //Cargo
-        tablalistadoAdmin.getColumnModel().getColumn(1).setMaxWidth(90);
-        tablalistadoAdmin.getColumnModel().getColumn(1).setMinWidth(90);
+        tablalistadoAdmin.getColumnModel().getColumn(1).setMaxWidth(100);
+        tablalistadoAdmin.getColumnModel().getColumn(1).setMinWidth(100);
         //Nombre
         tablalistadoAdmin.getColumnModel().getColumn(2).setMaxWidth(150);
         tablalistadoAdmin.getColumnModel().getColumn(2).setMinWidth(100);
@@ -239,11 +239,6 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistadoEst.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tablalistadoEstMousePressed(evt);
-            }
-        });
         jScrollPane4.setViewportView(tablalistadoEst);
 
         tablalistadoDocen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -258,11 +253,6 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistadoDocen.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tablalistadoDocenMousePressed(evt);
-            }
-        });
         jScrollPane5.setViewportView(tablalistadoDocen);
 
         tablalistadoAdmin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -277,11 +267,6 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablalistadoAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tablalistadoAdminMousePressed(evt);
-            }
-        });
         jScrollPane6.setViewportView(tablalistadoAdmin);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -354,69 +339,9 @@ public class frmReporteTotalAlumno extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnbuscarActionPerformed
-
-    private void tablalistadoDocenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoDocenMousePressed
-        // TODO add your handling code here:
-        if (evt.getClickCount() == 2) {
-            int fila = tablalistadoDocen.getSelectedRow();
-            String cod;
-            String nombre;
-            String apellido;
-
-            cod = tablalistadoDocen.getValueAt(fila, 0).toString();
-            nombre = tablalistadoDocen.getValueAt(fila, 1).toString();
-            apellido = tablalistadoDocen.getValueAt(fila, 2).toString();
-
-            frmAsistenciaSalidaPersonal.txtIdalumno.setText(cod);
-            frmAsistenciaSalidaPersonal.txtNombres.setText(nombre);
-            frmAsistenciaSalidaPersonal.txtFApellido.setText(apellido);
-
-            this.dispose();
-        }
-    }//GEN-LAST:event_tablalistadoDocenMousePressed
-
-    private void tablalistadoAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoAdminMousePressed
-        // TODO add your handling code here:
-        if (evt.getClickCount() == 2) {
-            int fila = tablalistadoAdmin.getSelectedRow();
-            String cod;
-            String nombre;
-            String apellido;
-
-            cod = tablalistadoAdmin.getValueAt(fila, 0).toString();
-            nombre = tablalistadoAdmin.getValueAt(fila, 1).toString();
-            apellido = tablalistadoAdmin.getValueAt(fila, 2).toString();
-
-            frmAsistenciaSalidaPersonal.txtIdalumno.setText(cod);
-            frmAsistenciaSalidaPersonal.txtNombres.setText(nombre);
-            frmAsistenciaSalidaPersonal.txtFApellido.setText(apellido);
-
-            this.dispose();
-        }
-    }//GEN-LAST:event_tablalistadoAdminMousePressed
-
-    private void tablalistadoEstMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoEstMousePressed
-        // TODO add your handling code here:
-        if (evt.getClickCount() == 2) {
-            int fila = tablalistadoEst.getSelectedRow();
-            String cod;
-            String nombre;
-            String apellido;
-
-            cod = tablalistadoEst.getValueAt(fila, 0).toString();
-            nombre = tablalistadoEst.getValueAt(fila, 1).toString();
-            apellido = tablalistadoEst.getValueAt(fila, 2).toString();
-
-            frmAsistenciaSalidaPersonal.txtIdalumno.setText(cod);
-            frmAsistenciaSalidaPersonal.txtNombres.setText(nombre);
-            frmAsistenciaSalidaPersonal.txtFApellido.setText(apellido);
-
-            this.dispose();
-        }
-    }//GEN-LAST:event_tablalistadoEstMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

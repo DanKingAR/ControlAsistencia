@@ -663,13 +663,13 @@ public class frmDocente extends javax.swing.JInternalFrame {
             return;
         }
 
-        dts.setNombre(txtNombres.getText());
-        dts.setfApellido(txtFApellido.getText());
-        dts.setlApellido(txtLApellido.getText());
-        dts.setDni(txtDni.getText());
-        dts.setTelefono(txtTelefono.getText());
-        dts.setDireccion(txtDireccion.getText());
-        dts.setEmail(txtEmail.getText());
+        dts.setNombre(txtNombres.getText().trim());
+        dts.setfApellido(txtFApellido.getText().trim());
+        dts.setlApellido(txtLApellido.getText().trim());
+        dts.setDni(txtDni.getText().trim());
+        dts.setTelefono(txtTelefono.getText().trim());
+        dts.setDireccion(txtDireccion.getText().trim());
+        dts.setEmail(txtEmail.getText().trim());
         int seleccionado = cmbGenero.getSelectedIndex();
         dts.setGenero((String) cmbGenero.getItemAt(seleccionado));
         int materias = cmbMateria.getSelectedIndex();
@@ -691,7 +691,7 @@ public class frmDocente extends javax.swing.JInternalFrame {
                 btnHuella.setEnabled(true);
             }
         } else if (accion.equals("editar")) {
-            dts.setIdDocente(Integer.parseInt(txtIdDocente.getText()));
+            dts.setIdDocente(Integer.parseInt(txtIdDocente.getText().trim()));
 
             if (func.editar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El personal fue editada satisfactoriamente", "Registro del Docente", JOptionPane.INFORMATION_MESSAGE);
@@ -723,17 +723,17 @@ public class frmDocente extends javax.swing.JInternalFrame {
 
         int fila = tablalistado.rowAtPoint(evt.getPoint());
 
-        txtIdDocente.setText(tablalistado.getValueAt(fila, 0).toString());
-        txtNombres.setText(tablalistado.getValueAt(fila, 1).toString());
-        txtFApellido.setText(tablalistado.getValueAt(fila, 2).toString());
-        txtLApellido.setText(tablalistado.getValueAt(fila, 3).toString());
-        cmbGenero.setSelectedItem(tablalistado.getValueAt(fila, 4).toString());
-        txtDni.setText(tablalistado.getValueAt(fila, 5).toString());
-        txtTelefono.setText(tablalistado.getValueAt(fila, 6).toString());
-        txtDireccion.setText(tablalistado.getValueAt(fila, 7).toString());
-        txtEmail.setText(tablalistado.getValueAt(fila, 8).toString());
-        cmbMateria.setSelectedItem(tablalistado.getValueAt(fila, 9).toString());
-        dcfecha_nace.setDate(Date.valueOf(tablalistado.getValueAt(fila, 10).toString()));
+        txtIdDocente.setText(tablalistado.getValueAt(fila, 0).toString().trim());
+        txtNombres.setText(tablalistado.getValueAt(fila, 1).toString().trim());
+        txtFApellido.setText(tablalistado.getValueAt(fila, 2).toString().trim());
+        txtLApellido.setText(tablalistado.getValueAt(fila, 3).toString().trim());
+        cmbGenero.setSelectedItem(tablalistado.getValueAt(fila, 4).toString().trim());
+        txtDni.setText(tablalistado.getValueAt(fila, 5).toString().trim());
+        txtTelefono.setText(tablalistado.getValueAt(fila, 6).toString().trim());
+        txtDireccion.setText(tablalistado.getValueAt(fila, 7).toString().trim());
+        txtEmail.setText(tablalistado.getValueAt(fila, 8).toString().trim());
+        cmbMateria.setSelectedItem(tablalistado.getValueAt(fila, 9).toString().trim());
+        dcfecha_nace.setDate(Date.valueOf(tablalistado.getValueAt(fila, 10).toString().trim()));
         
         btnHorario.setEnabled(true);
         btnFoto.setEnabled(true);
@@ -748,7 +748,7 @@ public class frmDocente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -758,7 +758,7 @@ public class frmDocente extends javax.swing.JInternalFrame {
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de Eliminar el personal", "Confirmar", 2);
 
             if (confirmacion == 0) {
-                dts.setDni(txtDni.getText());
+                dts.setDni(txtDni.getText().trim());
                 func.eliminar(dts);
                 mostrar("");
                 inhabilitar();

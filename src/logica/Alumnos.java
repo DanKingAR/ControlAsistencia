@@ -24,7 +24,7 @@ public class Alumnos {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Sección", "Teléfono", "Sede", "Jornada"};
+        String[] titulos = {"IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Grupo", "Teléfono", "Sede", "Jornada"};
         String[] registros = new String[14];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -72,7 +72,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_ingresopersonal(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Sección", "Teléfono", "Sede", "Jornada"};
+        String[] titulos = {"IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Grupo", "Teléfono", "Sede", "Jornada"};
         String[] registros = new String[14];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -120,7 +120,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_salidapersonal(String buscar) {
         DefaultTableModel modeloEst;
 
-        String[] titulosEst = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Grupo", "Teléfono", "Sede", "Jornada"};
+        String[] titulosEst = {"IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Grupo", "Teléfono", "Sede", "Jornada"};
         String[] registros = new String[14];
         totalEst = 0;
         modeloEst = new DefaultTableModel(null, titulosEst);
@@ -168,7 +168,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_salidapersonalAdmin(String buscar) {
         DefaultTableModel modeloAdmin;
 
-        String[] titulosAdmin = {"IdAlumno", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Email", "Género", "Fecha de Nacimiento", "Fecha de Ingreso", "Teléfono"};
+        String[] titulosAdmin = {"IdPersonal", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Email", "Género", "Fecha de Nacimiento", "Fecha de Ingreso", "Teléfono"};
         String[] registros = new String[12];
         totalAdmin = 0;
         modeloAdmin = new DefaultTableModel(null, titulosAdmin);
@@ -214,7 +214,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvista_salidapersonalDocen(String buscar) {
         DefaultTableModel modeloDocen;
 
-        String[] titulosDocen = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Email", "Género", "Fecha de Nacimiento", "Materia", "Teléfono"};
+        String[] titulosDocen = {"IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Email", "Género", "Fecha de Nacimiento", "Materia", "Teléfono"};
         String[] registros = new String[11];
         totalDocen = 0;
         modeloDocen = new DefaultTableModel(null, titulosDocen);
@@ -259,7 +259,7 @@ public class Alumnos {
     public DefaultTableModel mostrarvistapersonal(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Sección", "Teléfono", "Sede", "Jornada"};
+        String[] titulos = {"IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Dirección", "Género", "Fecha de Nacimiento", "Fecha de Registro", "Grado", "Grupo", "Teléfono", "Sede", "Jornada"};
         String[] registros = new String[14];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

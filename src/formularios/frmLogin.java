@@ -163,41 +163,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        try {
-            Trabajadores func = new Trabajadores();
-            Trabajador dts = new Trabajador();
-            
-            String passencrypt = DigestUtils.md5Hex(txtPassword.getText());
-
-            dts.setLogin(txtUsuario.getText());
-            dts.setPassword(passencrypt);
-
-            modelo = func.login(dts.getLogin(), dts.getPassword());
-
-            tablalistado.setModel(modelo);
-
-            if (func.totalRegistros > 0) {
-                this.dispose();
-                PanelInicio form = new PanelInicio();
-                form.toFront();
-                form.setVisible(true);
-
-                String apellidos = tablalistado.getValueAt(0, 2).toString() + " " + tablalistado.getValueAt(0, 3).toString();
-
-                PanelInicio.lblidtratabajor.setText(tablalistado.getValueAt(0, 0).toString());
-                PanelInicio.lblnombres.setText(tablalistado.getValueAt(0, 1).toString());
-                PanelInicio.lblFApellido.setText(apellidos);
-                PanelInicio.lblacceso.setText(tablalistado.getValueAt(0, 6).toString());
-
-                if (!PanelInicio.lblacceso.getText().equals("Administrador")) {
-                    PanelInicio.menuArchivo.setEnabled(false);
-                    PanelInicio.menuConfig.setEnabled(false);
-                }
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Acceso Denegado", "Acceso al Sistema", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (Exception e) {
-        }
+        ingreso();
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -208,41 +174,7 @@ public class frmLogin extends javax.swing.JFrame {
     private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            try {
-                Trabajadores func = new Trabajadores();
-                Trabajador dts = new Trabajador();
-
-                String passencrypt = DigestUtils.md5Hex(txtPassword.getText());
-
-                dts.setLogin(txtUsuario.getText());
-                dts.setPassword(passencrypt);
-
-                modelo = func.login(dts.getLogin(), dts.getPassword());
-
-                tablalistado.setModel(modelo);
-
-                if (func.totalRegistros > 0) {
-                    this.dispose();
-                    PanelInicio form = new PanelInicio();
-                    form.toFront();
-                    form.setVisible(true);
-
-                    String apellidos = tablalistado.getValueAt(0, 2).toString() + " " + tablalistado.getValueAt(0, 3).toString();
-
-                    PanelInicio.lblidtratabajor.setText(tablalistado.getValueAt(0, 0).toString());
-                    PanelInicio.lblnombres.setText(tablalistado.getValueAt(0, 1).toString());
-                    PanelInicio.lblFApellido.setText(apellidos);
-                    PanelInicio.lblacceso.setText(tablalistado.getValueAt(0, 6).toString());
-
-                    if (!PanelInicio.lblacceso.getText().equals("Administrador")) {
-                        PanelInicio.menuArchivo.setEnabled(false);
-                        PanelInicio.menuConfig.setEnabled(false);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Acceso Denegado", "Acceso al Sistema", JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (Exception e) {
-            }
+            ingreso();
         }
     }//GEN-LAST:event_txtPasswordKeyPressed
 
@@ -266,9 +198,7 @@ public class frmLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new frmLogin().setVisible(true);
@@ -287,4 +217,42 @@ public class frmLogin extends javax.swing.JFrame {
     public javax.swing.JPasswordField txtPassword;
     public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private void ingreso() {
+        try {
+            Trabajadores func = new Trabajadores();
+            Trabajador dts = new Trabajador();
+            
+            String passencrypt = func.encriptar(txtPassword.getText().trim());
+
+            dts.setLogin(txtUsuario.getText().trim());
+            dts.setPassword(passencrypt);
+
+            modelo = func.login(dts.getLogin(), dts.getPassword());
+
+            tablalistado.setModel(modelo);
+
+            if (func.totalRegistros > 0) {
+                this.dispose();
+                PanelInicio form = new PanelInicio();
+                form.toFront();
+                form.setVisible(true);
+
+                String apellidos = tablalistado.getValueAt(0, 2).toString().trim() + " " + tablalistado.getValueAt(0, 3).toString().trim();
+
+                PanelInicio.lblidtratabajor.setText(tablalistado.getValueAt(0, 0).toString().trim());
+                PanelInicio.lblnombres.setText(tablalistado.getValueAt(0, 1).toString().trim());
+                PanelInicio.lblFApellido.setText(apellidos);
+                PanelInicio.lblacceso.setText(tablalistado.getValueAt(0, 6).toString().trim());
+
+                if (!PanelInicio.lblacceso.getText().equals("Administrador")) {
+                    PanelInicio.menuArchivo.setEnabled(false);
+                    PanelInicio.menuConfig.setEnabled(false);
+                }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Acceso Denegado", "Acceso al Sistema", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+        }
+    }
 }

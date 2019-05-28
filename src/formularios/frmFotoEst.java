@@ -18,7 +18,7 @@ public class frmFotoEst extends javax.swing.JFrame {
      * Creates new form frmFoto
      */
     public frmFotoEst() {
-        this.dni = frmEstudiante.txtDni.getText();
+        this.dni = frmEstudiante.txtDni.getText().trim();
         initComponents();
     }
 
@@ -159,7 +159,7 @@ public class frmFotoEst extends javax.swing.JFrame {
         ConexionBD conn = new ConexionBD();
         
         if (lblUrl.getText().trim().length() != 0 && dni.trim().length() != 0) {
-            conn.guardarImg(dni, lblUrl.getText());
+            conn.guardarImg(dni, lblUrl.getText().trim());
             JOptionPane.showMessageDialog(rootPane, "Foto guardada Correctamente");
             this.dispose();
         } else {
@@ -186,7 +186,6 @@ public class frmFotoEst extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmFotoEst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
         
         /* Create and display the form */

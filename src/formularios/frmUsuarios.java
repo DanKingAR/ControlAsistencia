@@ -7,13 +7,15 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.Trabajadores;
-import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
  * @author Dan Arevalo
  */
 public class frmUsuarios extends javax.swing.JInternalFrame {
+
+    private final Trabajadores func = new Trabajadores();
+    private final Trabajador dts = new Trabajador();
 
     /**
      * Creates new form frmUsuarios
@@ -37,7 +39,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtIdTrabajor.setVisible(false);
         lblEstado.setVisible(true);
         cmbEstado.setVisible(true);
-        
+
         txtNombres.setEnabled(false);
         txtFApellido.setEnabled(false);
         txtLApellido.setEnabled(false);
@@ -117,7 +119,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     void mostrar(String buscar) {
         try {
             DefaultTableModel modelo;
-            Trabajadores func = new Trabajadores();
             modelo = func.mostrar(buscar);
 
             tablalistado.setModel(modelo);
@@ -558,100 +559,99 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if (txtNombres.getText().length() == 0) {
             txtNombres.setForeground(Color.red);
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar un nombre de ususario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar un nombre de ususario");
             txtNombres.requestFocus();
             return;
         }
 
         if (txtFApellido.getText().length() == 0) {
             txtFApellido.setForeground(Color.red);
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar los apellidos del ususario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar los apellidos del ususario");
             txtFApellido.requestFocus();
             return;
         }
 
         if (txtDni.getText().length() == 0) {
             txtDni.setForeground(Color.red);
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar el dni de usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar la identificación de usuario");
             txtDni.requestFocus();
             return;
         }
 
         if (txtTelefono.getText().length() == 0) {
             txtTelefono.setForeground(Color.red);
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar el telefono del usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar el teléfono del usuario");
             txtTelefono.requestFocus();
             return;
         }
 
         if (txtDireccion.getText().length() == 0) {
             txtDireccion.setForeground(Color.red);
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar la direccion del usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar la dirección del usuario");
             txtDireccion.requestFocus();
             return;
         }
 
         if (txtEmail.getText().length() == 0) {
             txtEmail.setForeground(Color.red);
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar el email del usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar el email del usuario");
             txtEmail.requestFocus();
             return;
         }
 
         if (cmbGenero.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar el género del usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar el género del usuario");
             cmbGenero.requestFocus();
             return;
         }
 
         if (txtLogin.getText().length() == 0) {
             txtLogin.setForeground(Color.red);
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar el login del usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar el login del usuario");
             txtLogin.requestFocus();
             return;
         }
 
         if (txtPassword.getText().length() == 0) {
             txtPassword.setForeground(Color.red);
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar el password del usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar el password del usuario");
             txtPassword.requestFocus();
             return;
         }
 
         if (cmbAcceso.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar el modo de acceso del usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar el modo de acceso del usuario");
             cmbAcceso.requestFocus();
             return;
         }
 
         if (cmbEstado.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar el estado del usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar el estado del usuario");
             cmbEstado.requestFocus();
             return;
         }
 
         if (dcfecha_ingreso.getDate() == null) {
-            JOptionPane.showMessageDialog(rootPane, "Debes Ingresar la fecha de ingreso del usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar la fecha de ingreso del usuario");
             dcfecha_ingreso.requestFocus();
             return;
         }
 
-        Trabajador dts = new Trabajador();
-        Trabajadores func = new Trabajadores();
-
-        dts.setNombres(txtNombres.getText());
-        dts.setFapellido(txtFApellido.getText());
-        dts.setLapellido(txtLApellido.getText());
-        dts.setDni(txtDni.getText());
-        dts.setTelefono(txtTelefono.getText());
-        dts.setDireccion(txtDireccion.getText());
-        dts.setEmail(txtEmail.getText());
+        dts.setNombres(txtNombres.getText().trim());
+        dts.setFapellido(txtFApellido.getText().trim());
+        dts.setLapellido(txtLApellido.getText().trim());
+        dts.setDni(txtDni.getText().trim());
+        dts.setTelefono(txtTelefono.getText().trim());
+        dts.setDireccion(txtDireccion.getText().trim());
+        dts.setEmail(txtEmail.getText().trim());
         int seleccionado = cmbGenero.getSelectedIndex();
         dts.setSexo((String) cmbGenero.getItemAt(seleccionado));
-        dts.setLogin(txtLogin.getText());
+        dts.setLogin(txtLogin.getText().trim());
+
         String passencrypt;
-        passencrypt = DigestUtils.md5Hex(txtPassword.getText());
+        passencrypt = func.encriptar(txtPassword.getText().trim());
         dts.setPassword(passencrypt);
+
         int aseleccionado = cmbAcceso.getSelectedIndex();
         dts.setAcceso((String) cmbAcceso.getItemAt(aseleccionado));
         int eseleccionado = cmbEstado.getSelectedIndex();
@@ -703,7 +703,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -713,10 +713,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de Eliminar el Usuario", "Confirmar", 2);
 
             if (confirmacion == 0) {
-                Trabajadores func = new Trabajadores();
-                Trabajador dts = new Trabajador();
-
-                dts.setIdTrabajador(Integer.parseInt(txtIdTrabajor.getText()));
+                dts.setIdTrabajador(Integer.parseInt(txtIdTrabajor.getText().trim()));
                 func.eliminar(dts);
                 mostrar("");
                 inhabilitar();
@@ -738,20 +735,22 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         int fila = tablalistado.rowAtPoint(evt.getPoint());
 
-        txtIdTrabajor.setText(tablalistado.getValueAt(fila, 0).toString());
-        txtNombres.setText(tablalistado.getValueAt(fila, 1).toString());
-        txtFApellido.setText(tablalistado.getValueAt(fila, 2).toString());
-        txtLApellido.setText(tablalistado.getValueAt(fila, 3).toString());
-        txtDni.setText(tablalistado.getValueAt(fila, 4).toString());
-        txtTelefono.setText(tablalistado.getValueAt(fila, 5).toString());
-        txtDireccion.setText(tablalistado.getValueAt(fila, 6).toString());
-        txtEmail.setText(tablalistado.getValueAt(fila, 7).toString());
-        cmbGenero.setSelectedItem(tablalistado.getValueAt(fila, 8).toString());
-        txtLogin.setText(tablalistado.getValueAt(fila, 9).toString());
-        txtPassword.setText(tablalistado.getValueAt(fila, 10).toString());
-        cmbAcceso.setSelectedItem(tablalistado.getValueAt(fila, 11).toString());
-        cmbEstado.setSelectedItem(tablalistado.getValueAt(fila, 12).toString());
-        dcfecha_ingreso.setDate(Date.valueOf(tablalistado.getValueAt(fila, 13).toString()));
+        txtIdTrabajor.setText(tablalistado.getValueAt(fila, 0).toString().trim());
+        txtNombres.setText(tablalistado.getValueAt(fila, 1).toString().trim());
+        txtFApellido.setText(tablalistado.getValueAt(fila, 2).toString().trim());
+        txtLApellido.setText(tablalistado.getValueAt(fila, 3).toString().trim());
+        txtDni.setText(tablalistado.getValueAt(fila, 4).toString().trim());
+        txtTelefono.setText(tablalistado.getValueAt(fila, 5).toString().trim());
+        txtDireccion.setText(tablalistado.getValueAt(fila, 6).toString().trim());
+        txtEmail.setText(tablalistado.getValueAt(fila, 7).toString().trim());
+        cmbGenero.setSelectedItem(tablalistado.getValueAt(fila, 8).toString().trim());
+        txtLogin.setText(tablalistado.getValueAt(fila, 9).toString().trim());
+        String desencriptar;
+        desencriptar = func.desencriptar(tablalistado.getValueAt(fila, 10).toString().trim());
+        txtPassword.setText(desencriptar);
+        cmbAcceso.setSelectedItem(tablalistado.getValueAt(fila, 11).toString().trim());
+        cmbEstado.setSelectedItem(tablalistado.getValueAt(fila, 12).toString().trim());
+        dcfecha_ingreso.setDate(Date.valueOf(tablalistado.getValueAt(fila, 13).toString().trim()));
 
         txtNombres.setEnabled(false);
         txtFApellido.setEnabled(false);

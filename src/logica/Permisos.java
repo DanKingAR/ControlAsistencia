@@ -24,7 +24,7 @@ public class Permisos {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Grado", "Grupo", "Fecha", "Tiempo", "Descripción"};
+        String[] titulos = {"ID", "IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Grado", "Grupo", "Fecha", "Tiempo", "Descripción"};
         String[] registros = new String[11];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -70,7 +70,7 @@ public class Permisos {
     public DefaultTableModel mostrarvistapersonal(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Grado", "Sección", "Fecha", "Tiempo", "Descripción"};
+        String[] titulos = {"ID", "IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Grado", "Grupo", "Fecha", "Tiempo", "Descripción"};
         String[] registros = new String[10];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

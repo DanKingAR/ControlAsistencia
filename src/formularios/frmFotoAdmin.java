@@ -18,7 +18,7 @@ public class frmFotoAdmin extends javax.swing.JFrame {
      * Creates new form frmFotoAdmin
      */
     public frmFotoAdmin() {
-        this.dni = frmAdministrativo.txtDni.getText();
+        this.dni = frmAdministrativo.txtDni.getText().trim();
         initComponents();
     }
 
@@ -153,7 +153,7 @@ public class frmFotoAdmin extends javax.swing.JFrame {
         ConexionBD conn = new ConexionBD();
 
         if (lblUrl.getText().trim().length() != 0 && dni.trim().length() != 0) {
-            conn.guardarImg(dni, lblUrl.getText());
+            conn.guardarImg(dni, lblUrl.getText().trim());
             JOptionPane.showMessageDialog(rootPane, "Foto guardada Correctamente");
             this.dispose();
         } else {

@@ -159,8 +159,8 @@ public class frmVistaCargo extends javax.swing.JFrame {
             String cod;
             String valor;
 
-            cod = tablalistado.getValueAt(fila, 0).toString();
-            valor = tablalistado.getValueAt(fila, 1).toString();
+            cod = tablalistado.getValueAt(fila, 0).toString().trim();
+            valor = tablalistado.getValueAt(fila, 1).toString().trim();
 
             frmAdministrativo.txtIdCargo.setText(cod);
             frmAdministrativo.txtDescripcion.setText(valor);
@@ -169,7 +169,7 @@ public class frmVistaCargo extends javax.swing.JFrame {
     }//GEN-LAST:event_tablalistadoMousePressed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 

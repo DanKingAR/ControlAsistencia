@@ -144,7 +144,7 @@
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="txtNombres" min="-2" pref="209" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btnBuscarAdministrativo" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="btnBuscarDocente" min="-2" pref="35" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtDni" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtMateria" alignment="0" max="32767" attributes="0"/>
@@ -183,7 +183,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel3" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="txtNombres" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnBuscarAdministrativo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBuscarDocente" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -319,25 +319,16 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDni">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDniActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMateria">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMateriaActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTipoLicencia">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTipoLicenciaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnGuardar">
           <Properties>
@@ -384,9 +375,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTiempo">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTiempoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNombres">
           <AuxValues>
@@ -398,12 +386,12 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnBuscarAdministrativo">
+        <Component class="javax.swing.JButton" name="btnBuscarDocente">
           <Properties>
             <Property name="text" type="java.lang.String" value="..."/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarAdministrativoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarDocenteActionPerformed"/>
           </Events>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="dcfecha">

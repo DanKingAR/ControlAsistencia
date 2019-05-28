@@ -197,7 +197,7 @@ public class frmVistaEst extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnbuscarActionPerformed
 
@@ -211,13 +211,13 @@ public class frmVistaEst extends javax.swing.JFrame {
             String grado, dni;
             String seccion;
 
-            cod = tablalistado.getValueAt(fila, 0).toString();
-            nombre = tablalistado.getValueAt(fila, 1).toString();
-            fapellido = tablalistado.getValueAt(fila, 2).toString();
-            lapellido = tablalistado.getValueAt(fila, 3).toString();
-            dni = tablalistado.getValueAt(fila, 4).toString();
-            grado = tablalistado.getValueAt(fila, 9).toString();
-            seccion = tablalistado.getValueAt(fila, 10).toString();
+            cod = tablalistado.getValueAt(fila, 0).toString().trim();
+            nombre = tablalistado.getValueAt(fila, 1).toString().trim();
+            fapellido = tablalistado.getValueAt(fila, 2).toString().trim();
+            lapellido = tablalistado.getValueAt(fila, 3).toString().trim();
+            dni = tablalistado.getValueAt(fila, 4).toString().trim();
+            grado = tablalistado.getValueAt(fila, 9).toString().trim();
+            seccion = tablalistado.getValueAt(fila, 10).toString().trim();
 
             frmPermiso.txtDni.setText(cod);
             frmPermiso.txtNombres.setText(nombre);

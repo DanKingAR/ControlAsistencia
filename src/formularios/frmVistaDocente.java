@@ -194,12 +194,12 @@ public class frmVistaDocente extends javax.swing.JFrame {
             String fapellido, lapellido;
             String materia, dni;
 
-            cod = tablalistado.getValueAt(fila, 0).toString();
-            nombre = tablalistado.getValueAt(fila, 1).toString();
-            fapellido = tablalistado.getValueAt(fila, 2).toString();
-            lapellido = tablalistado.getValueAt(fila, 3).toString();
-            dni = tablalistado.getValueAt(fila, 5).toString();
-            materia = tablalistado.getValueAt(fila, 9).toString();
+            cod = tablalistado.getValueAt(fila, 0).toString().trim();
+            nombre = tablalistado.getValueAt(fila, 1).toString().trim();
+            fapellido = tablalistado.getValueAt(fila, 2).toString().trim();
+            lapellido = tablalistado.getValueAt(fila, 3).toString().trim();
+            dni = tablalistado.getValueAt(fila, 5).toString().trim();
+            materia = tablalistado.getValueAt(fila, 9).toString().trim();
 
             frmLicencia.txtDni.setText(cod);
             frmLicencia.txtNombres.setText(nombre);
@@ -212,7 +212,7 @@ public class frmVistaDocente extends javax.swing.JFrame {
     }//GEN-LAST:event_tablalistadoMousePressed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnbuscarActionPerformed
 

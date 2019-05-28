@@ -52,7 +52,7 @@ public class frmLicencia extends javax.swing.JInternalFrame {
         btnGuardar.setEnabled(false);
         btnCancelar.setEnabled(false);
         btnEliminar.setEnabled(false);
-        btnBuscarAdministrativo.setEnabled(false);
+        btnBuscarDocente.setEnabled(false);
 
         txtIdLicencia.setText("");
         txtDni.setText("");
@@ -83,7 +83,7 @@ public class frmLicencia extends javax.swing.JInternalFrame {
         btnGuardar.setEnabled(true);
         btnCancelar.setEnabled(true);
         btnEliminar.setEnabled(true);
-        btnBuscarAdministrativo.setEnabled(true);
+        btnBuscarDocente.setEnabled(true);
 
         txtIdLicencia.setText("");
         txtDni.setText("");
@@ -143,7 +143,7 @@ public class frmLicencia extends javax.swing.JInternalFrame {
         txtTiempo = new javax.swing.JTextField();
         txtNombres = new javax.swing.JTextField();
         txtFApellido = new javax.swing.JTextField();
-        btnBuscarAdministrativo = new javax.swing.JButton();
+        btnBuscarDocente = new javax.swing.JButton();
         dcfecha = new com.toedter.calendar.JDateChooser();
         txtDescripcion = new javax.swing.JTextField();
         txtLApellido = new javax.swing.JTextField();
@@ -217,24 +217,6 @@ public class frmLicencia extends javax.swing.JInternalFrame {
 
         txtIdLicencia.setEnabled(false);
 
-        txtDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDniActionPerformed(evt);
-            }
-        });
-
-        txtMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMateriaActionPerformed(evt);
-            }
-        });
-
-        txtTipoLicencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTipoLicenciaActionPerformed(evt);
-            }
-        });
-
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnGuardar.setText("GUARDAR");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -263,16 +245,10 @@ public class frmLicencia extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Fecha:");
 
-        txtTiempo.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarDocente.setText("...");
+        btnBuscarDocente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTiempoActionPerformed(evt);
-            }
-        });
-
-        btnBuscarAdministrativo.setText("...");
-        btnBuscarAdministrativo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarAdministrativoActionPerformed(evt);
+                btnBuscarDocenteActionPerformed(evt);
             }
         });
 
@@ -316,7 +292,7 @@ public class frmLicencia extends javax.swing.JInternalFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnBuscarAdministrativo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnBuscarDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtDni, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtMateria, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(18, 18, 18)
@@ -346,7 +322,7 @@ public class frmLicencia extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscarAdministrativo))
+                            .addComponent(btnBuscarDocente))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -508,21 +484,6 @@ public class frmLicencia extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
-        // TODO add your handling code here:
-        txtDni.transferFocus();
-    }//GEN-LAST:event_txtDniActionPerformed
-
-    private void txtMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMateriaActionPerformed
-        // TODO add your handling code here:
-        txtMateria.transferFocus();
-    }//GEN-LAST:event_txtMateriaActionPerformed
-
-    private void txtTipoLicenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoLicenciaActionPerformed
-        // TODO add your handling code here:
-        txtTipoLicencia.transferFocus();
-    }//GEN-LAST:event_txtTipoLicenciaActionPerformed
-
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         if (dcfecha.getDate() == null) {
@@ -551,7 +512,7 @@ public class frmLicencia extends javax.swing.JInternalFrame {
         Licencia dts = new Licencia();
         Licencias func = new Licencias();
 
-        dts.setDni(txtDni.getText());
+        dts.setDni(txtDni.getText().trim());
 
         Calendar cal;
         int d, m, a;
@@ -560,9 +521,9 @@ public class frmLicencia extends javax.swing.JInternalFrame {
         m = cal.get(Calendar.MONTH);
         a = cal.get(Calendar.YEAR) - 1900;
         dts.setFecha(new Date(a, m, d));
-        dts.setTiempo(txtTiempo.getText());
-        dts.setTipo_licencia(txtTipoLicencia.getText());
-        dts.setDescripcion(txtDescripcion.getText());
+        dts.setTiempo(txtTiempo.getText().trim());
+        dts.setTipo_licencia(txtTipoLicencia.getText().trim());
+        dts.setDescripcion(txtDescripcion.getText().trim());
 
         if (accion.equals("guardar")) {
             if (func.insertar(dts)) {
@@ -571,7 +532,7 @@ public class frmLicencia extends javax.swing.JInternalFrame {
                 inhabilitar();
             }
         } else if (accion.equals("editar")) {
-            dts.setIdLicencia(Integer.parseInt(txtIdLicencia.getText()));
+            dts.setIdLicencia(Integer.parseInt(txtIdLicencia.getText().trim()));
 
             if (func.editar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "Licencia fue editada satisfactoriamente");
@@ -593,17 +554,12 @@ public class frmLicencia extends javax.swing.JInternalFrame {
         inhabilitar();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void txtTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoActionPerformed
-        // TODO add your handling code here:
-        txtTiempo.transferFocus();
-    }//GEN-LAST:event_txtTiempoActionPerformed
-
-    private void btnBuscarAdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAdministrativoActionPerformed
+    private void btnBuscarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDocenteActionPerformed
         // TODO add your handling code here:
         frmVistaDocente form = new frmVistaDocente();
         form.toFront();
         form.setVisible(true);
-    }//GEN-LAST:event_btnBuscarAdministrativoActionPerformed
+    }//GEN-LAST:event_btnBuscarDocenteActionPerformed
 
     private void tablalistadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMouseClicked
         // TODO add your handling code here:
@@ -614,20 +570,20 @@ public class frmLicencia extends javax.swing.JInternalFrame {
 
         int fila = tablalistado.rowAtPoint(evt.getPoint());
 
-        txtIdLicencia.setText(tablalistado.getValueAt(fila, 0).toString());
-        txtDni.setText(tablalistado.getValueAt(fila, 1).toString());
-        txtNombres.setText(tablalistado.getValueAt(fila, 2).toString());
-        txtFApellido.setText(tablalistado.getValueAt(fila, 3).toString());
-        txtLApellido.setText(tablalistado.getValueAt(fila, 4).toString());
-        txtMateria.setText(tablalistado.getValueAt(fila, 6).toString());
-        dcfecha.setDate(Date.valueOf(tablalistado.getValueAt(fila, 7).toString()));
-        txtTiempo.setText(tablalistado.getValueAt(fila, 8).toString());
-        txtTipoLicencia.setText(tablalistado.getValueAt(fila, 9).toString());
-        txtDescripcion.setText(tablalistado.getValueAt(fila, 10).toString());        
+        txtIdLicencia.setText(tablalistado.getValueAt(fila, 0).toString().trim());
+        txtDni.setText(tablalistado.getValueAt(fila, 1).toString().trim());
+        txtNombres.setText(tablalistado.getValueAt(fila, 2).toString().trim());
+        txtFApellido.setText(tablalistado.getValueAt(fila, 3).toString().trim());
+        txtLApellido.setText(tablalistado.getValueAt(fila, 4).toString().trim());
+        txtMateria.setText(tablalistado.getValueAt(fila, 6).toString().trim());
+        dcfecha.setDate(Date.valueOf(tablalistado.getValueAt(fila, 7).toString().trim()));
+        txtTiempo.setText(tablalistado.getValueAt(fila, 8).toString().trim());
+        txtTipoLicencia.setText(tablalistado.getValueAt(fila, 9).toString().trim());
+        txtDescripcion.setText(tablalistado.getValueAt(fila, 10).toString().trim());        
     }//GEN-LAST:event_tablalistadoMouseClicked
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -640,7 +596,7 @@ public class frmLicencia extends javax.swing.JInternalFrame {
                 Licencias func = new Licencias();
                 Licencia dts = new Licencia();
 
-                dts.setDni(txtDni.getText());
+                dts.setDni(txtDni.getText().trim());
                 func.eliminar(dts);
                 mostrar("");
                 inhabilitar();
@@ -657,7 +613,7 @@ public class frmLicencia extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnBuscarAdministrativo;
+    private javax.swing.JButton btnBuscarDocente;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;

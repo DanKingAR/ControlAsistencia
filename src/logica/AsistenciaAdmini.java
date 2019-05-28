@@ -22,7 +22,7 @@ public class AsistenciaAdmini {
     public DefaultTableModel mostrarasisadministrativos(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdAdministrativo", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Fecha", "Hora de Ingreso", "Hora de Salida"};
+        String[] titulos = {"ID", "IdPersonal", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Fecha", "Hora de Ingreso", "Hora de Salida"};
         String[] registros = new String[10];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

@@ -24,7 +24,7 @@ public class AsistenciaAlumno {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Fecha", "Hora de Ingreso", "Hora de Salida"};
+        String[] titulos = {"ID", "IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Fecha", "Hora de Ingreso", "Hora de Salida"};
         String[] registros = new String[9];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -68,7 +68,7 @@ public class AsistenciaAlumno {
     public DefaultTableModel mostrarreportealumnos(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdAlumno", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Grado", "Grupo", "Fecha", "Hora de Ingreso", "Hora de Salida"};
+        String[] titulos = {"ID", "IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Grado", "Grupo", "Fecha", "Hora de Ingreso", "Hora de Salida"};
         String[] registros = new String[11];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

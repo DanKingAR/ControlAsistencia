@@ -4,6 +4,7 @@ import BD.ConexionBD;
 import java.net.URL;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,9 +15,7 @@ public class frmReportDateEst extends javax.swing.JFrame {
     private final String generar[] = {"<Seleccionar una opción>", "Diario", "Intervalo"};
     private final ComboBoxModel modeloGenerar = new DefaultComboBoxModel(generar);
     private final ConexionBD conn = new ConexionBD();
-    private final URL jrxml = this.getClass().getResource("/Reportes/asistenciaAlumnos.jrxml");
     private final URL jasper = this.getClass().getResource("/Reportes/asistenciaAlumnos.jasper");
-    private final URL pdf = this.getClass().getResource("/Reporte/asistenciaAlumnos.pdf");
 
     /**
      * Creates new form NewJFrame
@@ -175,15 +174,21 @@ public class frmReportDateEst extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbGenerarActionPerformed
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-        conn.startReport("Estudiantes", jasper);
+        String grado = JOptionPane.showInputDialog("Ingresar el grado");
+        String grupo = JOptionPane.showInputDialog("Ingresar el grupo");
+        conn.startReport("Estudiantes", jasper, grado, grupo);
         cmbGenerar.setModel(modeloGenerar);
     }//GEN-LAST:event_btnGenerarActionPerformed
 
     private void btnGenerarDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDateActionPerformed
-        String fechaIn = txtFechaIn.getText();
-        String fechaOut = txtFechaOut.getText();
-        conn.startReportDate("Estudiantes", jasper, fechaIn, fechaOut);
+        String fechaIn = txtFechaIn.getText().trim();
+        String fechaOut = txtFechaOut.getText().trim();
+        String grado = JOptionPane.showInputDialog("Ingresar el grado");
+        String grupo = JOptionPane.showInputDialog("Ingresar el grupo");
+        conn.startReportDate("Estudiantes", jasper, fechaIn, fechaOut, grado, grupo);
         cmbGenerar.setModel(modeloGenerar);
+        txtFechaIn.setText("");
+        txtFechaOut.setText("");
     }//GEN-LAST:event_btnGenerarDateActionPerformed
 
     /**

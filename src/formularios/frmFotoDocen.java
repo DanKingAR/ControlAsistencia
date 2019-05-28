@@ -19,7 +19,7 @@ public class frmFotoDocen extends javax.swing.JFrame {
      */
     public frmFotoDocen() {
         initComponents();
-        this.dni = frmDocente.txtDni.getText();
+        this.dni = frmDocente.txtDni.getText().trim();
     }
 
     /**
@@ -155,7 +155,7 @@ public class frmFotoDocen extends javax.swing.JFrame {
         ConexionBD conn = new ConexionBD();
 
         if (lblUrl.getText().trim().length() != 0 && dni.trim().length() != 0) {
-            conn.guardarImg(dni, lblUrl.getText());
+            conn.guardarImg(dni, lblUrl.getText().trim());
             JOptionPane.showMessageDialog(rootPane, "Foto guardada Correctamente");
             this.dispose();
         } else {

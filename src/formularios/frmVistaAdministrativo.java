@@ -18,8 +18,8 @@ public class frmVistaAdministrativo extends javax.swing.JFrame {
     
     void ancho_columnas() {
         //Cargo
-        tablalistado.getColumnModel().getColumn(2).setMaxWidth(90);
-        tablalistado.getColumnModel().getColumn(2).setMinWidth(90);
+        tablalistado.getColumnModel().getColumn(2).setMaxWidth(100);
+        tablalistado.getColumnModel().getColumn(2).setMinWidth(100);
         //Nombre
         tablalistado.getColumnModel().getColumn(3).setMaxWidth(150);
         tablalistado.getColumnModel().getColumn(3).setMinWidth(100);
@@ -192,7 +192,7 @@ public class frmVistaAdministrativo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnbuscarActionPerformed
 
@@ -205,12 +205,12 @@ public class frmVistaAdministrativo extends javax.swing.JFrame {
             String fapellido, lapellido;
             String cargo, dni;
 
-            cod = tablalistado.getValueAt(fila, 0).toString();
-            cargo = tablalistado.getValueAt(fila, 2).toString();
-            nombre = tablalistado.getValueAt(fila, 3).toString();
-            fapellido = tablalistado.getValueAt(fila, 4).toString();
-            lapellido = tablalistado.getValueAt(fila, 5).toString();
-            dni = tablalistado.getValueAt(fila, 6).toString();
+            cod = tablalistado.getValueAt(fila, 0).toString().trim();
+            cargo = tablalistado.getValueAt(fila, 2).toString().trim();
+            nombre = tablalistado.getValueAt(fila, 3).toString().trim();
+            fapellido = tablalistado.getValueAt(fila, 4).toString().trim();
+            lapellido = tablalistado.getValueAt(fila, 5).toString().trim();
+            dni = tablalistado.getValueAt(fila, 6).toString().trim();
 
             frmLicenAdmin.txtDni.setText(cod);
             frmLicenAdmin.txtNombres.setText(nombre);

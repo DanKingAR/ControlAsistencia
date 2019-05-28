@@ -201,9 +201,6 @@
                   </Table>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablalistadoEstMousePressed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -225,9 +222,6 @@
                   </Table>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablalistadoDocenMousePressed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -249,9 +243,6 @@
                   </Table>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablalistadoAdminMousePressed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

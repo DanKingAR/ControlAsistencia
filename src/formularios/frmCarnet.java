@@ -117,7 +117,7 @@ public class frmCarnet extends javax.swing.JInternalFrame {
 
     private void btnCarnetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarnetActionPerformed
         int seleccion = cmbGenerar.getSelectedIndex();
-        String dni = txtDni.getText();
+        String dni = txtDni.getText().trim();
 
         switch (seleccion) {
             case 1:

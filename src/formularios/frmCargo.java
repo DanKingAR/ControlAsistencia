@@ -344,7 +344,7 @@ public class frmCargo extends javax.swing.JInternalFrame {
         Cargo dts = new Cargo();
         Cargos func = new Cargos();
 
-        dts.setCargodescripcion(txtCargo.getText());
+        dts.setCargodescripcion(txtCargo.getText().trim());
 
         if (accion.equals("guardar")) {
             if (func.insertar(dts)) {
@@ -353,7 +353,7 @@ public class frmCargo extends javax.swing.JInternalFrame {
                 inhabilitar();
             }
         } else if (accion.equals("editar")) {
-            dts.setIdCargo(Integer.parseInt(txtIdCargo.getText()));
+            dts.setIdCargo(Integer.parseInt(txtIdCargo.getText().trim()));
 
             if (func.editar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El cargo fue editada satisfactoriamente");
@@ -385,12 +385,12 @@ public class frmCargo extends javax.swing.JInternalFrame {
 
         int fila = tablalistado.rowAtPoint(evt.getPoint());
 
-        txtIdCargo.setText(tablalistado.getValueAt(fila, 0).toString());
-        txtCargo.setText(tablalistado.getValueAt(fila, 1).toString());
+        txtIdCargo.setText(tablalistado.getValueAt(fila, 0).toString().trim());
+        txtCargo.setText(tablalistado.getValueAt(fila, 1).toString().trim());
     }//GEN-LAST:event_tablalistadoMouseClicked
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -403,7 +403,7 @@ public class frmCargo extends javax.swing.JInternalFrame {
                 Cargos func = new Cargos();
                 Cargo dts = new Cargo();
 
-                dts.setIdCargo(Integer.parseInt(txtIdCargo.getText()));
+                dts.setIdCargo(Integer.parseInt(txtIdCargo.getText().trim()));
                 func.eliminar(dts);
                 mostrar("");
                 inhabilitar();

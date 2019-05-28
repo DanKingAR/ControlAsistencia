@@ -25,7 +25,7 @@ public class Administrativos {
     public DefaultTableModel mostrar(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdCargo", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Teléfono", "Dirección", "Email", "Género", "Fecha Ingreso", "Fecha Nacimiento"};
+        String[] titulos = {"ID", "IdCargo", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Teléfono", "Dirección", "Email", "Género", "Fecha de Ingreso", "Fecha de Nacimiento"};
         String[] registros = new String[13];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -73,7 +73,7 @@ public class Administrativos {
     public DefaultTableModel mostrarvista_ingresopersonal(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdCargo", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Teléfono", "Dirección", "Email", "Género", "Fecha Ingreso", "Fecha Nacimiento"};
+        String[] titulos = {"ID", "IdCargo", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Teléfono", "Dirección", "Email", "Género", "Fecha de Ingreso", "Fecha de Nacimiento"};
         String[] registros = new String[13];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -121,7 +121,7 @@ public class Administrativos {
     public DefaultTableModel mostrarvista_salidapersonal(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdCargo", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Teléfono", "Dirección", "Email", "Género", "Fecha Ingreso", "Fecha Nacimiento"};
+        String[] titulos = {"ID", "IdCargo", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Teléfono", "Dirección", "Email", "Género", "Fecha de Ingreso", "Fecha de Nacimiento"};
         String[] registros = new String[13];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
@@ -169,7 +169,7 @@ public class Administrativos {
     public DefaultTableModel mostrarvistaadminnistrativo(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdCargo", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Teléfono", "Dirección", "Email", "Género", "Fecha Ingreso", "Fecha Nacimiento"};
+        String[] titulos = {"ID", "IdCargo", "Cargo", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Teléfono", "Dirección", "Email", "Género", "Fecha de Ingreso", "Fecha de Nacimiento"};
         String[] registros = new String[13];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

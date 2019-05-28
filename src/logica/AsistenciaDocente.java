@@ -22,7 +22,7 @@ public class AsistenciaDocente {
     public DefaultTableModel mostrarasisdocentes(String buscar) {
         DefaultTableModel modelo;
 
-        String[] titulos = {"ID", "IdDocente", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Materia", "Fecha", "Hora de Ingreso", "Hora de Salida"};
+        String[] titulos = {"ID", "IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Identificación", "Materia", "Fecha", "Hora de Ingreso", "Hora de Salida"};
         String[] registros = new String[10];
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);

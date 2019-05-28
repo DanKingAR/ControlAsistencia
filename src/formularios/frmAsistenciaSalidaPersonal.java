@@ -28,8 +28,8 @@ public class frmAsistenciaSalidaPersonal extends javax.swing.JInternalFrame {
     public frmAsistenciaSalidaPersonal() {
         initComponents();
         mostrar("");
-        String usuario = PanelInicio.lblnombres.getText();
-        String idusuario = PanelInicio.lblidtratabajor.getText();
+        String usuario = PanelInicio.lblnombres.getText().trim();
+        String idusuario = PanelInicio.lblidtratabajor.getText().trim();
 
         javax.swing.Timer t = new javax.swing.Timer(1000, (ActionEvent e) -> {
             Date fecha = new Date();
@@ -42,8 +42,8 @@ public class frmAsistenciaSalidaPersonal extends javax.swing.JInternalFrame {
         });
         t.start();
 
-        dts.setFecha(FechaActual.getText());
-        dts.setHora_salida(HoraActual.getText());
+        dts.setFecha(FechaActual.getText().trim());
+        dts.setHora_salida(HoraActual.getText().trim());
 
         txtUsuario.setText(usuario);
         lblIdUsuario.setText(idusuario);
@@ -460,31 +460,23 @@ public class frmAsistenciaSalidaPersonal extends javax.swing.JInternalFrame {
             txtCodigo.requestFocus();
         }
 
-        dts.setIdPersonal(Integer.parseInt(txtIdalumno.getText()));
-        dts.setDni(txtCodigo.getText());
-        dts.setFecha(FechaActual.getText());
-        dts.setHora_ingreso(lblHoraIngreso.getText());
-        dts.setHora_salida(HoraActual.getText());
+        dts.setIdPersonal(Integer.parseInt(txtIdalumno.getText().trim()));
+        dts.setDni(txtCodigo.getText().trim());
+        dts.setFecha(FechaActual.getText().trim());
+        dts.setHora_ingreso(lblHoraIngreso.getText().trim());
+        dts.setHora_salida(HoraActual.getText().trim());
 
-        String idusuario = PanelInicio.lblidtratabajor.getText();
+        String idusuario = PanelInicio.lblidtratabajor.getText().trim();
         dts.setIdusuario(Integer.parseInt(idusuario));
 
         if (accion.equals("guardar")) {
-            dts.setIdAsistenciaAlumnos(Integer.parseInt(txtAsistencia.getText()));
+            dts.setIdAsistenciaAlumnos(Integer.parseInt(txtAsistencia.getText().trim()));
             if (func.salida(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "Registro de Asistencia Completo", "Registro de Asistencia Administrativo", JOptionPane.INFORMATION_MESSAGE);
                 mostrar("");
                 vaciar();
             }
         } 
-//        else if (accion.equals("editar")) {
-//            dts.setIdAsistenciaAlumnos(Integer.parseInt(txtAsistencia.getText()));
-//            if (func.editar(dts)) {
-//                JOptionPane.showMessageDialog(rootPane, "Registro de Asistencia Completo", "Registro de Asistencia Administrativo", JOptionPane.INFORMATION_MESSAGE);
-//                mostrar("");
-//                vaciar();
-//            }
-//        }
     }
 
     private void tablalistadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMouseClicked
@@ -494,14 +486,13 @@ public class frmAsistenciaSalidaPersonal extends javax.swing.JInternalFrame {
 
         int fila = tablalistado.rowAtPoint(evt.getPoint());
 
-        txtAsistencia.setText(tablalistado.getValueAt(fila, 0).toString());
-        txtIdalumno.setText(tablalistado.getValueAt(fila, 1).toString());
-        txtNombres.setText(tablalistado.getValueAt(fila, 2).toString());
-        txtFApellido.setText(tablalistado.getValueAt(fila, 3).toString());
-        txtLApellido.setText(tablalistado.getValueAt(fila, 4).toString());
-        //FechaActual.setText(tablalistado.getValueAt(fila, 6).toString());
-        lblHoraIngreso.setText(tablalistado.getValueAt(fila, 7).toString());
-        lblHoraSalida.setText(tablalistado.getValueAt(fila, 8).toString());
+        txtAsistencia.setText(tablalistado.getValueAt(fila, 0).toString().trim());
+        txtIdalumno.setText(tablalistado.getValueAt(fila, 1).toString().trim());
+        txtNombres.setText(tablalistado.getValueAt(fila, 2).toString().trim());
+        txtFApellido.setText(tablalistado.getValueAt(fila, 3).toString().trim());
+        txtLApellido.setText(tablalistado.getValueAt(fila, 4).toString().trim());
+        lblHoraIngreso.setText(tablalistado.getValueAt(fila, 7).toString().trim());
+        lblHoraSalida.setText(tablalistado.getValueAt(fila, 8).toString().trim());
     }//GEN-LAST:event_tablalistadoMouseClicked
 
     private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
@@ -512,7 +503,7 @@ public class frmAsistenciaSalidaPersonal extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBuscarKeyPressed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -522,7 +513,7 @@ public class frmAsistenciaSalidaPersonal extends javax.swing.JInternalFrame {
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de Eliminar el ingreso del personal", "Confirmar", 2);
 
             if (confirmacion == 0) {
-                dts.setIdAsistenciaAlumnos(Integer.parseInt(txtAsistencia.getText()));
+                dts.setIdAsistenciaAlumnos(Integer.parseInt(txtAsistencia.getText().trim()));
                 func.eliminar(dts);
                 mostrar("");
             }
@@ -533,7 +524,6 @@ public class frmAsistenciaSalidaPersonal extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FechaActual;

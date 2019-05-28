@@ -662,8 +662,6 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         }
         //</editor-fold>
         
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new PanelInicio().setVisible(true);

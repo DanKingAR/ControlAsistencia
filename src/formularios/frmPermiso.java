@@ -518,8 +518,8 @@ public class frmPermiso extends javax.swing.JInternalFrame {
         Permiso dts = new Permiso();
         Permisos func = new Permisos();
 
-        dts.setIdEstudiante(Integer.parseInt(txtDni.getText()));
-        dts.setDni(txtDni.getText());
+        dts.setIdEstudiante(Integer.parseInt(txtDni.getText().trim()));
+        dts.setDni(txtDni.getText().trim());
         
         Calendar cal;
         int d, m, a;
@@ -528,9 +528,9 @@ public class frmPermiso extends javax.swing.JInternalFrame {
         m = cal.get(Calendar.MONTH);
         a = cal.get(Calendar.YEAR) - 1900;
         dts.setFecha(new Date(a, m, d));
-        dts.setTiempo(txtTiempo.getText());
+        dts.setTiempo(txtTiempo.getText().trim());
 
-        dts.setDescripcion(txtDescripcion.getText());
+        dts.setDescripcion(txtDescripcion.getText().trim());
 
         if (accion.equals("guardar")) {
             if (func.insertar(dts)) {
@@ -539,7 +539,7 @@ public class frmPermiso extends javax.swing.JInternalFrame {
                 inhabilitar();
             }
         } else if (accion.equals("editar")) {
-            dts.setIdPermiso(Integer.parseInt(txtIdPermiso.getText()));
+            dts.setIdPermiso(Integer.parseInt(txtIdPermiso.getText().trim()));
 
             if (func.editar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "Licencia fue editada satisfactoriamente");
@@ -577,20 +577,20 @@ public class frmPermiso extends javax.swing.JInternalFrame {
 
         int fila = tablalistado.rowAtPoint(evt.getPoint());
 
-        txtIdPermiso.setText(tablalistado.getValueAt(fila, 0).toString());
-        txtDni.setText(tablalistado.getValueAt(fila, 1).toString());
-        txtNombres.setText(tablalistado.getValueAt(fila, 2).toString());
-        txtFApellido.setText(tablalistado.getValueAt(fila, 3).toString());
-        txtLApellido.setText(tablalistado.getValueAt(fila, 4).toString());
-        txtGrado.setText(tablalistado.getValueAt(fila, 6).toString());
-        txtSeccion.setText(tablalistado.getValueAt(fila, 7).toString());
-        dcfecha.setDate(Date.valueOf(tablalistado.getValueAt(fila, 8).toString()));
-        txtTiempo.setText(tablalistado.getValueAt(fila, 9).toString());
-        txtDescripcion.setText(tablalistado.getValueAt(fila, 10).toString());
+        txtIdPermiso.setText(tablalistado.getValueAt(fila, 0).toString().trim());
+        txtDni.setText(tablalistado.getValueAt(fila, 1).toString().trim());
+        txtNombres.setText(tablalistado.getValueAt(fila, 2).toString().trim());
+        txtFApellido.setText(tablalistado.getValueAt(fila, 3).toString().trim());
+        txtLApellido.setText(tablalistado.getValueAt(fila, 4).toString().trim());
+        txtGrado.setText(tablalistado.getValueAt(fila, 6).toString().trim());
+        txtSeccion.setText(tablalistado.getValueAt(fila, 7).toString().trim());
+        dcfecha.setDate(Date.valueOf(tablalistado.getValueAt(fila, 8).toString().trim()));
+        txtTiempo.setText(tablalistado.getValueAt(fila, 9).toString().trim());
+        txtDescripcion.setText(tablalistado.getValueAt(fila, 10).toString().trim());
     }//GEN-LAST:event_tablalistadoMouseClicked
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -603,7 +603,7 @@ public class frmPermiso extends javax.swing.JInternalFrame {
                 Permisos func = new Permisos();
                 Permiso dts = new Permiso();
 
-                dts.setDni(txtDni.getText());
+                dts.setDni(txtDni.getText().trim());
                 func.eliminar(dts);
                 mostrar("");
                 inhabilitar();

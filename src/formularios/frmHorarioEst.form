@@ -72,7 +72,7 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="inViernes" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="inViernes" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="outViernes" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -80,7 +80,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" pref="404" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="clavepersonal" min="-2" pref="113" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -129,6 +129,8 @@
                                       <Component id="inLunes" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="inMartes" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="inJueves" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="inViernes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="inMiercoles" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -139,18 +141,10 @@
                                   <Component id="outJueves" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="inMiercoles" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="outMiercoles" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="outMiercoles" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="inViernes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="outViernes" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="outViernes" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

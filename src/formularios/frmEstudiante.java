@@ -767,12 +767,12 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
             return;
         }
 
-        dts.setNombre(txtNombres.getText());
-        dts.setFapellido(txtFApellido.getText());
-        dts.setLapellido(txtLApellido.getText());
-        dts.setDni(txtDni.getText());
-        dts.setDireccion(txtDireccion.getText());
-        dts.setTelefono(txtTelefono.getText());
+        dts.setNombre(txtNombres.getText().trim());
+        dts.setFapellido(txtFApellido.getText().trim());
+        dts.setLapellido(txtLApellido.getText().trim());
+        dts.setDni(txtDni.getText().trim());
+        dts.setDireccion(txtDireccion.getText().trim());
+        dts.setTelefono(txtTelefono.getText().trim());
 
         int seleccionado = cmbGenero.getSelectedIndex();
         dts.setGenero((String) cmbGenero.getItemAt(seleccionado));
@@ -797,7 +797,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
 
         seleccionado = cmbJornada.getSelectedIndex();
         dts.setJornada((String) cmbJornada.getItemAt(seleccionado));
-        dts.setSede(txtSede.getText());
+        dts.setSede(txtSede.getText().trim());
 
         if (accion.equals("guardar")) {
             if (func.insertar(dts)) {
@@ -807,7 +807,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
                 btnHuella.setEnabled(true);
             }
         } else if (accion.equals("editar")) {
-            dts.setIdEstudiante(Integer.parseInt(txtIdAlumno.getText()));
+            dts.setIdEstudiante(Integer.parseInt(txtIdAlumno.getText().trim()));
 
             if (func.editar(dts)) {
                 JOptionPane.showMessageDialog(rootPane, "El estudiante fue editado satisfactoriamente", "Registro del Estudiante", JOptionPane.INFORMATION_MESSAGE);
@@ -839,20 +839,20 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
 
         int fila = tablalistado.rowAtPoint(evt.getPoint());
 
-        txtIdAlumno.setText(tablalistado.getValueAt(fila, 0).toString());
-        txtNombres.setText(tablalistado.getValueAt(fila, 1).toString());
-        txtFApellido.setText(tablalistado.getValueAt(fila, 2).toString());
-        txtLApellido.setText(tablalistado.getValueAt(fila, 3).toString());
-        txtDni.setText(tablalistado.getValueAt(fila, 4).toString());
-        txtDireccion.setText(tablalistado.getValueAt(fila, 5).toString());
-        cmbGenero.setSelectedItem(tablalistado.getValueAt(fila, 6).toString());
-        dcfecha_nacimiento.setDate(Date.valueOf(tablalistado.getValueAt(fila, 7).toString()));
-        dcfecha_registro.setDate(Date.valueOf(tablalistado.getValueAt(fila, 8).toString()));
-        cmbGrado.setSelectedItem(tablalistado.getValueAt(fila, 9).toString());
-        cmbSeccion.setSelectedItem(tablalistado.getValueAt(fila, 10).toString());
-        txtTelefono.setText(tablalistado.getValueAt(fila, 11).toString());
-        cmbJornada.setSelectedItem(tablalistado.getValueAt(fila, 13).toString());
-        txtSede.setText(tablalistado.getValueAt(fila, 12).toString());
+        txtIdAlumno.setText(tablalistado.getValueAt(fila, 0).toString().trim());
+        txtNombres.setText(tablalistado.getValueAt(fila, 1).toString().trim());
+        txtFApellido.setText(tablalistado.getValueAt(fila, 2).toString().trim());
+        txtLApellido.setText(tablalistado.getValueAt(fila, 3).toString().trim());
+        txtDni.setText(tablalistado.getValueAt(fila, 4).toString().trim());
+        txtDireccion.setText(tablalistado.getValueAt(fila, 5).toString().trim());
+        cmbGenero.setSelectedItem(tablalistado.getValueAt(fila, 6).toString().trim());
+        dcfecha_nacimiento.setDate(Date.valueOf(tablalistado.getValueAt(fila, 7).toString().trim()));
+        dcfecha_registro.setDate(Date.valueOf(tablalistado.getValueAt(fila, 8).toString().trim()));
+        cmbGrado.setSelectedItem(tablalistado.getValueAt(fila, 9).toString().trim());
+        cmbSeccion.setSelectedItem(tablalistado.getValueAt(fila, 10).toString().trim());
+        txtTelefono.setText(tablalistado.getValueAt(fila, 11).toString().trim());
+        cmbJornada.setSelectedItem(tablalistado.getValueAt(fila, 13).toString().trim());
+        txtSede.setText(tablalistado.getValueAt(fila, 12).toString().trim());
 
         btnHorario.setEnabled(true);
         btnFoto.setEnabled(true);
@@ -867,7 +867,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -878,7 +878,7 @@ public class frmEstudiante extends javax.swing.JInternalFrame {
 
             if (confirmacion == 0) {
 
-                dts.setDni(txtDni.getText());
+                dts.setDni(txtDni.getText().trim());
                 func.eliminar(dts);
                 mostrar("");
                 inhabilitar();

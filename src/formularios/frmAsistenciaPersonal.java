@@ -28,8 +28,8 @@ public class frmAsistenciaPersonal extends javax.swing.JInternalFrame {
     public frmAsistenciaPersonal() {
         initComponents();
         mostrar("");
-        String usuario = PanelInicio.lblnombres.getText();
-        String idusuario = PanelInicio.lblidtratabajor.getText();
+        String usuario = PanelInicio.lblnombres.getText().trim();
+        String idusuario = PanelInicio.lblidtratabajor.getText().trim();
 
         javax.swing.Timer t = new javax.swing.Timer(1000, (ActionEvent e) -> {
             Date fecha = new Date();
@@ -42,8 +42,8 @@ public class frmAsistenciaPersonal extends javax.swing.JInternalFrame {
         });
         t.start();
 
-        dts.setFecha(FechaActual.getText());
-        dts.setHora_ingreso(HoraActual.getText());
+        dts.setFecha(FechaActual.getText().trim());
+        dts.setHora_ingreso(HoraActual.getText().trim());
 
         txtUsuario.setText(usuario);
         lblIdUsuario.setText(idusuario);
@@ -462,13 +462,13 @@ public class frmAsistenciaPersonal extends javax.swing.JInternalFrame {
             txtCodigo.requestFocus();
         }
 
-        dts.setIdPersonal(Integer.parseInt(txtIdPersonal.getText()));
-        dts.setDni(txtCodigo.getText());        
-        dts.setFecha(FechaActual.getText());
-        dts.setHora_ingreso(HoraActual.getText());
-        dts.setHora_salida(lblHoraSalida.getText());
+        dts.setIdPersonal(Integer.parseInt(txtIdPersonal.getText().trim()));
+        dts.setDni(txtCodigo.getText().trim());
+        dts.setFecha(FechaActual.getText().trim());
+        dts.setHora_ingreso(HoraActual.getText().trim());
+        dts.setHora_salida(lblHoraSalida.getText().trim());
 
-        String idusuario = PanelInicio.lblidtratabajor.getText();
+        String idusuario = PanelInicio.lblidtratabajor.getText().trim();
         dts.setIdusuario(Integer.parseInt(idusuario));
 
         if (accion.equals("guardar")) {
@@ -477,7 +477,7 @@ public class frmAsistenciaPersonal extends javax.swing.JInternalFrame {
                 mostrar("");
                 vaciar();
             }
-        } 
+        }
     }
 
     private void tablalistadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMouseClicked
@@ -487,22 +487,23 @@ public class frmAsistenciaPersonal extends javax.swing.JInternalFrame {
 
         int fila = tablalistado.rowAtPoint(evt.getPoint());
 
-        txtAsistencia.setText(tablalistado.getValueAt(fila, 0).toString());
-        txtIdPersonal.setText(tablalistado.getValueAt(fila, 1).toString());
-        txtNombres.setText(tablalistado.getValueAt(fila, 2).toString());
-        txtFApellido.setText(tablalistado.getValueAt(fila, 3).toString());
-        txtLApellido.setText(tablalistado.getValueAt(fila, 4).toString());
+        txtAsistencia.setText(tablalistado.getValueAt(fila, 0).toString().trim());
+        txtIdPersonal.setText(tablalistado.getValueAt(fila, 1).toString().trim());
+        txtNombres.setText(tablalistado.getValueAt(fila, 2).toString().trim());
+        txtFApellido.setText(tablalistado.getValueAt(fila, 3).toString().trim());
+        txtLApellido.setText(tablalistado.getValueAt(fila, 4).toString().trim());
     }//GEN-LAST:event_tablalistadoMouseClicked
 
     private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            mostrar(txtBuscar.getText());
+            mostrar(txtBuscar.getText().trim());
+            txtBuscar.setText("");
         }
     }//GEN-LAST:event_txtBuscarKeyPressed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -512,7 +513,7 @@ public class frmAsistenciaPersonal extends javax.swing.JInternalFrame {
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de Eliminar el ingreso del personal", "Confirmar", 2);
 
             if (confirmacion == 0) {
-                dts.setIdAsistenciaAlumnos(Integer.parseInt(txtAsistencia.getText()));
+                dts.setIdAsistenciaAlumnos(Integer.parseInt(txtAsistencia.getText().trim()));
                 func.eliminar(dts);
                 mostrar("");
             }

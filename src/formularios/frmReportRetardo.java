@@ -13,9 +13,7 @@ import logica.Retardos;
 public class frmReportRetardo extends javax.swing.JInternalFrame {
     
     private final ConexionBD conn = new ConexionBD();
-    private final URL jrxml = this.getClass().getResource("/Reportes/retardos.jrxml");
     private final URL jasper = this.getClass().getResource("/Reportes/retardos.jasper");
-    private final URL pdf = this.getClass().getResource("/Reporte/retardos.pdf");
 
     /**
      * Creates new form frmReportRetardo
@@ -169,7 +167,7 @@ public class frmReportRetardo extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        mostrar(txtBuscar.getText());
+        mostrar(txtBuscar.getText().trim());
         txtBuscar.setText("");
         transferFocus();
     }//GEN-LAST:event_btnBuscarActionPerformed
