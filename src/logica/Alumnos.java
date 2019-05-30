@@ -344,21 +344,20 @@ public class Alumnos {
 
     public boolean editar(Alumno dts) {
         SQL = "UPDATE personal "
-                + "SET lapellido=?, direccion=?, fecha_nace=?, fecha_registro=?, grado=?, grupo=?, telefono=?, sede=?, jornada=?"
+                + "SET lapellido=?, direccion=?, fecha_registro=?, grado=?, grupo=?, telefono=?, sede=?, jornada=?"
                 + "WHERE idpersonal=1 AND dni=?";
         try {
             con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getLapellido());
             pst.setString(2, dts.getDireccion());
-            pst.setDate(3, dts.getFecha_nace());
-            pst.setDate(4, dts.getFecha_registro());
-            pst.setString(5, dts.getGrado());
-            pst.setString(6, dts.getGrupo());
-            pst.setString(7, dts.getTelefono());
-            pst.setString(8, dts.getSede());
-            pst.setString(9, dts.getJornada());
-            pst.setString(10, dts.getDni());
+            pst.setDate(3, dts.getFecha_registro());
+            pst.setString(4, dts.getGrado());
+            pst.setString(5, dts.getGrupo());
+            pst.setString(6, dts.getTelefono());
+            pst.setString(7, dts.getSede());
+            pst.setString(8, dts.getJornada());
+            pst.setString(9, dts.getDni());
 
             int n = pst.executeUpdate();
 

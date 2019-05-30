@@ -87,7 +87,7 @@ public class Trabajadores {
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT idusuario, nombre, fapellido, lapellido, dni, telefono, direccion, email, genero, login, pass, acceso, estado, fecha_ingreso "
-                + "FROM usuario WHERE dni LIKE '%" + buscar + "%' AND estado='A' ORDER BY nombre ASC";
+                + "FROM usuario WHERE dni LIKE '%" + buscar + "%' ORDER BY nombre ASC";
 
         try {
             con = postgres.conectar();

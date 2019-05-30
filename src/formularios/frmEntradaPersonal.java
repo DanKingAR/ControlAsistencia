@@ -71,7 +71,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
         HoraActual = new javax.swing.JFormattedTextField();
         FechaActual = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtAsistencia = new javax.swing.JTable();
         lblImagenHuella = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -115,10 +115,10 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
         FechaActual.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         FechaActual.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
-        jTable1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtAsistencia.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jtAsistencia.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jtAsistencia.setForeground(new java.awt.Color(255, 255, 255));
+        jtAsistencia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null}
             },
@@ -134,8 +134,8 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRowHeight(80);
-        jScrollPane1.setViewportView(jTable1);
+        jtAsistencia.setRowHeight(80);
+        jScrollPane1.setViewportView(jtAsistencia);
 
         lblImagenHuella.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/fondo_1.jpg"))); // NOI18N
 
@@ -223,8 +223,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                             .addComponent(FechaActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(HoraActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(43, 43, 43)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblImagenHuella, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -268,7 +267,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                     String clave = rs.getString("dni");
                     if (asistencia.equals("false")) {
                         try {
-                            PreparedStatement insertar = c.prepareStatement("INSERT INTO historial(clave_personal,fecha,estado) VALUES ('" + clave + "','" + fechaa + "','Falta');");
+                                PreparedStatement insertar = c.prepareStatement("INSERT INTO historial(dni,fecha,estado) VALUES ('" + clave + "','" + fechaa + "','Falta');");
                             insertar.executeQuery();
                         } catch (SQLException e) {
                         }
@@ -276,7 +275,6 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                 } while (rs.next());
             }
         } catch (SQLException e) {
-
         } finally {
             con.desconectar();
         }
@@ -419,15 +417,14 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                 setTemplate(referenceTemplate);
                 DPFPVerificationResult result = Verificador.verify(featuresverificacion, getTemplate());
                 if (result.isVerified()) {
-
                     Date fecha = new Date(); 
                     SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd");
                     String fechaa = dt.format(fecha);
-                    jTable1.setValueAt(fechaa, 0, 0);
+                    jtAsistencia.setValueAt(fechaa, 0, 0);
                     dt = new SimpleDateFormat("hh:mm:ss");
                     String hora = dt.format(fecha);
-                    jTable1.setValueAt(hora, 0, 1);
-                    jTable1.setValueAt(nombre, 0, 2);
+                    jtAsistencia.setValueAt(hora, 0, 1);
+                    jtAsistencia.setValueAt(nombre, 0, 2);
                     consultaES(clave);
 
                     return;
@@ -435,14 +432,13 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
             }
             Notificaciones.setText("No existe un registro que coincida con la huella actual\n"
                     + "Repita la operación, revise que su huella no este maltratada");
-            jTable1.setValueAt("---", 0, 0);
-            jTable1.setValueAt("---", 0, 1);
-            jTable1.setValueAt("---", 0, 2);
-            jTable1.setValueAt("---", 0, 3);
-            jTable1.setValueAt("---", 0, 4);
+            jtAsistencia.setValueAt("---", 0, 0);
+            jtAsistencia.setValueAt("---", 0, 1);
+            jtAsistencia.setValueAt("---", 0, 2);
+            jtAsistencia.setValueAt("---", 0, 3);
+            jtAsistencia.setValueAt("---", 0, 4);
             setTemplate(null);
         } catch (SQLException e) {
-
         } finally {
             con.desconectar();
         }
@@ -457,7 +453,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
         String fechaaa = dtdia.format(dias);
         String diain = "e" + fechaaa;
         //String diaout = "s" + fechaaa;
-
+        
         try {
             PreparedStatement consultah = ch.prepareStatement("SELECT * FROM horario WHERE dni=?");
             consultah.setString(1, clave);
@@ -465,22 +461,21 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
             while (res.next()) {
                 String edia = res.getString(diain);
                 //String sdia = res.getString(diaout);
-
                 Date hora = new Date();
                 SimpleDateFormat dt = new SimpleDateFormat("HH:mm");
                 String horatabla = edia;
                 Date htabla;
+                
                 try {
                     htabla = dt.parse(horatabla);
                     hora1 = dt.format(htabla);
                 } catch (ParseException ex) {
                     Logger.getLogger(frmEntradaPersonal.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
                 String hora2 = dt.format(hora);
-
                 hactual = Integer.parseInt(hora2.substring(0, 2));
                 hbase = Integer.parseInt(hora1.substring(0, 2));
-
                 mactual = Integer.parseInt(hora2.substring(3, 5));
                 mbase = Integer.parseInt(hora1.substring(3, 5));
 
@@ -490,18 +485,17 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                 String fechaa = fech.format(fecha);
 
                 if (horaminutos_entrada < horaminutos_actual) {
-                    jTable1.setValueAt("Entrada", 0, 3);
-                    jTable1.setValueAt("Retardo", 0, 4);
+                    jtAsistencia.setValueAt("Entrada", 0, 3);
+                    jtAsistencia.setValueAt("Retardo", 0, 4);
                     Notificaciones.setText("Asistencia registrada\n"
                             + "Procure llegar mas temprano");
-                    PreparedStatement insertar = ch.prepareStatement("INSERT INTO historial(clave_personal,fecha,estado) VALUES ('" + clave + "','" + fechaa + "','Retardo');");
+                    PreparedStatement insertar = ch.prepareStatement("INSERT INTO historial(dni,fecha,estado) VALUES ('" + clave + "','" + fechaa + "','Retardo');");
                     insertar.executeQuery();
-
                 } else {
-                    jTable1.setValueAt("Entrada", 0, 3);
-                    jTable1.setValueAt("Normal", 0, 4);
+                    jtAsistencia.setValueAt("Entrada", 0, 3);
+                    jtAsistencia.setValueAt("Normal", 0, 4);
                     Notificaciones.setText("Asistencia registrada\n");
-                    PreparedStatement insertar = ch.prepareStatement("INSERT INTO historial(clave_personal,fecha,estado) VALUES('" + clave + "','" + fechaa + "','Normal');");
+                    PreparedStatement insertar = ch.prepareStatement("INSERT INTO historial(dni,fecha,estado) VALUES('" + clave + "','" + fechaa + "','Normal');");
                     insertar.executeQuery();
                 }
             }
@@ -513,7 +507,6 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                 );
                 actualiza_asistencia.executeQuery();
             } catch (SQLException ex1) {
-
             }
         }
 
@@ -531,7 +524,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtAsistencia;
     private javax.swing.JLabel lblImagenHuella;
     // End of variables declaration//GEN-END:variables
 }

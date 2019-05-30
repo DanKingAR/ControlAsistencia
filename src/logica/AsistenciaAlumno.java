@@ -52,7 +52,7 @@ public class AsistenciaAlumno {
             }
             return modelo;
         } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
+            JOptionPane.showMessageDialog(null, e);
             return null;
         } finally {
             if (con != null) {
@@ -98,7 +98,7 @@ public class AsistenciaAlumno {
             }
             return modelo;
         } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
+            JOptionPane.showMessageDialog(null, e);
             return null;
         } finally {
             if (con != null) {
@@ -128,7 +128,7 @@ public class AsistenciaAlumno {
 
             return n != 0;
         } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
+            JOptionPane.showMessageDialog(null, e);
             return false;
         } finally {
             if (con != null) {
@@ -149,7 +149,6 @@ public class AsistenciaAlumno {
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getHora_salida());
             pst.setInt(2, dts.getIdusuario());
-            //pst.setInt(3, dts.getIdAsistenciaAlumnos());
             pst.setString(3, dts.getFecha());
             pst.setString(4, dts.getDni());
 
@@ -157,7 +156,7 @@ public class AsistenciaAlumno {
 
             return n != 0;
         } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
+            JOptionPane.showMessageDialog(null, e);
             return false;
         } finally {
             if (con != null) {
@@ -181,7 +180,7 @@ public class AsistenciaAlumno {
 
             return n != 0;
         } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
+            JOptionPane.showMessageDialog(null, e);
             return false;
         } finally {
             if (con != null) {

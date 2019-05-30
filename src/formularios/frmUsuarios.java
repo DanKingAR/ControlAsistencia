@@ -38,8 +38,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     void inhabilitar() {
         lblUsuario.setVisible(false);
         txtIdTrabajor.setVisible(false);
-        lblEstado.setVisible(true);
-        cmbEstado.setVisible(true);
 
         txtNombres.setEnabled(false);
         txtFApellido.setEnabled(false);
@@ -78,8 +76,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     void habilitar() {
         lblUsuario.setVisible(false);
         txtIdTrabajor.setVisible(false);
-        lblEstado.setVisible(true);
-        cmbEstado.setVisible(true);
 
         txtNombres.setEnabled(true);
         txtFApellido.setEnabled(true);
@@ -112,8 +108,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtLogin.setText("");
         txtPassword.setText("");
         dcfecha_ingreso.setDate(null);
-
+        
         cmbEstado.setSelectedIndex(0);
+
         txtNombres.requestFocus();
     }
 
@@ -195,7 +192,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         jLabel1.setText("USUARIO");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Registro de Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Agency FB", 1, 14))); // NOI18N
-        jPanel1.setPreferredSize(new java.awt.Dimension(1150, 547));
+        jPanel1.setPreferredSize(new java.awt.Dimension(989, 230));
 
         lblUsuario.setBackground(new java.awt.Color(255, 255, 255));
         lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -360,7 +357,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtIdTrabajor, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(250, 250, 250)
                 .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -490,8 +487,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtBuscar))
                         .addGap(18, 18, 18)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -515,7 +512,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbltotalregistros, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -532,7 +529,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                     .addComponent(jSeparator1)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 999, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -544,7 +541,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -627,9 +624,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             cmbAcceso.requestFocus();
             return;
         }
-
+        
         if (cmbEstado.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(rootPane, "Debes ingresar el estado del usuario");
+            JOptionPane.showMessageDialog(rootPane, "Debes ingresar el estado de ingreso del usuario");
             cmbEstado.requestFocus();
             return;
         }
@@ -760,7 +757,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtLApellido.setEnabled(false);
         txtDni.setEnabled(false);
         cmbGenero.setEnabled(false);
-        cmbEstado.setVisible(false);
+        if (cmbEstado.getSelectedItem() == "A") 
+            cmbEstado.setEnabled(false);
     }//GEN-LAST:event_tablalistadoMouseClicked
 
     private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
