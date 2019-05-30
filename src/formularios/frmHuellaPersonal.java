@@ -88,6 +88,8 @@ public class frmHuellaPersonal extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        lblImagenHuella.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -145,7 +147,8 @@ public class frmHuellaPersonal extends javax.swing.JFrame {
         );
 
         txtArea.setColumns(20);
-        txtArea.setRows(5);
+        txtArea.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtArea.setRows(7);
         jScrollPane1.setViewportView(txtArea);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
