@@ -689,12 +689,12 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     public static javax.swing.JLabel lblidtratabajor;
     public static javax.swing.JLabel lblnombres;
     public static javax.swing.JMenu menuArchivo;
-    private javax.swing.JMenu menuAsistencia;
+    public static javax.swing.JMenu menuAsistencia;
     private javax.swing.JMenuBar menuBar;
     public static javax.swing.JMenu menuConfig;
-    private javax.swing.JMenu menuInicio;
-    private javax.swing.JMenu menuRegistro;
-    private javax.swing.JMenu menuReportes;
+    public static javax.swing.JMenu menuInicio;
+    public static javax.swing.JMenu menuRegistro;
+    public static javax.swing.JMenu menuReportes;
     private javax.swing.JMenuItem permisoAdmin;
     private javax.swing.JMenuItem permisoDocente;
     private javax.swing.JMenuItem permisoEstudiante;

@@ -57,6 +57,12 @@ public class frmCarnet extends javax.swing.JInternalFrame {
             }
         });
 
+        txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDniKeyTyped(evt);
+            }
+        });
+
         lblDni.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblDni.setText("Identificación: ");
 
@@ -94,10 +100,10 @@ public class frmCarnet extends javax.swing.JInternalFrame {
                 .addComponent(cmbGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDni)
+                    .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -186,6 +192,12 @@ public class frmCarnet extends javax.swing.JInternalFrame {
                 break;
         }
     }//GEN-LAST:event_cmbGenerarActionPerformed
+
+    private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
+        char car = evt.getKeyChar();
+        if (car < '0' || car > '9')
+            evt.consume();
+    }//GEN-LAST:event_txtDniKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

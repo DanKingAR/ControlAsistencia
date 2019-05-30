@@ -115,7 +115,6 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
         FechaActual.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         FechaActual.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
-        jTable1.setBackground(new java.awt.Color(64, 64, 64));
         jTable1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTable1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
@@ -221,8 +220,8 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FechaActual)
-                            .addComponent(HoraActual))
+                            .addComponent(FechaActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(HoraActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(43, 43, 43)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))

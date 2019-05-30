@@ -165,7 +165,7 @@ public class Trabajadores {
     }
 
     public boolean editar(Trabajador dts) {
-        SQL = "UPDATE usuario SET telefono=?, direccion=?, email=?, login=?, pass=?, fecha_ingreso=?"
+        SQL = "UPDATE usuario SET telefono=?, direccion=?, email=?, login=?, pass=?, acceso=?, fecha_ingreso=?"
                 + "WHERE idusuario=?";
         try {
             con = postgres.conectar();
@@ -175,8 +175,9 @@ public class Trabajadores {
             pst.setString(3, dts.getEmail());
             pst.setString(4, dts.getLogin());
             pst.setString(5, dts.getPassword());
-            pst.setDate(6, dts.getFecha_ingreso());
-            pst.setInt(7, dts.getIdTrabajador());
+            pst.setString(6, dts.getAcceso());
+            pst.setDate(7, dts.getFecha_ingreso());
+            pst.setInt(8, dts.getIdTrabajador());
 
             int n = pst.executeUpdate();
 

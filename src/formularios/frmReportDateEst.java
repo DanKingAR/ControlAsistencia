@@ -139,11 +139,11 @@ public class frmReportDateEst extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -174,8 +174,8 @@ public class frmReportDateEst extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbGenerarActionPerformed
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-        String grado = JOptionPane.showInputDialog("Ingresar el grado");
-        String grupo = JOptionPane.showInputDialog("Ingresar el grupo");
+        String grado = (String) JOptionPane.showInputDialog(rootPane, "Ingresar el grado", "Asistencia", JOptionPane.QUESTION_MESSAGE, null, new String[] {"Seleccione", "Primero", "Segundo", "Tercero", "Cuarto", "Quinto", "Sexto", "Septimo", "Octavo", "Noveno", "Décimo", "Undécimo"}, "Seleccione");
+        String grupo = (String) JOptionPane.showInputDialog(rootPane, "Ingresar el grupo", "Asistencia", JOptionPane.QUESTION_MESSAGE, null, new String[] {"Seleccione", "A", "B", "C", "D"}, "Seleccione");
         conn.startReport("Estudiantes", jasper, grado, grupo);
         cmbGenerar.setModel(modeloGenerar);
     }//GEN-LAST:event_btnGenerarActionPerformed
@@ -183,8 +183,8 @@ public class frmReportDateEst extends javax.swing.JFrame {
     private void btnGenerarDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDateActionPerformed
         String fechaIn = txtFechaIn.getText().trim();
         String fechaOut = txtFechaOut.getText().trim();
-        String grado = JOptionPane.showInputDialog("Ingresar el grado");
-        String grupo = JOptionPane.showInputDialog("Ingresar el grupo");
+        String grado = (String) JOptionPane.showInputDialog(rootPane, "Ingresar el grado", "Asistencia", JOptionPane.QUESTION_MESSAGE, null, new String[] {"Seleccione", "Primero", "Segundo", "Tercero", "Cuarto", "Quinto", "Sexto", "Septimo", "Octavo", "Noveno", "Décimo", "Undécimo"}, "Seleccione");
+        String grupo = (String) JOptionPane.showInputDialog(rootPane, "Ingresar el grupo", "Asistencia", JOptionPane.QUESTION_MESSAGE, null, new String[] {"Seleccione", "A", "B", "C", "D"}, "Seleccione");
         conn.startReportDate("Estudiantes", jasper, fechaIn, fechaOut, grado, grupo);
         cmbGenerar.setModel(modeloGenerar);
         txtFechaIn.setText("");

@@ -51,7 +51,7 @@ public class Docentes {
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT idpersonal, nombre, fapellido, lapellido, genero, dni, telefono, direccion, email, materia, fecha_nace "
-                + "FROM personal WHERE dni LIKE '%" + buscar + "' AND idpersonal=2 AND estado='A' ORDER BY nombre ASC;";
+                + "FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal=2 AND estado='A' ORDER BY nombre ASC;";
 
         try {
             con = postgres.conectar();
@@ -96,7 +96,7 @@ public class Docentes {
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT idpersonal, nombre, fapellido, lapellido, genero, dni, telefono, direccion, email, materia, fecha_nace "
-                + "FROM personal WHERE dni LIKE '%" + buscar + "' AND idpersonal=2 AND estado='A' ORDER BY nombre ASC;";
+                + "FROM personal WHERE dni LIKE '%" + buscar + "%' AND idpersonal=2 AND estado='A' ORDER BY nombre ASC;";
 
         try {
             con = postgres.conectar();

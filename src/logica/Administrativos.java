@@ -2,7 +2,6 @@ package logica;
 
 import BD.ConexionBD;
 import datos.Administrativo;
-import formularios.frmAdministrativo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,7 +30,7 @@ public class Administrativos {
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT p.idpersonal, p.idcargo, ca.descripcion, p.nombre, p.fapellido, p.lapellido, p.dni, p.telefono, p.direccion, p.email, p.genero, p.fecha_ingreso, p.fecha_nace "
                 + "FROM personal p INNER JOIN cargo ca ON p.idcargo = ca.idcargo "
-                + "WHERE p.dni LIKE '%" + buscar + "' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
+                + "WHERE p.dni LIKE '%" + buscar + "%' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
 
         try {
             con = postgres.conectar();
@@ -79,7 +78,7 @@ public class Administrativos {
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT p.idpersonal, p.idcargo, ca.descripcion, p.nombre, p.fapellido, p.lapellido, p.dni, p.telefono, p.direccion, p.email, p.genero, p.fecha_ingreso, p.fecha_nace "
                 + "FROM personal p INNER JOIN cargo ca ON p.idcargo = ca.idcargo "
-                + "WHERE p.dni LIKE '%" + buscar + "' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
+                + "WHERE p.dni LIKE '%" + buscar + "%' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
 
         try {
             con = postgres.conectar();
@@ -127,7 +126,7 @@ public class Administrativos {
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT p.idpersonal, p.idcargo, ca.descripcion, p.nombre, p.fapellido, p.lapellido, p.dni, p.telefono, p.direccion, p.email, p.genero, p.fecha_ingreso, p.fecha_nace "
                 + "FROM personal p INNER JOIN cargo ca ON p.idcargo = ca.idcargo "
-                + "WHERE p.dni LIKE '%" + buscar + "' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
+                + "WHERE p.dni LIKE '%" + buscar + "%' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
 
         try {
             con = postgres.conectar();
@@ -175,7 +174,7 @@ public class Administrativos {
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT p.idpersonal, p.idcargo, ca.descripcion, p.nombre, p.fapellido, p.lapellido, p.dni, p.telefono, p.direccion, p.email, p.genero, p.fecha_ingreso, p.fecha_nace "
                 + "FROM personal p INNER JOIN cargo ca ON p.idcargo = ca.idcargo "
-                + "WHERE p.dni LIKE '%" + buscar + "' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
+                + "WHERE p.dni LIKE '%" + buscar + "%' AND p.idpersonal = 3 AND estado='A' ORDER BY nombre ASC;";
 
         try {
             con = postgres.conectar();

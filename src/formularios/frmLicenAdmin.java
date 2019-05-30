@@ -1,6 +1,7 @@
 package formularios;
 
 import datos.LicenAdmin;
+import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -370,6 +371,12 @@ public class frmLicenAdmin extends javax.swing.JInternalFrame {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel15.setText("Buscar:");
 
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyPressed(evt);
+            }
+        });
+
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/211.png"))); // NOI18N
         btnBuscar.setText("BUSCAR");
@@ -480,7 +487,6 @@ public class frmLicenAdmin extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
         if (dcfecha.getDate() == null) {
             JOptionPane.showMessageDialog(rootPane, "Debes ingresar la fecha de la licencia");
             dcfecha.requestFocus();
@@ -538,7 +544,6 @@ public class frmLicenAdmin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        // TODO add your handling code here:
         habilitar();
         btnGuardar.setText("GUARDAR");
         accion = "guardar";
@@ -550,14 +555,12 @@ public class frmLicenAdmin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnBuscarAdministrativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAdministrativoActionPerformed
-        // TODO add your handling code here:
         frmVistaAdministrativo form = new frmVistaAdministrativo();
         form.toFront();
         form.setVisible(true);
     }//GEN-LAST:event_btnBuscarAdministrativoActionPerformed
 
     private void tablalistadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablalistadoMouseClicked
-        // TODO add your handling code here:
         btnGuardar.setText("EDITAR");
         habilitar();
         btnEliminar.setEnabled(true);
@@ -583,7 +586,6 @@ public class frmLicenAdmin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
         if (!txtDni.getText().equals("")) {
             int confirmacion = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de Eliminar la licencia", "Confirmar", 2);
 
@@ -601,9 +603,15 @@ public class frmLicenAdmin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
+        mostrar(txtBuscar.getText().trim());
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txtBuscar.setText("");
+        }
+    }//GEN-LAST:event_txtBuscarKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;

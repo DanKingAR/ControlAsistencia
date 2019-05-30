@@ -143,15 +143,15 @@ public class AsistenciaAlumno {
 
     public boolean salida(AsistenciaAlumnos dts) {
         SQL = "UPDATE asistencia_personal SET hora_salida=?, idusuario=?"
-                + "WHERE idAsistencia=? AND fecha=? AND dni=?";
+                + "WHERE fecha=? AND dni=?";
         try {
             con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
             pst.setString(1, dts.getHora_salida());
             pst.setInt(2, dts.getIdusuario());
-            pst.setInt(3, dts.getIdAsistenciaAlumnos());
-            pst.setString(4, dts.getFecha());
-            pst.setString(5, dts.getDni());
+            //pst.setInt(3, dts.getIdAsistenciaAlumnos());
+            pst.setString(3, dts.getFecha());
+            pst.setString(4, dts.getDni());
 
             int n = pst.executeUpdate();
 

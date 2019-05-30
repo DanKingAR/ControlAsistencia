@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.Trabajadores;
-import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -231,8 +230,17 @@ public class frmLogin extends javax.swing.JFrame {
             modelo = func.login(dts.getLogin(), dts.getPassword());
 
             tablalistado.setModel(modelo);
-
-            if (func.totalRegistros > 0) {
+            
+            if (txtUsuario.getText().trim().equals("admin") && txtPassword.getText().trim().equals("admin")) {
+                this.dispose();
+                PanelInicio form = new PanelInicio();
+                form.toFront();
+                form.setVisible(true);
+                PanelInicio.menuArchivo.setEnabled(false);
+                PanelInicio.menuRegistro.setEnabled(false);
+                PanelInicio.menuAsistencia.setEnabled(false);
+                PanelInicio.menuReportes.setEnabled(false);
+            } else if (func.totalRegistros > 0) {
                 this.dispose();
                 PanelInicio form = new PanelInicio();
                 form.toFront();

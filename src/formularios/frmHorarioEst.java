@@ -1,10 +1,9 @@
 package formularios;
 
 import BD.ConexionBD;
-import java.awt.HeadlessException;
-import java.sql.Connection;
-import java.sql.SQLException;
+import datos.Horario;
 import javax.swing.JOptionPane;
+import logica.Horarios;
 
 /**
  *
@@ -13,6 +12,8 @@ import javax.swing.JOptionPane;
 public class frmHorarioEst extends javax.swing.JFrame {
     
     private final String dni, nombre;
+    private final Horario dts;
+    private final Horarios func;
 
     /**
      * Creates new form frmHorarioEst
@@ -21,6 +22,8 @@ public class frmHorarioEst extends javax.swing.JFrame {
         initComponents();
         this.dni = frmEstudiante.txtDni.getText().trim();
         this.nombre = frmEstudiante.txtNombres.getText().trim();
+        dts = new Horario();
+        func = new Horarios();
         setLocationRelativeTo(null);
         clavepersonal.setText(nombre);
     }
@@ -340,17 +343,20 @@ public class frmHorarioEst extends javax.swing.JFrame {
         sjueves = (String) outJueves.getSelectedItem();
         sviernes = (String) outViernes.getSelectedItem();
         
-        try {
-            Connection cn = con.conectar();
-            try(java.sql.Statement stmt = cn.createStatement()) {
-                String dniAlumno = this.dni;
-                stmt.executeQuery("INSERT INTO horario (clave_personal, elunes, emartes, emiercoles, ejueves, eviernes, slunes, smartes, smiercoles, sjueves, sviernes) VALUES ('" + dniAlumno + "', '" + elunes + "', '" + emartes + "', '" + emiercoles + "', '" + ejueves + "', '" + eviernes + "', '" + slunes + "', '" + smartes + "', '" + smiercoles + "', '" + sjueves + "', '" + sviernes + "');");
-                stmt.execute("END");
-            }
-        } catch (SQLException | HeadlessException e) {
-            JOptionPane.showMessageDialog(rootPane, "Datos del estudiante guardados");
-        } finally {
-            con.desconectar();
+        dts.setDni(dni);
+        dts.setElunes(elunes);
+        dts.setEmartes(emartes);
+        dts.setEmiercoles(emiercoles);
+        dts.setEjueves(ejueves);
+        dts.setEviernes(eviernes);
+        dts.setSlunes(slunes);
+        dts.setSmartes(smartes);
+        dts.setSmiercoles(smiercoles);
+        dts.setSjueves(sjueves);
+        dts.setSviernes(sviernes);
+        
+        if (func.insert(dts)) {
+            JOptionPane.showMessageDialog(rootPane, "Datos del administrativo guardados");
         }
     }
 }
