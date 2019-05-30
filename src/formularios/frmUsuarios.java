@@ -2,6 +2,7 @@ package formularios;
 
 import datos.Trabajador;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -425,6 +426,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         jLabel15.setText("Buscar:");
 
         txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBuscarKeyTyped(evt);
             }
@@ -758,6 +762,13 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         cmbGenero.setEnabled(false);
         cmbEstado.setVisible(false);
     }//GEN-LAST:event_tablalistadoMouseClicked
+
+    private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
+        mostrar(txtBuscar.getText().trim());
+        if (evt.getKeyChar() == KeyEvent.VK_ENTER)
+            txtBuscar.setText("");
+        transferFocus();
+    }//GEN-LAST:event_txtBuscarKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
