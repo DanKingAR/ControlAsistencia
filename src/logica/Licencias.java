@@ -30,7 +30,7 @@ public class Licencias {
         modelo = new DefaultTableModel(null, titulos);
         SQL = "SELECT pe.idpermiso, pe.dni, p.nombre, p.fapellido, p.lapellido, p.dni, p.materia, pe.fecha, pe.tiempo, pe.tipo_licencia, pe.perdescripcion "
                 + "FROM permisos pe INNER JOIN personal p ON pe.dni = p.dni "
-                + "WHERE p.nombre LIKE '%" + buscar + "%' AND pe.idpermiso=2 AND pe.estado='A' ORDER BY nombre ASC";
+                + "WHERE p.nombre LIKE '%" + buscar + "%' AND pe.idpersonal=2 AND pe.estado='A' ORDER BY nombre ASC";
 
         try {
             con = postgres.conectar();
@@ -68,7 +68,7 @@ public class Licencias {
     }
 
     public boolean insertar(Licencia dts) {
-        SQL = "INSERT INTO permisos (idpermiso, dni, fecha, tiempo, tipo_licencia, perdescripcion)"
+        SQL = "INSERT INTO permisos (idpersonal, dni, fecha, tiempo, tipo_licencia, perdescripcion)"
                 + "VALUES (?, ?, ?, ?, ?, ?)";
         try {
             con = postgres.conectar();
@@ -107,7 +107,7 @@ public class Licencias {
             pst.setString(2, dts.getTiempo());
             pst.setString(3, dts.getTipo_licencia());
             pst.setString(4, dts.getDescripcion());
-            pst.setInt(5, 2);
+            pst.setInt(5, dts.getIdLicencia());
             pst.setString(6, dts.getDni());
 
             int n = pst.executeUpdate();
@@ -132,7 +132,7 @@ public class Licencias {
         try {
             con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
-            pst.setInt(1, 2);
+            pst.setInt(1, dts.getIdLicencia());
             pst.setString(2, dts.getDni());
 
             int n = pst.executeUpdate();

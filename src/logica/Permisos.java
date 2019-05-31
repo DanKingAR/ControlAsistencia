@@ -113,7 +113,7 @@ public class Permisos {
     }
 
     public boolean insertar(Permiso dts) {
-        SQL = "insert into permisos (idpermiso,dni,fecha,tiempo,perdescripcion)"
+        SQL = "insert into permisos (idpersonal,dni,fecha,tiempo,perdescripcion)"
                 + "values (?,?,?,?,?)";
         try {
             con = postgres.conectar();
@@ -150,7 +150,7 @@ public class Permisos {
             pst.setDate(1, dts.getFecha());
             pst.setString(2, dts.getTiempo());
             pst.setString(3, dts.getDescripcion());
-            pst.setInt(4, 1);
+            pst.setInt(4, dts.getIdPermiso());
             pst.setString(5, dts.getDni());
 
             int n = pst.executeUpdate();
@@ -175,7 +175,7 @@ public class Permisos {
         try {
             con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
-            pst.setInt(1, 1);
+            pst.setInt(1, dts.getIdPermiso());
             pst.setString(2, dts.getDni());
 
             int n = pst.executeUpdate();

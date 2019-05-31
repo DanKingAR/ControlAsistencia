@@ -66,7 +66,7 @@ public class LicenAdminis {
     }
     
     public boolean insertar(LicenAdmin dts) {
-        SQL = "INSERT INTO permisos (idpermiso, dni, fecha, tiempo, tipo_licencia, perdescripcion)"
+        SQL = "INSERT INTO permisos (idpersonal, dni, fecha, tiempo, tipo_licencia, perdescripcion)"
                 + "VALUES (?, ?, ?, ?, ?, ?);";
         try {
             con = postgres.conectar();
@@ -105,7 +105,7 @@ public class LicenAdminis {
             pst.setString(2, dts.getTiempo());
             pst.setString(3, dts.getTipoLicencia());
             pst.setString(4, dts.getDescripcion());
-            pst.setInt(5, 3);
+            pst.setInt(5, dts.getIdLicenAdmin());
             pst.setString(6, dts.getDni());
             
             int n = pst.executeUpdate();
@@ -130,7 +130,7 @@ public class LicenAdminis {
         try {
             con = postgres.conectar();
             PreparedStatement pst = con.prepareStatement(SQL);
-            pst.setInt(1, 3);
+            pst.setInt(1, dts.getIdLicenAdmin());
             pst.setString(2, dts.getDni());
 
             int n = pst.executeUpdate();
