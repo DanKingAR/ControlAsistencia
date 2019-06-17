@@ -4,7 +4,7 @@ package datos;
  *
  * @author Dan Arevalo
  */
-public class AsistenciaAdminis {
+public class AsistenciaAdminis extends Administrativo {
     
     private int idAsistenciaAdminis;
     private int idAdministrativo;
@@ -45,6 +45,7 @@ public class AsistenciaAdminis {
     /**
      * @return the idAdministrativo
      */
+    @Override
     public int getIdAdministrativo() {
         return idAdministrativo;
     }
@@ -52,6 +53,7 @@ public class AsistenciaAdminis {
     /**
      * @param idAdministrativo the idAdministrativo to set
      */
+    @Override
     public void setIdAdministrativo(int idAdministrativo) {
         this.idAdministrativo = idAdministrativo;
     }
@@ -115,6 +117,7 @@ public class AsistenciaAdminis {
     /**
      * @return the dni
      */
+    @Override
     public String getDni() {
         return dni;
     }
@@ -122,6 +125,7 @@ public class AsistenciaAdminis {
     /**
      * @param dni the dni to set
      */
+    @Override
     public void setDni(String dni) {
         this.dni = dni;
     }

@@ -115,6 +115,7 @@ public class AsistenciaAlumnos extends Alumno {
     /**
      * @return the dni
      */
+    @Override
     public String getDni() {
         return dni;
     }
@@ -122,6 +123,7 @@ public class AsistenciaAlumnos extends Alumno {
     /**
      * @param dni the dni to set
      */
+    @Override
     public void setDni(String dni) {
         this.dni = dni;
     }
