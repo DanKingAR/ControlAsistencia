@@ -524,7 +524,6 @@ public class frmPermiso extends javax.swing.JInternalFrame {
         Permiso dts = new Permiso();
         Permisos func = new Permisos();
 
-        dts.setIdEstudiante(Integer.parseInt(txtDni.getText().trim()));
         dts.setDni(txtDni.getText().trim());
         
         Calendar cal;

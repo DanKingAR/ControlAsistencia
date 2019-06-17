@@ -7,7 +7,7 @@
     <Property name="maximizable" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="true"/>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[977, 648]"/>
+      <Dimension value="[1015, 648]"/>
     </Property>
   </Properties>
   <SyntheticProperties>

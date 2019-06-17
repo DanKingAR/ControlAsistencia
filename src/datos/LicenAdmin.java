@@ -6,7 +6,7 @@ import java.sql.Date;
  *
  * @author Dan Arevalo
  */
-public class LicenAdmin {
+public class LicenAdmin extends Administrativo {
     
     private int idLicenAdmin;
     private String dni;
@@ -45,6 +45,7 @@ public class LicenAdmin {
     /**
      * @return the dni
      */
+    @Override
     public String getDni() {
         return dni;
     }
@@ -52,6 +53,7 @@ public class LicenAdmin {
     /**
      * @param dni the dni to set
      */
+    @Override
     public void setDni(String dni) {
         this.dni = dni;
     }

@@ -67,51 +67,6 @@ public class Permisos {
         }
     }
 
-    public DefaultTableModel mostrarvistapersonal(String buscar) {
-        DefaultTableModel modelo;
-
-        String[] titulos = {"ID", "IdPersonal", "Nombre", "P. Apellido", "S. Apellido", "Grado", "Grupo", "Fecha", "Tiempo", "Descripción"};
-        String[] registros = new String[10];
-        totalRegistros = 0;
-        modelo = new DefaultTableModel(null, titulos);
-        SQL = "SELECT pe.idPermiso, pe.dni, p.nombre, p.fapellido, p.lapellido, p.grado, p.grupo, pe.fecha, pe.tiempo, pe.perdescripcion "
-                + "FROM permisos pe INNER JOIN personal p ON pe.dni = p.dni "
-                + "WHERE p.nombre LIKE '%" + buscar + "%' AND p.idpersonal = 1 AND pe.estado='A' ORDER BY nombre ASC";
-
-        try {
-            con = postgres.conectar();
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(SQL);
-            while (rs.next()) {
-                registros[0] = rs.getString("idPermiso");
-                registros[1] = rs.getString("dni");
-                registros[2] = rs.getString("nombre");
-                registros[3] = rs.getString("fapellido");
-                registros[4] = rs.getString("lapellido");
-                registros[5] = rs.getString("grado");
-                registros[6] = rs.getString("grupo");
-                registros[7] = rs.getString("fecha");
-                registros[8] = rs.getString("tiempo");
-                registros[9] = rs.getString("perdescripcion");
-
-                totalRegistros = totalRegistros + 1;
-                modelo.addRow(registros);
-            }
-            return modelo;
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
-            return null;
-        } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, ex);
-                }
-            }
-        }
-    }
-
     public boolean insertar(Permiso dts) {
         SQL = "insert into permisos (idpersonal,dni,fecha,tiempo,perdescripcion)"
                 + "values (?,?,?,?,?)";

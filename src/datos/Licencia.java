@@ -6,7 +6,7 @@ import java.sql.Date;
  *
  * @author Dan Arevalo
  */
-public class Licencia extends Administrativo {
+public class Licencia extends Docente {
     
     private int idLicencia;
     private String dni;
