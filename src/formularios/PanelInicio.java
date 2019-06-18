@@ -69,7 +69,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         asistenciaDocen = new javax.swing.JMenuItem();
         asistenciaAdmin = new javax.swing.JMenuItem();
         retardo = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        carnet = new javax.swing.JMenuItem();
         menuConfig = new javax.swing.JMenu();
         usuarios = new javax.swing.JMenuItem();
 
@@ -336,15 +336,15 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         });
         menuReportes.add(retardo);
 
-        jMenuItem2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/Digg.png"))); // NOI18N
-        jMenuItem2.setText("Carnets");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        carnet.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        carnet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/Digg.png"))); // NOI18N
+        carnet.setText("Carnets");
+        carnet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                carnetActionPerformed(evt);
             }
         });
-        menuReportes.add(jMenuItem2);
+        menuReportes.add(carnet);
 
         menuBar.add(menuReportes);
 
@@ -629,7 +629,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         form.setLocation(x, y);
     }//GEN-LAST:event_retardoActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void carnetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carnetActionPerformed
         frmCarnet form = new frmCarnet();
         escritorio.add(form);
         form.toFront();
@@ -639,7 +639,7 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
         y = (escritorio.getHeight() / 2) - form.getHeight() / 2;
         
         form.setLocation(x, y);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_carnetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -669,20 +669,20 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem IngresoEst;
+    public static javax.swing.JMenuItem IngresoEst;
     private javax.swing.JMenuItem administrativo;
     private javax.swing.JMenuItem asistenciaAdmin;
     private javax.swing.JMenuItem asistenciaDocen;
     private javax.swing.JMenuItem asistenciaEst;
-    private javax.swing.JMenuItem btnHuellaEst;
+    public static javax.swing.JMenuItem btnHuellaEst;
     private javax.swing.JMenuItem cargos;
+    public static javax.swing.JMenuItem carnet;
     private javax.swing.JMenuItem cerrarSesion;
     private javax.swing.JMenuItem docente;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem estudiante;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     public static javax.swing.JLabel lblFApellido;
     private javax.swing.JLabel lblHora;
     public static javax.swing.JLabel lblacceso;
@@ -698,10 +698,10 @@ public class PanelInicio extends javax.swing.JFrame implements Runnable{
     private javax.swing.JMenuItem permisoAdmin;
     private javax.swing.JMenuItem permisoDocente;
     private javax.swing.JMenuItem permisoEstudiante;
-    private javax.swing.JMenuItem retardo;
-    private javax.swing.JMenuItem salidaEst;
+    public static javax.swing.JMenuItem retardo;
+    public static javax.swing.JMenuItem salidaEst;
     private javax.swing.JMenuItem salir;
-    private javax.swing.JMenuItem totalEst;
+    public static javax.swing.JMenuItem totalEst;
     private javax.swing.JMenuItem usuarios;
     // End of variables declaration//GEN-END:variables
 

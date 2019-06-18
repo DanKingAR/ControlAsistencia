@@ -206,7 +206,7 @@ public class frmHuellaPersonal extends javax.swing.JFrame {
         guardarHuella();
         Reclutador.clear();
         lblImagenHuella.setIcon(null);
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed

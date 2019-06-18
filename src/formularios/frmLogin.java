@@ -256,6 +256,11 @@ public class frmLogin extends javax.swing.JFrame {
                 if (!PanelInicio.lblacceso.getText().equals("Administrador")) {
                     PanelInicio.menuArchivo.setEnabled(false);
                     PanelInicio.menuConfig.setEnabled(false);
+                    PanelInicio.salidaEst.setEnabled(false);
+                    PanelInicio.menuRegistro.setEnabled(false);
+                    PanelInicio.totalEst.setEnabled(false);
+                    PanelInicio.retardo.setEnabled(false);
+                    PanelInicio.carnet.setEnabled(false);
                 }
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Acceso Denegado", "Acceso al Sistema", JOptionPane.ERROR_MESSAGE);
