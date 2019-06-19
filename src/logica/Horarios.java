@@ -18,7 +18,7 @@ public class Horarios {
     private String SQL = "";
     
     public boolean insert(Horario dts) {
-        SQL = "INSERT INTO horario (dni, elunes, emartes, emiercoles, ejueves, eviernes, slunes, smartes, smiercoles, sjueves, sviernes)"
+        SQL = "INSERT INTO horario (dni, elunes, emartes, emiércoles, ejueves, eviernes, slunes, smartes, smiércoles, sjueves, sviernes)"
                 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         try {
             con = postgres.conectar();

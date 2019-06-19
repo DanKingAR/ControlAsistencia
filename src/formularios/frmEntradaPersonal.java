@@ -285,7 +285,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
     public static String TEMPLATE_PROPERTY = "template";
     public DPFPFeatureSet featuresinscripcion;
     public DPFPFeatureSet featuresverificacion;
-    
+
     protected void Iniciar() {
         Lector.addDataListener(new DPFPDataAdapter() {
             @Override
@@ -337,11 +337,11 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
             }
         });
     }
-    
+
     public void ProcesarCaptura(DPFPSample sample) {
         featuresinscripcion = extraerCaracteristicas(sample, DPFPDataPurpose.DATA_PURPOSE_ENROLLMENT);
         featuresverificacion = extraerCaracteristicas(sample, DPFPDataPurpose.DATA_PURPOSE_VERIFICATION);
-        
+
         if (featuresinscripcion != null) {
             try {
                 System.out.println("Las Características de la Huella han sido creada");
@@ -357,7 +357,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
             }
         }
     }
-    
+
     public DPFPFeatureSet extraerCaracteristicas(DPFPSample sample, DPFPDataPurpose purpose) {
         DPFPFeatureExtraction extractor = DPFPGlobal.getFeatureExtractionFactory().createFeatureExtraction();
         try {
@@ -404,7 +404,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
     public void identificarHuella() {
         try {
             Connection c = con.conectar();
-            PreparedStatement identificarStmt = c.prepareStatement("SELECT nombre,huella,dni FROM personal where huella != '00'");
+            PreparedStatement identificarStmt = c.prepareStatement("SELECT nombre, huella, dni FROM personal WHERE huella != '00'");
             ResultSet rs = identificarStmt.executeQuery();
 
             while (rs.next()) {
@@ -415,7 +415,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                 setTemplate(referenceTemplate);
                 DPFPVerificationResult result = Verificador.verify(featuresverificacion, getTemplate());
                 if (result.isVerified()) {
-                    Date fecha = new Date(); 
+                    Date fecha = new Date();
                     SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd");
                     String fechaa = dt.format(fecha);
                     jtAsistencia.setValueAt(fechaa, 0, 0);
@@ -437,87 +437,75 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
             jtAsistencia.setValueAt("---", 0, 4);
             setTemplate(null);
         } catch (SQLException e) {
+
         } finally {
             con.desconectar();
         }
     }
-    
+
     public void consultaES(String clave) {
         Connection ch = con.conectar();
         int hactual, hbase, mactual, mbase;
         String hora1 = null;
-        String nombre;
         Date dias = new Date();
         SimpleDateFormat dtdia = new SimpleDateFormat("EEEE");
         String fechaaa = dtdia.format(dias);
         String diain = "e" + fechaaa;
-        String diaout = "s" + fechaaa;
 
         try {
-            PreparedStatement consultah = ch.prepareStatement("SELECT * FROM horario WHERE dni=?");
-            PreparedStatement consulta = ch.prepareStatement("SELECT * FROM personal WHERE dni=?");
+            PreparedStatement consultah = ch.prepareStatement("SELECT p.nombre, h.dni, h.elunes, h.emartes, h.emiércoles, h.ejueves, h.eviernes, h.slunes, h.smartes, h.smiércoles, h.sjueves, h.sviernes "
+                    + " FROM horario h INNER JOIN personal p ON p.dni = h.dni WHERE h.dni=?");
             consultah.setString(1, clave);
-            consulta.setString(1, clave);
             ResultSet res = consultah.executeQuery();
-            ResultSet resp = consulta.executeQuery();
             while (res.next()) {
-                while (resp.next()) {
-                    String edia = res.getString(diain);
-                    String sdia = res.getString(diaout);
-                    nombre = resp.getString("nombre");
+                String nombre = res.getString("nombre");
+                String edia = res.getString(diain);
 
-                    Date hora = new Date();
-                    SimpleDateFormat dt = new SimpleDateFormat("HH:mm");
-                    String horatabla = edia;
-                    try {
-                        Date htabla = dt.parse(horatabla);
-                    } catch (ParseException ex) {
-                        Logger.getLogger(frmEntradaPersonal.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    Date htabla;
-                    try {
-                        htabla = dt.parse(horatabla);
-                        hora1 = dt.format(htabla);
-                    } catch (ParseException ex) {
-                        Logger.getLogger(frmEntradaPersonal.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    String hora2 = dt.format(hora);
+                Date hora = new Date();
+                SimpleDateFormat dt = new SimpleDateFormat("HH:mm");
+                String horatabla = edia;
+                Date htabla;
 
-                    hactual = Integer.parseInt(hora2.substring(0, 2));
-                    hbase = Integer.parseInt(hora1.substring(0, 2));
+                try {
+                    htabla = dt.parse(horatabla);
+                    hora1 = dt.format(htabla);
+                } catch (ParseException ex) {
+                    Logger.getLogger(frmEntradaPersonal.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
-                    mactual = Integer.parseInt(hora2.substring(3, 5));
-                    mbase = Integer.parseInt(hora1.substring(3, 5));
+                String hora2 = dt.format(hora);
+                hactual = Integer.parseInt(hora2.substring(0, 2));
+                hbase = Integer.parseInt(hora1.substring(0, 2));
+                mactual = Integer.parseInt(hora2.substring(3, 5));
+                mbase = Integer.parseInt(hora1.substring(3, 5));
 
-                    int horaminutos_entrada = (hbase * 60) + mbase, horaminutos_actual = (hactual * 60) + mactual;
-                    Date fecha = new Date();
-                    SimpleDateFormat fech = new SimpleDateFormat("yyyy/MM/dd");
-                    String fechaa = fech.format(fecha);
-
-                    if (horaminutos_entrada < horaminutos_actual) {
-                        jtAsistencia.setValueAt("Entrada", 0, 3);
-                        jtAsistencia.setValueAt("Retardo", 0, 4);
-                        Notificaciones.setText("Asistencia registrada\n"
-                                + "Procure llegar mas temprano");
-                        PreparedStatement insertar = ch.prepareStatement("INSERT INTO historial(dni,fecha,nombre,estado) VALUES ('" + clave + "','" + fechaa + "','" + nombre + "','Retardo');");
-                        insertar.executeQuery();
-
-                    } else {
-                        jtAsistencia.setValueAt("Entrada", 0, 3);
-                        jtAsistencia.setValueAt("Normal", 0, 4);
-                        Notificaciones.setText("Asistencia registrada\n");
-                        PreparedStatement insertar = ch.prepareStatement("INSERT INTO historial(dni,fecha,nombre,estado) VALUES('" + clave + "','" + fechaa + "','" + nombre + "','Normal');");
-                        insertar.executeQuery();
-                    }
+                int horaminutos_entrada = (hbase * 60) + mbase, horaminutos_actual = (hactual * 60) + mactual;
+                Date fecha = new Date();
+                SimpleDateFormat fech = new SimpleDateFormat("yyyy/MM/dd");
+                String fechaa = fech.format(fecha);
+                if (horaminutos_entrada < horaminutos_actual) {
+                    jtAsistencia.setValueAt("Entrada", 0, 3);
+                    jtAsistencia.setValueAt("Retardo", 0, 4);
+                    Notificaciones.setText("Asistencia registrada\n"
+                            + "Procure llegar mas temprano");
+                    PreparedStatement insertar = ch.prepareStatement("INSERT INTO historial(dni,fecha,nombre,estado) VALUES ('" + clave + "','" + fechaa + "','" + nombre + "','Retardo');");
+                    insertar.executeQuery();
+                } else {
+                    jtAsistencia.setValueAt("Entrada", 0, 3);
+                    jtAsistencia.setValueAt("Normal", 0, 4);
+                    Notificaciones.setText("Asistencia registrada\n");
+                    PreparedStatement insertar = ch.prepareStatement("INSERT INTO historial(dni,fecha,nombre,estado) VALUES('" + clave + "','" + fechaa + "','" + nombre + "','Normal");
+                    insertar.executeQuery();
                 }
             }
         } catch (SQLException ex) {
             PreparedStatement actualiza_asistencia;
             try {
-                actualiza_asistencia = ch.prepareStatement("UPDATE personal SET asistencia=true WHERE dni='" + clave + "';");
+                actualiza_asistencia = ch.prepareStatement(
+                        "UPDATE personal SET asistencia=true WHERE dni='" + clave + "';"
+                );
                 actualiza_asistencia.executeQuery();
             } catch (SQLException ex1) {
-
             }
         }
 
