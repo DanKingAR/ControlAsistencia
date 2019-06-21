@@ -494,7 +494,7 @@ public class frmEntradaPersonal extends javax.swing.JInternalFrame {
                     jtAsistencia.setValueAt("Entrada", 0, 3);
                     jtAsistencia.setValueAt("Normal", 0, 4);
                     Notificaciones.setText("Asistencia registrada\n");
-                    PreparedStatement insertar = ch.prepareStatement("INSERT INTO historial(dni,fecha,nombre,estado) VALUES('" + clave + "','" + fechaa + "','" + nombre + "','Normal");
+                    PreparedStatement insertar = ch.prepareStatement("INSERT INTO historial(dni,fecha,nombre,estado) VALUES('" + clave + "','" + fechaa + "','" + nombre + "','Normal');");
                     insertar.executeQuery();
                 }
             }
